@@ -13,7 +13,7 @@ class UserFactory extends Factory
             'role_id' => fake()->numberBetween(1, 2),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
-            'email' => fake()->email(),
+            'email' => fake()->unique()->safeEmail(),
             'date_of_birth' => fake()->date(),
             'photo' => fake()->random_bytes(5),
             'emergency_contact' => fake()->name(),
