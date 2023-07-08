@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RoleFactory extends Factory
 {
-    public function definition()
+    public function definition(): array
     {
         return [
             'role_name' => fake()->randomElement(['admin, user']),
