@@ -33,10 +33,6 @@ class User extends Authenticatable
         'updated_at',
     ];
 
-    protected $casts = [
-        'photo' => 'binary',
-    ];
-
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);
