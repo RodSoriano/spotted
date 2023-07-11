@@ -2,24 +2,25 @@
 
 namespace Database\Factories;
 
+use App\Enum\UserRole;
+use App\Enum\UserStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
     public function definition(): array
     {
         return [
-            'role_id' => fake()->numberBetween(1, 2),
+            'role_id' => UserRole::USER->value,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'date_of_birth' => fake()->date(),
-            'photo' => fake()->random_bytes(5),
+            'photo' => base64_encode('photo'),
             'emergency_contact' => fake()->name(),
             'emergency_contact_number' => fake()->phoneNumber(),
-            'status' => fake()->randomElement(['green', 'yellow', 'red']),
-            'fee' => fake()->randomElement([2, 5, 10]),
+            'status' => fake()->randomElement(UserStatus::cases()),
+            'fee' => fake()->randomElement([5, 10]),
         ];
     }
 }
