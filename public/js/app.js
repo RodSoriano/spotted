@@ -41279,13 +41279,45 @@ module.exports = function getSideChannel() {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Test": [
-		"./resources/js/Pages/Test.jsx",
-		"resources_js_Pages_Test_jsx"
+	"./Index": [
+		"./resources/js/Pages/Index.jsx",
+		"resources_js_Pages_Index_jsx"
 	],
-	"./Test.jsx": [
-		"./resources/js/Pages/Test.jsx",
-		"resources_js_Pages_Test_jsx"
+	"./Index.jsx": [
+		"./resources/js/Pages/Index.jsx",
+		"resources_js_Pages_Index_jsx"
+	],
+	"./Layout": [
+		"./resources/js/Pages/Layout.jsx",
+		"resources_js_Pages_Layout_jsx"
+	],
+	"./Layout.jsx": [
+		"./resources/js/Pages/Layout.jsx",
+		"resources_js_Pages_Layout_jsx"
+	],
+	"./User/CheckIn": [
+		"./resources/js/Pages/User/CheckIn.jsx",
+		"resources_js_Pages_User_CheckIn_jsx"
+	],
+	"./User/CheckIn.jsx": [
+		"./resources/js/Pages/User/CheckIn.jsx",
+		"resources_js_Pages_User_CheckIn_jsx"
+	],
+	"./User/Register": [
+		"./resources/js/Pages/User/Register.jsx",
+		"resources_js_Pages_User_Register_jsx"
+	],
+	"./User/Register.jsx": [
+		"./resources/js/Pages/User/Register.jsx",
+		"resources_js_Pages_User_Register_jsx"
+	],
+	"./User/Reservations": [
+		"./resources/js/Pages/User/Reservations.jsx",
+		"resources_js_Pages_User_Reservations_jsx"
+	],
+	"./User/Reservations.jsx": [
+		"./resources/js/Pages/User/Reservations.jsx",
+		"resources_js_Pages_User_Reservations_jsx"
 	]
 };
 function webpackAsyncContext(req) {
@@ -41436,7 +41468,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "resources_js_Pages_Test_jsx") return "public/js/app/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Index_jsx":1,"resources_js_Pages_Layout_jsx":1,"resources_js_Pages_User_CheckIn_jsx":1,"resources_js_Pages_User_Register_jsx":1,"resources_js_Pages_User_Reservations_jsx":1}[chunkId]) return "public/js/app/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
