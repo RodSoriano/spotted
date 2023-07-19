@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->boolean('promo_code')->default(false);
-            $table->boolean('is_due')->default(false);
+            $table->boolean('is_done')->default(false);
             $table->date('date');
             $table->timestamps();
         });
