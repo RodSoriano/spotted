@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function FormInput({ ...args }) {
-  const { inputName } = args;
+  const [inputName] = args;
 
   return (
     <div className="mb-4">
