@@ -15,4 +15,4 @@ Route::post('register', [RegisterController::class, 'store']);
 
 Route::get('reservations', [ReservationController::class, 'index']);
 
-Route::get('check-in', CheckInController::class, 'show');
+Route::get('check-in', [CheckInController::class, 'show']);
