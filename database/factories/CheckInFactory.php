@@ -11,6 +11,7 @@ class CheckInFactory extends Factory
         return [
             'user_id' => fake()->randomNumber(),
             'promo_code' => false,
+            'is_due' => false,
             'date' => fake()->date(),
         ];
     }

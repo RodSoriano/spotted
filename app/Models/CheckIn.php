@@ -13,6 +13,7 @@ class CheckIn extends Model
     protected $fillable = [
         'user_id',
         'promo_code',
+        'is_due',
         'date',
     ];
 
