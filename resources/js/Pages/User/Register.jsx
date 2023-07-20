@@ -14,7 +14,7 @@ const Register = () => {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   const [emergencyName, setEmergencyName] = useState('');
   const [emergencyPhone, setEmergencyPhone] = useState('');
-  const [photo, setPhoto] = useState(null);
+  // const [photo, setPhoto] = useState(null);
 
   const handleFirstName = (e) => {
     const inputValue = charactersOnly(e);
@@ -43,9 +43,9 @@ const Register = () => {
     setEmergencyPhone(e.target.value);
   };
 
-  const handlePhotoUpload = (photoData) => {
-    setPhoto(photoData);
-  };
+  // const handlePhotoUpload = (photoData) => {
+  //   setPhoto(photoData);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ const Register = () => {
       date_of_birth: dateOfBirth,
       emergency_contact_name: emergencyName,
       emergency_contact_number: emergencyPhone,
-      photo: photo,
+      // photo: photo,
     };
     Inertia.post('/register', values);
   };
@@ -103,8 +103,8 @@ const Register = () => {
           onChangeEvent={handleEmergencyPhone}
         />
 
-        <Label labelName="Upload Your Picture" />
-        <PhotoUploader onPhotoUpload={handlePhotoUpload} />
+        {/* <Label labelName="Upload Your Picture" />
+        <PhotoUploader onPhotoUpload={handlePhotoUpload} /> */}
 
         <button
           type="submit"
