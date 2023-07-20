@@ -1,82 +1,111 @@
-import { useState, React } from "react";
-import Layout from "../Layout";
-import FormInput from "../../Components/FormInput";
-import { Inertia } from "@inertiajs/inertia";
+import React, { useState } from 'react';
+import { Inertia } from '@inertiajs/inertia';
+import Layout from '../Layout';
+import Label from '../../components/Label';
+import FormInput from '../../components/FormInput';
+import { charactersOnly } from '../../utils/formatters';
+import PhotoUploader from '../../components/PhotoUploader';
+import CustomCalendar from '../../components/CustomCalendar';
 
-export default function Register() {
-  const [values, SetValues] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    date_of_birth: "",
-    photo: "",
-    emergency_contact_name: "",
-    emergency_contact_number: "",
-  });
+const Register = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState(null);
+  const [emergencyName, setEmergencyName] = useState('');
+  const [emergencyPhone, setEmergencyPhone] = useState('');
+  const [photo, setPhoto] = useState(null);
 
-  function handleChange(e) {
-    const key = e.target.name;
-    const value = e.target.value;
+  const handleFirstName = (e) => {
+    const inputValue = charactersOnly(e);
+    setFirstName(inputValue);
+  };
 
-    SetValues(values => ({
-      ...values,
-      [key]: value,
-    }));
-  }
+  const handleLastName = (e) => {
+    const inputValue = charactersOnly(e);
+    setLastName(inputValue);
+  };
 
-  function handleSubmit(e) {
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleDateChange = (selectedDate) => {
+    setDateOfBirth(selectedDate);
+  };
+
+  const handleEmergencyName = (e) => {
+    const inputValue = charactersOnly(e);
+    setEmergencyName(inputValue);
+  };
+
+  const handleEmergencyPhone = (e) => {
+    setEmergencyPhone(e.target.value);
+  };
+
+  const handlePhotoUpload = (photoData) => {
+    setPhoto(photoData);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    Inertia.post('/register', values)
-  }
+    const values = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      date_of_birth: dateOfBirth,
+      emergency_contact_name: emergencyName,
+      emergency_contact_number: emergencyPhone,
+      photo: photo,
+    };
+    Inertia.post('/register', values);
+  };
 
   return (
     <>
-      <h1 className="text-xl font-bold mb-4 text-gray-800">
-        Welcome to the Park.
+      <h1 className="text-xl font-bold mb-4 text-gray-800 flex items-center justify-center">
+        Welcome to the Park
       </h1>
-      <p className="mb-4 text-gray-800">
-        Please register so you can book a space.
+
+      <p className="mb-4 text-gray-800 flex items-center justify-center">
+        Please register so you can book a space
       </p>
 
-      <form
-        className="max-w-sm mx-auto"
-        onSubmit={handleSubmit}
-      >
+      <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
         <FormInput
-          inputName={'First Name'}
-          inputValue={values.first_name}
-          onChangeEvent={(e) => handleChange(e)}
+          inputName="First Name"
+          inputValue={firstName}
+          onChangeEvent={handleFirstName}
         />
         <FormInput
-          inputName={'Last Name'}
-          inputValue={values.last_name}
-          onChangeEvent={(e) => handleChange(e)}
+          inputName="Last Name"
+          inputValue={lastName}
+          onChangeEvent={handleLastName}
         />
         <FormInput
-          inputName={'Email'}
-          inputValue={values.email}
-          onChangeEvent={(e) => handleChange(e)}
+          inputName="Email"
+          inputValue={email}
+          onChangeEvent={handleEmail}
+        />
+        <CustomCalendar
+          inputLabel="Date of Birth"
+          selectedDate={dateOfBirth}
+          onDateChange={handleDateChange}
         />
         <FormInput
-          inputName={'Date of Birth'}
-          inputValue={values.date_of_birth}
-          onChangeEvent={(e) => handleChange(e)}
+          inputName="Emergency Contact Name"
+          inputValue={emergencyName}
+          onChangeEvent={handleEmergencyName}
         />
         <FormInput
-          inputName={'Photo'}
-          inputValue={values.photo}
-          onChangeEvent={(e) => handleChange(e)}
+          inputName="Emergency Contact Phone"
+          inputValue={emergencyPhone}
+          onChangeEvent={handleEmergencyPhone}
         />
-        <FormInput
-          inputName={'Emergency Contact Name'}
-          inputValue={values.emergency_contact_name}
-          onChangeEvent={(e) => handleChange(e)}
-        />
-        <FormInput
-          inputName={'Emergency Contact Phone'}
-          inputValue={values.emergency_contact_number}
-          onChangeEvent={(e) => handleChange(e)}
-        />
+
+        <Label labelName="Upload Your Picture" />
+        <PhotoUploader onPhotoUpload={handlePhotoUpload} />
+
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
@@ -84,10 +113,10 @@ export default function Register() {
           Join
         </button>
       </form>
-
-      redirect: +policy of usage+
     </>
   );
-}
+};
 
-Register.layout = page => <Layout children={page} />
+export default Register;
+
+Register.layout = page => <Layout children={page} />;
