@@ -22,6 +22,7 @@
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
+        "primereact": "^9.6.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     }
