@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from '../Layout';
 
-export default function Reservations() {
+const Reservations = () => {
   return (
     <>
       Welcome to the reservations page!
     </>
   );
 }
+
+export default Reservations;
 
 Reservations.layout = page => <Layout children={page} />;

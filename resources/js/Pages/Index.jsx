@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/inertia-react';
 import Layout from './Layout';
 
-export default function Index() {
+const Index = () => {
   return (
     <>
       <Link
@@ -26,5 +26,7 @@ export default function Index() {
     </>
   );
 }
+
+export default Index;
 
 Index.layout = page => <Layout children={page} />;
