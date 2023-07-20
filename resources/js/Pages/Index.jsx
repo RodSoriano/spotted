@@ -1,5 +1,5 @@
 import React from "react";
-import { Head, Link } from '@inertiajs/inertia-react';
+import { Link } from '@inertiajs/inertia-react';
 import Layout from "./Layout";
 
 export default function Index() {
