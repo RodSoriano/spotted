@@ -1,16 +1,10 @@
-import React from "react";
+import React from 'react';
+import Label from './Label';
 
-export default function FormInput({ ...args }) {
-  const { inputName, inputValue, onChangeEvent } = args;
-
+const FormInput = ({ inputName, inputValue, onChangeEvent }) => {
   return (
     <div className="mb-4">
-      <label
-        htmlFor={inputName}
-        className="text-gray-800 font-medium"
-      >
-        {inputName}
-      </label>
+      <Label labelName={inputName} />
       <input
         className="mt-1 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="text"
@@ -20,4 +14,6 @@ export default function FormInput({ ...args }) {
       />
     </div>
   );
-}
+};
+
+export default FormInput;
