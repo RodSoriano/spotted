@@ -2,7 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function CustomCalendar({ inputLabel, selectedDate, onDateChange }) {
+const CustomCalendar = ({ inputLabel, selectedDate, onDateChange }) => {
   return (
     <div className="flex flex-col items-start">
       <label htmlFor={inputLabel} className="text-gray-800 font-medium mb-2">
@@ -22,4 +22,6 @@ export default function CustomCalendar({ inputLabel, selectedDate, onDateChange 
       </div>
     </div>
   );
-}
+};
+
+export default CustomCalendar;
