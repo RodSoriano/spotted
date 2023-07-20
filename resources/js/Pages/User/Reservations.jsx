@@ -1,5 +1,5 @@
-import React from "react";
-import Layout from "../Layout";
+import React from 'react';
+import Layout from '../Layout';
 
 export default function Reservations() {
   return (
@@ -9,4 +9,4 @@ export default function Reservations() {
   );
 }
 
-Reservations.layout = page => <Layout children={page} />
+Reservations.layout = page => <Layout children={page} />;
