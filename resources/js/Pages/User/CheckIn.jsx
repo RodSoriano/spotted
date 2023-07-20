@@ -1,5 +1,5 @@
-import React from "react";
-import Layout from "../Layout";
+import React from 'react';
+import Layout from '../Layout';
 
 export default function CheckIn() {
   return (
@@ -9,4 +9,4 @@ export default function CheckIn() {
   );
 }
 
-CheckIn.layout = page => <Layout children={page} />
+CheckIn.layout = page => <Layout children={page} />;
