@@ -1,15 +1,15 @@
 const charactersOnly = (input) => {
-  const { value } = input.target
-  const inputValue = value.replace(/[^a-z ]/gi, '')
+  const { value } = input.target;
+  const inputValue = value.replace(/[^a-z ]/gi, '');
 
-  return inputValue
+  return inputValue;
 };
 
 const numbersOnly = (input) => {
-  const { value } = input.target
-  const inputValue = value.replace(/[^0-9]/g, '')
+  const { value } = input.target;
+  const inputValue = value.replace(/[^0-9]/g, '');
 
-  return inputValue
-}
+  return inputValue;
+};
 
 export { charactersOnly, numbersOnly };
