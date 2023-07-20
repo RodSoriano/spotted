@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import { Link } from '@inertiajs/inertia-react';
-import Layout from "./Layout";
+import Layout from './Layout';
 
 export default function Index() {
   return (
@@ -27,4 +27,4 @@ export default function Index() {
   );
 }
 
-Index.layout = page => <Layout children={page} />
+Index.layout = page => <Layout children={page} />;
