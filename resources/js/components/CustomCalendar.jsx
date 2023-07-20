@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function CustomCalendar() {
-  const [selectedDate, setSelectedDate] = useState(null);
+export default function CustomCalendar({ ...args }) {
+  const [selectedDate, setSelectedDate] = args;
 
   return (
     <div className="card flex justify-center items-center bg-white rounded-lg shadow-lg p-4">
