@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('check_ins', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->boolean('promo_code')->default(false);
+            $table->boolean('promo_code')->default(false)->nullable(false);
             $table->boolean('is_done')->default(false);
             $table->date('date');
             $table->timestamps();
