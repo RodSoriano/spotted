@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Alert = () => {
+const Alert = ({ message }) => {
   const styles = {
     container: 'alert bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 m-4 rounded-lg',
-    closeBtn: 'closebtn float-right cursor-pointer',
+    closeButton: 'closebtn float-right cursor-pointer',
+  };
+
+  const [isHidden, setIsHidden] = useState(false);
+
+  const selectMessage = (message) => {
+    return typeof message === 'string' ? message : errorsDisplay(message);
+  };
+
+  const errorsDisplay = (errors) => {
+    return errors.map((error, index) => error[1]).join('\n');
   };
 
   const hideAlert = () => {
-    document.querySelector(`.${styles.container}`).style.display = 'none';
+    setIsHidden(true);
   };
 
-  return (
+  return isHidden ? null : (
     <div className={styles.container} role="alert">
-      <span className={styles.closeBtn} onClick={hideAlert}>
+      <span className={styles.closeButton} onClick={hideAlert}>
         &times;
       </span>
-      This is an alert box.
+      {selectMessage(message)}
     </div>
   );
 };
