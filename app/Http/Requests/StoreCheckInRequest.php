@@ -25,8 +25,8 @@ class StoreCheckInRequest extends FormRequest
         $inputDate = strtotime($this->date);
         $isValid = true;
 
-        [$currentMonth, $currentDay, $currentYear] = explode('/', date('m/d/y'), 2);;
-        [$inputMonth, $inputDay, $inputYear] = explode('/', date('m/d/y', $inputDate), 2);
+        [$currentMonth, $currentDay, $currentYear] = explode('/', date('m/d/y'));;
+        [$inputMonth, $inputDay, $inputYear] = explode('/', date('m/d/y', $inputDate));
 
         if ($inputDay < $currentDay) {
             $isValid = false;
