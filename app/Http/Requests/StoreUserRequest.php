@@ -21,6 +21,8 @@ class StoreUserRequest extends FormRequest
             'date_of_birth' => Rule::prohibitedIf($this->invalidDate()),
             'emergency_contact_name' => ['required', 'string'],
             'emergency_contact_number' => ['required', 'string'],
+
+            // needs refactoring, photo upload.
             'photo' => [],
         ];
     }
