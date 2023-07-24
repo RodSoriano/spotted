@@ -3,19 +3,26 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserRequest;
+use App\Services\User\UserCreator;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class RegisterController extends Controller
 {
-    public function show(): Response
+    public function index(): Response
     {
         return Inertia::render('User/Register');
     }
 
-    public function store(): mixed
+    // needs refactoring, photo attribute
+    public function store(StoreUserRequest $request, UserCreator $userService): Redirector|RedirectResponse
     {
-        return 'Your user has been saved!';
+        $data = $request->validated();
+        $response = $userService->register($data);
+
+        return $response;
     }
 }
