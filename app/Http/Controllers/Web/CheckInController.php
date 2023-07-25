@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CheckReservationRequest;
 use App\Http\Requests\StoreCheckInRequest;
 use App\Models\User;
 use App\Services\CheckIn\ReservationCreator;
@@ -12,16 +13,23 @@ use Inertia\Response;
 
 class CheckInController extends Controller
 {
-    /* check-in */
     public function index(): Response
     {
         return Inertia::render('User/CheckIn');
     }
 
-    /* reservation */
-    public function booking(): Response
+    public function bookingForm(): Response
     {
         return Inertia::render('User/Reservation');
+    }
+
+    public function show(Request $request): Response
+    {
+        $user = User::where('email', $request->user['email'])->first();
+
+        return Inertia::render('User/DayPass', [
+            'user' => $user,
+        ]);
     }
 
     // needs refactoring, proper redirect response.
@@ -31,5 +39,15 @@ class CheckInController extends Controller
         $response = $checkInService->createReservation($booking);
 
         return $response;
+    }
+
+    public function bookingCheck(CheckReservationRequest $request): mixed
+    {
+        $data = $request->validated();
+
+        return redirect()->action(
+            [CheckInController::class, 'show'],
+            ['user' => $data]
+        );
     }
 }
