@@ -5,11 +5,14 @@ namespace App\Services\User;
 use App\Enum\UserRole;
 use App\Enum\UserStatus;
 use App\Models\User;
+use App\Services\ServiceHelper;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class UserCreator
 {
+    use ServiceHelper;
+
     public function register(array $user): Response
     {
         $user['fee'] = 10.00;
@@ -22,13 +25,5 @@ class UserCreator
         return Inertia::render('Index', [
             'message' => 'Your user has been created!',
         ]);
-    }
-
-    private function formatDate(string $date): string
-    {
-        $date = strtotime($date);
-        $date = date('Y/m/d', $date);
-
-        return $date;
     }
 }
