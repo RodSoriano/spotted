@@ -6,7 +6,6 @@ import Title from '../../components/Title';
 import Label from '../../components/Label';
 import FormInput from '../../components/FormInput';
 import CustomCalendar from '../../components/CustomCalendar';
-import PhotoUploader from '../../components/PhotoUploader';
 import Button from '../../components/Button';
 import Alert from '../../components/Alert';
 
@@ -22,9 +21,7 @@ const Register = () => {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   const [emergencyName, setEmergencyName] = useState('');
   const [emergencyPhone, setEmergencyPhone] = useState('');
-
-  // needs refactoring, photo upload.
-  const [photo, setPhoto] = useState('...');
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const handleFirstName = (e) => {
     const inputValue = charactersOnly(e);
@@ -53,8 +50,21 @@ const Register = () => {
     setEmergencyPhone(e.target.value);
   };
 
-  const handlePhotoUpload = (photoData) => {
-    setPhoto(photoData);
+  const handlePhotoSelect = (e) => {
+    const photoInput = e.target;
+    const photo = photoInput.files[0];
+
+    if (photo) {
+      setSelectedPhoto(photo);
+
+      // We can also read the photo as a data URL or perform other operations
+      // const reader = new FileReader();
+      // reader.onload = function (e) {
+      //   const dataURL = e.target.result;
+      //   console.log('Data URL:', dataURL);
+      // };
+      // reader.readAsDataURL(photo);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -67,7 +77,7 @@ const Register = () => {
       date_of_birth: dateOfBirth,
       emergency_contact_name: emergencyName,
       emergency_contact_number: emergencyPhone,
-      photo: photo,
+      photo: selectedPhoto,
     };
 
     Inertia.post('/register', values, {
@@ -121,7 +131,18 @@ const Register = () => {
         />
 
         <Label labelName='Upload Your Picture' />
-        <PhotoUploader onPhotoUpload={handlePhotoUpload} />
+        <div>
+          <input type="file" id="myPhoto" name="photo" accept="image/*" onChange={handlePhotoSelect} />
+          {/*selectedPhoto && (
+            <div>
+              <h3>Selected Photo Information:</h3>
+              <p>Name: {selectedPhoto.name}</p>
+              <p>Size: {selectedPhoto.size} bytes</p>
+              <p>Type: {selectedPhoto.type}</p>
+              We can add more info over here from the photo
+            </div>
+          ) */}
+        </div>
 
         {status && (<Alert message={errors} />)}
 
