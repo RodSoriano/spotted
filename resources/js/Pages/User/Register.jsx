@@ -96,6 +96,7 @@ const Register = () => {
       onError(errors) {
         setStatus(422);
         setErrors(Object.entries(errors));
+        setTimeout(() => setStatus(false), 5000);
       }
     });
   };
