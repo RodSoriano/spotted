@@ -17,4 +17,4 @@ Route::post('reservation', [CheckInController::class, 'store']);
 
 Route::get('check-in', [CheckInController::class, 'index']);
 Route::post('check-in', [CheckInController::class, 'bookingCheck']);
-Route::get('daypass', [CheckInController::class, 'show']);
+Route::get('day-pass', [CheckInController::class, 'show']);
