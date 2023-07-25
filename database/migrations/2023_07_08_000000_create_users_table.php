@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->date('date_of_birth');
-            $table->text('photo');
+            $table->binary('photo');
             $table->string('emergency_contact_name');
             $table->string('emergency_contact_number');
             $table->string('status');
