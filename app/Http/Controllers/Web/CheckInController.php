@@ -36,8 +36,7 @@ class CheckInController extends Controller
         ]);
     }
 
-    // needs refactoring, proper redirect response.
-    public function store(StoreCheckInRequest $request, ReservationCreator $checkInService): mixed
+    public function store(StoreCheckInRequest $request, ReservationCreator $checkInService): Response
     {
         $booking = $request->validated();
         $response = $checkInService->createReservation($booking);
