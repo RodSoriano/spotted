@@ -95,7 +95,7 @@ const Register = () => {
     <>
       <Title
         h1={'Welcome to the Park'}
-        paragraph={'Please register so you can book a space.'}
+        paragraph={'Please enter your information to register.'}
       />
 
       <form className='max-w-sm mx-auto' onSubmit={handleSubmit}>
@@ -131,7 +131,7 @@ const Register = () => {
         />
 
         <Label labelName='Upload Your Picture' />
-        <div className='mt-4'>
+        <div className='mt-4 mb-4'>
           <input type='file' name='photo' accept='image/*' onChange={handlePhotoSelect} />
           {/*selectedPhoto && (
             <div>
