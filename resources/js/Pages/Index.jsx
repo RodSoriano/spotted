@@ -1,10 +1,14 @@
 import React from 'react';
-import { Link } from '@inertiajs/inertia-react';
 import Layout from './Layout';
 
-const Index = () => {
+import { Link } from '@inertiajs/inertia-react';
+import Alert from '../components/Alert';
+
+const Index = ({ message }) => {
   return (
     <>
+      {message && <Alert message={message} />}
+
       <Link
         href="/register"
         className="bg-blue-500 text-white px-8 py-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105"
@@ -26,6 +30,10 @@ const Index = () => {
     </>
   );
 }
+
+Index.defaultProps = {
+  message: false
+};
 
 export default Index;
 
