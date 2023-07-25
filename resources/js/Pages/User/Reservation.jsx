@@ -7,6 +7,7 @@ import FormInput from '../../components/FormInput';
 import CustomCalendar from '../../components/CustomCalendar';
 import Button from '../../components/Button';
 import Alert from '../../components/Alert';
+import { Link } from '@inertiajs/inertia-react';
 
 const Reservation = () => {
   const [errors, setErrors] = useState([]);
@@ -58,9 +59,16 @@ const Reservation = () => {
         {status && <Alert message={errors} />}
 
         <div className='flex items-center justify-center'>
-          <Button type={'submit'} message={'Make reservation'} />
+          <Button type={'submit'} message={'Make Reservation'} />
         </div>
       </form>
+
+      <div className='flex items-center'>
+        <p>
+          Don't have an account yet?
+          <Link className='text-blue-500 underline' href='/register'> Register! </Link>
+        </p>
+      </div>
     </>
   );
 };
