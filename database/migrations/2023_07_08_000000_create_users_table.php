@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('emergency_contact_name');
             $table->string('emergency_contact_number');
             $table->string('status');
-            $table->double('fee');
+            $table->double('fee')->default(10.00);
             $table->timestamps();
         });
     }
