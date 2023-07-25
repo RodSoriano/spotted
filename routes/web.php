@@ -16,4 +16,4 @@ Route::get('reservation', [CheckInController::class, 'bookingForm']);
 Route::post('reservation', [CheckInController::class, 'store']);
 
 Route::get('check-in', [CheckInController::class, 'index']);
-Route::post('check-in', [CheckInController::class, 'bookingExists']);
+Route::post('check-in', [CheckInController::class, 'bookingCheck']);
