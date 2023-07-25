@@ -4,34 +4,53 @@ namespace App\Services\CheckIn;
 
 use App\Models\CheckIn;
 use App\Models\User;
+use App\Services\ServiceHelper;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class ReservationCreator
 {
+    use ServiceHelper;
+
+    // needs refactoring, also check if the reservation limit has been reached for an specified date.
     public function createReservation(array $reservation): Response
     {
-        $reservation['user_id'] = $this->getUserId($reservation['email']);;
-        $reservation['is_done'] = false;
-        $reservation['date'] = $this->formatDate($reservation['date']);
+        $email = $reservation['email'];
+        $reservationExists = $this->reservationExists($email);
 
-        CheckIn::create($reservation);
+        if ($reservationExists) {
+            return Inertia::render('User/DayPass', [
+                'user' => $reservationExists['user'],
+                'date' => $reservationExists['date'],
+            ]);
+        } else {
+            $reservation['user_id'] = $this->getUserIdByEmail($email);;
+            $reservation['is_done'] = false;
+            $reservation['date'] = $this->formatDate($reservation['date']);
 
-        return Inertia::render('Index', [
-            'message' => 'Your reservation has been created.',
-        ]);
+            CheckIn::create($reservation);
+
+            return Inertia::render('Index', [
+                'message' => 'Your reservation has been created.',
+            ]);
+        }
     }
 
-    private function getUserId(string $email): int
+    private function reservationExists(string $email): array
     {
-        return User::where('email', $email)->pluck('id')->first();
-    }
+        $result = [];
+        $userId = $this->getUserIdByEmail($email);
 
-    private function formatDate(string $date): string
-    {
-        $date = strtotime($date);
-        $date = date('Y/m/d', $date);
+        $reservation = CheckIn::where('user_id', $userId)
+            ->latest()
+            ->pluck('is_done')
+            ->first();
 
-        return $date;
+        if (!$reservation) {
+            $result['user'] = User::where('id', $userId)->first();
+            $result['date'] = CheckIn::where('user_id', $userId)->latest()->pluck('date')->first();
+        }
+
+        return $result;
     }
 }
