@@ -22,6 +22,7 @@ const Register = () => {
   const [emergencyName, setEmergencyName] = useState('');
   const [emergencyPhone, setEmergencyPhone] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [isAccepted, setIsAccepted] = useState(false);
 
   const handleFirstName = (e) => {
     const inputValue = charactersOnly(e);
@@ -64,6 +65,14 @@ const Register = () => {
       //   console.log('Data URL:', dataURL);
       // };
       // reader.readAsDataURL(photo);
+    }
+  };
+
+  const handleTermsAndConditions = () => {
+    if (confirm('Terms and Conditions.')) {
+      setIsAccepted(true);
+    } else {
+      setIsAccepted(false);
     }
   };
 
@@ -135,20 +144,32 @@ const Register = () => {
           <input type='file' name='photo' accept='image/*' onChange={handlePhotoSelect} />
           {/*selectedPhoto && (
             <div>
+              We can add more info over here from the photo
               <h3>Selected Photo Information:</h3>
               <p>Name: {selectedPhoto.name}</p>
               <p>Size: {selectedPhoto.size} bytes</p>
               <p>Type: {selectedPhoto.type}</p>
-              We can add more info over here from the photo
             </div>
           ) */}
         </div>
 
+        {!isAccepted &&
+          <a
+            className='bg-purple-500 text-white py-2 px-4 rounded-full text-lg mb-4 transform transition-transform hover:scale-105'
+            href="#"
+            onClick={handleTermsAndConditions}
+          >
+            Terms and Conditions
+          </a>
+        }
+
         {status && (<Alert message={errors} />)}
 
-        <div className='flex items-center justify-center'>
-          <Button type={'submit'} message={'Join'} />
-        </div>
+        {isAccepted &&
+          <div className='flex items-center justify-center'>
+            <Button type={'submit'} message={'Join'} />
+          </div>
+        }
       </form>
     </>
   );
