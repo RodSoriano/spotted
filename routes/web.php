@@ -12,7 +12,8 @@ Route::get('/', function () {
 Route::get('register', [RegisterController::class, 'index']);
 Route::post('register', [RegisterController::class, 'store']);
 
-Route::get('reservation', [CheckInController::class, 'booking']);
+Route::get('reservation', [CheckInController::class, 'bookingForm']);
 Route::post('reservation', [CheckInController::class, 'store']);
 
 Route::get('check-in', [CheckInController::class, 'index']);
+Route::post('check-in', [CheckInController::class, 'bookingExists']);
