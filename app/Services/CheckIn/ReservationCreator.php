@@ -4,31 +4,27 @@ namespace App\Services\CheckIn;
 
 use App\Models\CheckIn;
 use App\Models\User;
-use Exception;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class ReservationCreator
 {
-    // needs refactoring, proper redirect to checkin.show
-    public function createReservation(array $reservation): mixed
+    public function createReservation(array $reservation): Response
     {
-        $reservation['user_id'] = $this->userExist($reservation['email']);;
+        $reservation['user_id'] = $this->getUserId($reservation['email']);;
         $reservation['is_done'] = false;
         $reservation['date'] = $this->formatDate($reservation['date']);
 
         CheckIn::create($reservation);
 
-        return redirect('/')->with('succes', 'your date has been booked.');
+        return Inertia::render('Index', [
+            'message' => 'Your reservation has been created.',
+        ]);
     }
 
-    private function userExist(string $email): int|Exception
+    private function getUserId(string $email): int
     {
-        $user = User::where('email', $email)->pluck('id')->first();
-
-        if ($user === null) {
-            throw new Exception('This email address is not registered.');
-        }
-
-        return $user;
+        return User::where('email', $email)->pluck('id')->first();
     }
 
     private function formatDate(string $date): string
