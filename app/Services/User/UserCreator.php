@@ -13,6 +13,7 @@ class UserCreator
 {
     use ServiceHelper;
 
+    // Needs refactoring, photo upload.
     public function register(array $user): Response
     {
         $user['role_id'] = UserRole::USER->value;
