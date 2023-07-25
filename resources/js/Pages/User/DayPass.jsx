@@ -6,9 +6,6 @@ import Title from '../../components/Title';
 
 const DayPass = ({ user, date }) => {
 
-  console.log(user)
-  console.log(date)
-
   return (
     <>
       <Title h1="Great to See You Again!" />
