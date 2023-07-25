@@ -15,9 +15,8 @@ class UserCreator
 
     public function register(array $user): Response
     {
-        $user['fee'] = 10.00;
-        $user['status'] = UserStatus::ACCEPTED->value;
         $user['role_id'] = UserRole::USER->value;
+        $user['status'] = UserStatus::ACCEPTED->value;
         $user['date_of_birth'] = $this->formatDate($user['date_of_birth']);
 
         User::create($user);
