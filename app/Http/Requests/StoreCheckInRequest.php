@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -12,10 +13,18 @@ class StoreCheckInRequest extends FormRequest
         return true;
     }
 
+    public function messages(): array
+    {
+        return [
+            'email' => 'This email is not associated with a registered account.',
+            'date' => 'The date must be within this month and in the future',
+        ];
+    }
+
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email'],
+            'email' => Rule::prohibitedIf($this->userDontExists()),
             'date' => Rule::prohibitedIf($this->invalidDate()),
         ];
     }
@@ -37,6 +46,18 @@ class StoreCheckInRequest extends FormRequest
         }
 
         if ($inputYear !== $currentYear) {
+            $isValid = false;
+        }
+
+        return !$isValid;
+    }
+
+    private function userDontExists(): bool
+    {
+        $user = User::where('email', $this->email)->first();
+        $isValid = true;
+
+        if ($user === null) {
             $isValid = false;
         }
 
