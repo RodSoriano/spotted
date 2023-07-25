@@ -18,6 +18,7 @@ class UserCreator
         $user['role_id'] = UserRole::USER->value;
         $user['status'] = UserStatus::ACCEPTED->value;
         $user['date_of_birth'] = $this->formatDate($user['date_of_birth']);
+        $user['photo'] = $_FILES['photo']['tmp_name'];
 
         User::create($user);
 
