@@ -7,6 +7,7 @@ use App\Http\Requests\CheckReservationRequest;
 use App\Http\Requests\StoreCheckInRequest;
 use App\Models\User;
 use App\Services\CheckIn\ReservationCreator;
+use \Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -41,7 +42,7 @@ class CheckInController extends Controller
         return $response;
     }
 
-    public function bookingCheck(CheckReservationRequest $request): mixed
+    public function bookingCheck(CheckReservationRequest $request): RedirectResponse
     {
         $data = $request->validated();
 
