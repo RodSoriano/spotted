@@ -17,7 +17,6 @@ class RegisterController extends Controller
         return Inertia::render('User/Register');
     }
 
-    // needs refactoring, photo attribute
     public function store(StoreUserRequest $request, UserCreator $userService): Redirector|RedirectResponse
     {
         $data = $request->validated();
