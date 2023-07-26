@@ -17,7 +17,7 @@ class StoreUserRequest extends FormRequest
         return [
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
             'date_of_birth' => Rule::prohibitedIf($this->invalidDate()),
             'emergency_contact_name' => ['required', 'string'],
             'emergency_contact_number' => ['required', 'string', 'min:8'],
