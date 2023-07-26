@@ -46,7 +46,7 @@ class ReservationCreator
             ->pluck('is_done')
             ->first();
 
-        if (!$reservation) {
+        if ($reservation === 0) {
             $result['user'] = User::where('id', $userId)->first();
             $result['date'] = CheckIn::where('user_id', $userId)->latest()->pluck('date')->first();
         }
