@@ -24,8 +24,8 @@ class StoreCheckInRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => Rule::prohibitedIf($this->userDontExists()),
-            'date' => Rule::prohibitedIf($this->invalidDate()),
+            'email' => ['required', 'email', Rule::prohibitedIf($this->userDontExists())],
+            'date' => ['required', Rule::prohibitedIf($this->invalidDate())],
         ];
     }
 
