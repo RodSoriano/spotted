@@ -19,7 +19,7 @@ class UserFactory extends Factory
             'photo' => base64_encode('photo'),
             'emergency_contact_name' => fake()->name(),
             'emergency_contact_number' => fake()->phoneNumber(),
-            'status' => fake()->randomElement(UserStatus::cases()),
+            'status' => fake()->randomElement(UserStatus::toValues()),
             'fee' => fake()->randomElement([5, 10]),
         ];
     }
