@@ -5,9 +5,6 @@ import { Link } from '@inertiajs/inertia-react';
 import Alert from '../components/Alert';
 
 const Index = ({ message }) => {
-  if (message) {
-    setTimeout(() => message = false);
-  }
 
   return (
     <>
