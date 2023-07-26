@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\CheckIn;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -23,17 +24,30 @@ class CheckReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => Rule::prohibitedIf($this->userDontExists()),
+            'email' => [
+                'required',
+                'email',
+                Rule::prohibitedIf($this->dataDontExists()),
+            ],
         ];
     }
 
-    private function userDontExists(): bool
+    private function dataDontExists(): bool
     {
         $user = User::where('email', $this->email)->first();
         $isValid = true;
 
         if ($user === null) {
             $isValid = false;
+        } else {
+            $reservation = CheckIn::where('user_id', $user->id)
+                ->latest()
+                ->pluck('is_done')
+                ->first();
+
+            if ($reservation === 1 || $reservation === null) {
+                $isValid = false;
+            }
         }
 
         return !$isValid;
