@@ -2,15 +2,12 @@
 
 namespace App\Enum;
 
-enum RoleName: string
-{
-    case ADMIN = 'Application Admin';
-    case USER = 'Application User';
+use Spatie\Enum\Enum;
 
-    public static function values(): array
-    {
-        return array_map(function ($enum) {
-            return $enum->value;
-        }, self::cases());
-    }
+/**
+ * @method static self admin()
+ * @method static self user()
+ */
+class RoleName extends Enum
+{
 }
