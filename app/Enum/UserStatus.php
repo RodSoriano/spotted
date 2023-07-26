@@ -2,16 +2,13 @@
 
 namespace App\Enum;
 
-enum UserStatus: string
-{
-    case ACCEPTED = 'Accepted User';
-    case WARNED = 'Warned User';
-    case BANNED = 'Banned User';
+use Spatie\Enum\Enum;
 
-    public static function values(): array
-    {
-        return array_map(function ($enum) {
-            return $enum->value;
-        }, self::cases());
-    }
+/**
+ * @method static self accepted()
+ * @method static self warned()
+ * @method static self banned()
+ */
+class UserStatus extends Enum
+{
 }

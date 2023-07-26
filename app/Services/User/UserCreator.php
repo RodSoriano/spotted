@@ -16,8 +16,8 @@ class UserCreator
     // Needs refactoring, photo upload.
     public function register(array $user): Response
     {
-        $user['role_id'] = UserRole::USER->value;
-        $user['status'] = UserStatus::ACCEPTED->value;
+        $user['role_id'] = UserRole::user()->value;
+        $user['status'] = UserStatus::accepted()->value;
         $user['date_of_birth'] = $this->formatDate($user['date_of_birth']);
         // $user['photo'] = file_get_contents($_FILES['photo']['tmp_name']);
 

@@ -14,13 +14,13 @@ class UserSeeder extends Seeder
     {
         Admin::factory(2)
             ->create([
-                'role_id' => UserRole::ADMIN->value,
+                'role_id' => UserRole::admin()->value,
             ]);
 
         User::factory(10)
             ->has(CheckIn::factory())
             ->create([
-                'role_id' => UserRole::USER->value,
+                'role_id' => UserRole::user()->value,
             ]);
     }
 }

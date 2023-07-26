@@ -11,7 +11,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'role_id' => UserRole::USER->value,
+            'role_id' => UserRole::user()->value,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
@@ -19,7 +19,7 @@ class UserFactory extends Factory
             'photo' => base64_encode('photo'),
             'emergency_contact_name' => fake()->name(),
             'emergency_contact_number' => fake()->phoneNumber(),
-            'status' => fake()->randomElement(UserStatus::cases()),
+            'status' => fake()->randomElement(UserStatus::toValues()),
             'fee' => fake()->randomElement([5, 10]),
         ];
     }

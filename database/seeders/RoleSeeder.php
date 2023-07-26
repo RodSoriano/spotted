@@ -13,14 +13,14 @@ class RoleSeeder extends Seeder
     {
         Role::factory()
             ->create([
-                'id' => UserRole::ADMIN->value,
-                'role_name' => RoleName::ADMIN->value,
+                'id' => UserRole::admin()->value,
+                'role_name' => RoleName::admin()->value,
             ]);
 
         Role::factory()
             ->create([
-                'id' => UserRole::USER->value,
-                'role_name' => RoleName::USER->value,
+                'id' => UserRole::user()->value,
+                'role_name' => RoleName::user()->value,
             ]);
     }
 }

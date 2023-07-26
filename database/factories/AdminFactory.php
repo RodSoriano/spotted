@@ -10,7 +10,7 @@ class AdminFactory extends Factory
     public function definition(): array
     {
         return [
-            'role_id' => UserRole::ADMIN->value,
+            'role_id' => UserRole::admin()->value,
             'email' => fake()->safeEmail(),
             'password' => bcrypt('password'),
         ];

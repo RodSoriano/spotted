@@ -2,8 +2,19 @@
 
 namespace App\Enum;
 
-enum UserRole: int
+use Spatie\Enum\Enum;
+
+/**
+ * @method static self admin()
+ * @method static self user()
+ */
+class UserRole extends Enum
 {
-    case ADMIN = 1;
-    case USER = 2;
+    protected static function values(): array
+    {
+        return [
+            'admin' => 1,
+            'user' => 2,
+        ];
+    }
 }
