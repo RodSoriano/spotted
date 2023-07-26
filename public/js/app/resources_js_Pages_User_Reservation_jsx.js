@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_User_Register_jsx"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_User_Reservation_jsx"],{
 
 /***/ "./node_modules/@popperjs/core/lib/createPopper.js":
 /*!*********************************************************!*\
@@ -2982,10 +2982,10 @@ var Layout = function Layout(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/User/Register.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/Pages/User/Register.jsx ***!
-  \**********************************************/
+/***/ "./resources/js/Pages/User/Reservation.jsx":
+/*!*************************************************!*\
+  !*** ./resources/js/Pages/User/Reservation.jsx ***!
+  \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2998,13 +2998,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout */ "./resources/js/Pages/Layout.jsx");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Title */ "./resources/js/components/Title.js");
-/* harmony import */ var _components_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Label */ "./resources/js/components/Label.js");
-/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.js");
-/* harmony import */ var _components_CustomCalendar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/CustomCalendar */ "./resources/js/components/CustomCalendar.js");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.js");
-/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.js");
-/* harmony import */ var _utils_formatters__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/formatters */ "./resources/js/utils/formatters.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.js");
+/* harmony import */ var _components_CustomCalendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/CustomCalendar */ "./resources/js/components/CustomCalendar.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.js");
+/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -3023,8 +3022,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-var Register = function Register() {
+var Reservation = function Reservation() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     errors = _useState2[0],
@@ -3035,97 +3033,25 @@ var Register = function Register() {
     setStatus = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState6 = _slicedToArray(_useState5, 2),
-    firstName = _useState6[0],
-    setFirstName = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    email = _useState6[0],
+    setEmail = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState8 = _slicedToArray(_useState7, 2),
-    lastName = _useState8[0],
-    setLastName = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-    _useState10 = _slicedToArray(_useState9, 2),
-    email = _useState10[0],
-    setEmail = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState12 = _slicedToArray(_useState11, 2),
-    dateOfBirth = _useState12[0],
-    setDateOfBirth = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-    _useState14 = _slicedToArray(_useState13, 2),
-    emergencyName = _useState14[0],
-    setEmergencyName = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-    _useState16 = _slicedToArray(_useState15, 2),
-    emergencyPhone = _useState16[0],
-    setEmergencyPhone = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState18 = _slicedToArray(_useState17, 2),
-    selectedPhoto = _useState18[0],
-    setSelectedPhoto = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState20 = _slicedToArray(_useState19, 2),
-    isAccepted = _useState20[0],
-    setIsAccepted = _useState20[1];
-  var handleFirstName = function handleFirstName(e) {
-    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_9__.charactersOnly)(e);
-    setFirstName(inputValue);
-  };
-  var handleLastName = function handleLastName(e) {
-    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_9__.charactersOnly)(e);
-    setLastName(inputValue);
-  };
+    date = _useState8[0],
+    setDate = _useState8[1];
   var handleEmail = function handleEmail(e) {
     setEmail(e.target.value);
   };
-  var handleDateChange = function handleDateChange(selectedDate) {
-    setDateOfBirth(selectedDate);
-  };
-  var handleEmergencyName = function handleEmergencyName(e) {
-    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_9__.charactersOnly)(e);
-    setEmergencyName(inputValue);
-  };
-  var handleEmergencyPhone = function handleEmergencyPhone(e) {
-    setEmergencyPhone(e.target.value);
-  };
-
-  // Needs refactoring, photo upload.
-  var handlePhotoSelect = function handlePhotoSelect(e) {
-    var photoInput = e.target;
-    var photo = photoInput.files[0];
-    if (photo) {
-      setSelectedPhoto(photo);
-
-      // We can also read the photo as a data URL or perform other operations
-      // const reader = new FileReader();
-      // reader.onload = function (e) {
-      //   const dataURL = e.target.result;
-      //   console.log('Data URL:', dataURL);
-      // };
-      // reader.readAsDataURL(photo);
-    }
-  };
-
-  var handleTermsAndConditions = function handleTermsAndConditions() {
-    if (confirm('Terms and Conditions.')) {
-      setIsAccepted(true);
-    } else {
-      setIsAccepted(false);
-    }
+  var handleDateChange = function handleDateChange(e) {
+    setDate(e);
   };
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    var values = {
-      first_name: firstName,
-      last_name: lastName,
+    var data = {
       email: email,
-      date_of_birth: dateOfBirth,
-      emergency_contact_name: emergencyName,
-      emergency_contact_number: emergencyPhone,
-      photo: selectedPhoto
+      date: date
     };
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post('/register', values, {
-      onSuccess: function onSuccess() {
-        //
-      },
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post('/reservation', data, {
       onError: function onError(errors) {
         setStatus(422);
         setErrors(Object.entries(errors));
@@ -3135,67 +3061,46 @@ var Register = function Register() {
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      h1: 'Welcome to the Park',
-      paragraph: 'Please enter your information to register.'
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("form", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      h1: 'Book a Space'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
       className: "max-w-sm mx-auto",
       onSubmit: handleSubmit,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        inputLabel: "First Name",
-        inputValue: firstName,
-        onChangeEvent: handleFirstName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        inputLabel: "Last Name",
-        inputValue: lastName,
-        onChangeEvent: handleLastName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        inputLabel: "Email",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        inputLabel: 'Enter your email account',
         inputValue: email,
-        onChangeEvent: handleEmail
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_CustomCalendar__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        inputLabel: "Date of Birth",
-        selectedDate: dateOfBirth,
+        onChangeEvent: function onChangeEvent(e) {
+          return handleEmail(e);
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_CustomCalendar__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        inputLabel: 'Book a date',
+        selectedDate: date,
         onDateChange: handleDateChange
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        inputLabel: "Emergency Contact Name",
-        inputValue: emergencyName,
-        onChangeEvent: handleEmergencyName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        inputLabel: "Emergency Contact Phone",
-        inputValue: emergencyPhone,
-        onChangeEvent: handleEmergencyPhone
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        labelName: "Upload Your Picture"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "mt-4 mb-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-          type: "file",
-          name: "photo",
-          accept: "image/*",
-          onChange: handlePhotoSelect
-        })
-      }), !isAccepted && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
-        className: "bg-purple-500 text-white py-2 px-4 rounded-full text-lg mb-4 transform transition-transform hover:scale-105",
-        href: "#",
-        onClick: handleTermsAndConditions,
-        children: "Terms and Conditions"
-      }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_7__["default"], {
         message: errors
-      }), isAccepted && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "flex items-center justify-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
           type: 'submit',
-          message: 'Join'
+          message: 'Make Reservation'
         })
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      className: "flex items-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
+        children: ["Don't have an account yet?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.Link, {
+          className: "text-blue-500 underline",
+          href: "/register",
+          children: " Register! "
+        })]
+      })
     })]
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Register);
-Register.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Reservation);
+Reservation.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     children: page
   });
 };
@@ -3450,32 +3355,6 @@ var Title = function Title(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Title);
-
-/***/ }),
-
-/***/ "./resources/js/utils/formatters.js":
-/*!******************************************!*\
-  !*** ./resources/js/utils/formatters.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   charactersOnly: () => (/* binding */ charactersOnly),
-/* harmony export */   numbersOnly: () => (/* binding */ numbersOnly)
-/* harmony export */ });
-var charactersOnly = function charactersOnly(input) {
-  var value = input.target.value;
-  var inputValue = value.replace(/[^a-z ]/gi, '');
-  return inputValue;
-};
-var numbersOnly = function numbersOnly(input) {
-  var value = input.target.value;
-  var inputValue = value.replace(/[^0-9]/g, '');
-  return inputValue;
-};
-
 
 /***/ }),
 

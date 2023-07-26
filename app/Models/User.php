@@ -22,13 +22,15 @@ class User extends Authenticatable
         'email',
         'date_of_birth',
         'photo',
-        'emergency_contact',
+        'emergency_contact_name',
         'emergency_contact_number',
         'status',
         'fee',
     ];
 
     protected $hidden = [
+        'id',
+        'role_id',
         'created_at',
         'updated_at',
     ];

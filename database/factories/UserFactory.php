@@ -17,7 +17,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'date_of_birth' => fake()->date(),
             'photo' => base64_encode('photo'),
-            'emergency_contact' => fake()->name(),
+            'emergency_contact_name' => fake()->name(),
             'emergency_contact_number' => fake()->phoneNumber(),
             'status' => fake()->randomElement(UserStatus::cases()),
             'fee' => fake()->randomElement([5, 10]),

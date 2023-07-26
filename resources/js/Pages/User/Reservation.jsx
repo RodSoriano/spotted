@@ -4,18 +4,24 @@ import { Inertia } from '@inertiajs/inertia';
 
 import Title from '../../components/Title';
 import FormInput from '../../components/FormInput';
-import { Link } from '@inertiajs/inertia-react';
-import Alert from '../../components/Alert';
+import CustomCalendar from '../../components/CustomCalendar';
 import Button from '../../components/Button';
+import Alert from '../../components/Alert';
+import { Link } from '@inertiajs/inertia-react';
 
-const CheckIn = () => {
-  const [status, setStatus] = useState(false);
+const Reservation = () => {
   const [errors, setErrors] = useState([]);
+  const [status, setStatus] = useState(false);
 
   const [email, setEmail] = useState('');
+  const [date, setDate] = useState(null);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const handleDateChange = (e) => {
+    setDate(e);
   };
 
   const handleSubmit = (e) => {
@@ -23,9 +29,10 @@ const CheckIn = () => {
 
     const data = {
       email: email,
+      date: date,
     };
 
-    Inertia.post('/check-in', data, {
+    Inertia.post('/reservation', data, {
       onError(errors) {
         setStatus(422);
         setErrors(Object.entries(errors));
@@ -36,34 +43,37 @@ const CheckIn = () => {
 
   return (
     <>
-      <Title
-        h1={'Welcome to the Park'}
-        paragraph={'Enter the email you used to make your reservation.'}
-      />
+      <Title h1={'Book a Space'} />
 
-      <form onSubmit={handleSubmit}>
+      <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
         <FormInput
+          inputLabel={'Enter your email account'}
           inputValue={email}
           onChangeEvent={(e) => handleEmail(e)}
+        />
+        <CustomCalendar
+          inputLabel={'Book a date'}
+          selectedDate={date}
+          onDateChange={handleDateChange}
         />
 
         {status && <Alert message={errors} />}
 
         <div className='flex items-center justify-center'>
-          <Button type={'submit'} message={'Check In'} />
+          <Button type={'submit'} message={'Make Reservation'} />
         </div>
       </form>
 
       <div className='flex items-center'>
         <p>
-          Don't have a reservation yet?
-          <Link className='text-blue-500 underline' href='/reservation'> Book a space! </Link>
+          Don't have an account yet?
+          <Link className='text-blue-500 underline' href='/register'> Register! </Link>
         </p>
       </div>
     </>
   );
 };
 
-export default CheckIn;
+export default Reservation;
 
-CheckIn.layout = page => <Layout children={page} />;
+Reservation.layout = page => <Layout children={page} />;

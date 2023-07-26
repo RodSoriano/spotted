@@ -3,19 +3,23 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserRequest;
+use App\Services\User\UserCreator;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class RegisterController extends Controller
 {
-    public function show(): Response
+    public function index(): Response
     {
         return Inertia::render('User/Register');
     }
 
-    public function store(): mixed
+    public function store(StoreUserRequest $request, UserCreator $userService): Response
     {
-        return 'Your user has been saved!';
+        $data = $request->validated();
+        $response = $userService->register($data);
+
+        return $response;
     }
 }
