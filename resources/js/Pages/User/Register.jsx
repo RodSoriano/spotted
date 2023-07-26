@@ -51,6 +51,7 @@ const Register = () => {
     setEmergencyPhone(e.target.value);
   };
 
+  // Needs refactoring, photo upload.
   const handlePhotoSelect = (e) => {
     const photoInput = e.target;
     const photo = photoInput.files[0];

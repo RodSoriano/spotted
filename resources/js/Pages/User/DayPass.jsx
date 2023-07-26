@@ -12,7 +12,7 @@ const DayPass = ({ user, date }) => {
 
       <div className="flex items-center justify-center mb-6">
         <div className="w-24 h-24 bg-gray-300 rounded-full">
-          {/* photo */}
+          {/*     // Needs refactoring, photo */}
         </div>
       </div>
       <div className="text-center">
