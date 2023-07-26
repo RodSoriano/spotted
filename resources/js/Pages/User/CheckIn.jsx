@@ -4,8 +4,9 @@ import { Inertia } from '@inertiajs/inertia';
 
 import Title from '../../components/Title';
 import FormInput from '../../components/FormInput';
-import Button from '../../components/Button';
+import { Link } from '@inertiajs/inertia-react';
 import Alert from '../../components/Alert';
+import Button from '../../components/Button';
 
 const CheckIn = () => {
   const [status, setStatus] = useState(false);
@@ -28,6 +29,7 @@ const CheckIn = () => {
       onError(errors) {
         setStatus(422);
         setErrors(Object.entries(errors));
+        setTimeout(() => setStatus(false), 5000);
       }
     });
   };
@@ -41,16 +43,23 @@ const CheckIn = () => {
 
       <form onSubmit={handleSubmit}>
         <FormInput
-          inputLabel={'Email address'}
           inputValue={email}
           onChangeEvent={(e) => handleEmail(e)}
         />
 
         {status && <Alert message={errors} />}
+
         <div className='flex items-center justify-center'>
           <Button type={'submit'} message={'Check In'} />
         </div>
       </form>
+
+      <div className='flex items-center'>
+        <p>
+          Don't have a reservation yet?
+          <Link className='text-blue-500 underline' href='/reservation'> Book a space! </Link>
+        </p>
+      </div>
     </>
   );
 };
