@@ -53,7 +53,7 @@ class CheckInController extends Controller
 
             $photoUrl = Storage::temporaryUrl(
                 $user->photo,
-                now()->addMinutes(10)
+                now()->addMinutes(5)
             );
 
             $user->photo = $photoUrl;
