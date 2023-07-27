@@ -11,6 +11,7 @@ use App\Services\CheckIn\ReservationCreator;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -49,6 +50,13 @@ class CheckInController extends Controller
         try {
             $user = User::where('email', $request->user['email'])->first();
             $date = CheckIn::where('user_id', $user->id)->latest()->pluck('date')->first();
+
+            $photoUrl = Storage::temporaryUrl(
+                $user->photo,
+                now()->addMinutes(10)
+            );
+
+            $user->photo = $photoUrl;
 
             return Inertia::render('User/DayPass', [
                 'user' => $user,
