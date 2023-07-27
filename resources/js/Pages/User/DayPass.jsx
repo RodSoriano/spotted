@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Layout from '../Layout';
-import { Inertia } from '@inertiajs/inertia';
 
 import Title from '../../components/Title';
 
@@ -10,10 +9,12 @@ const DayPass = ({ user, date }) => {
     <>
       <Title h1="Great to See You Again!" />
 
-      <div className="flex items-center justify-center mb-6">
-        <div className="w-24 h-24 bg-gray-300 rounded-full">
-          {/*     // Needs refactoring, photo */}
-        </div>
+      <div className="flex items-center justify-center mb-6 w-24 h-24 bg-gray-300 rounded-full">
+        <img
+          src={user.photo}
+          alt="User profile picture."
+          className="w-full h-full rounded-full object-cover"
+        />
       </div>
       <div className="text-center">
         <h2 className="text-xl font-semibold mb-2">
