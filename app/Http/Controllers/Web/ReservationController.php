@@ -5,19 +5,16 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckReservationRequest;
 use App\Http\Requests\StoreReservationRequest;
-use App\Models\Reservation;
-use App\Models\User;
+use App\Services\Reservation\DayPassService;
 use App\Services\Reservation\ReservationCreator;
-use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class ReservationController extends Controller
 {
-    public function bookingForm(): Response
+    public function toForm(): Response
     {
         return Inertia::render('User/Reservation');
     }
@@ -25,45 +22,35 @@ class ReservationController extends Controller
     public function store(StoreReservationRequest $request, ReservationCreator $reservationService): Response
     {
         $booking = $request->validated();
-        $response = $reservationService->createReservation($booking);
+        $response = $reservationService->createOrFail($booking);
 
         return $response;
     }
 
-    public function index(): Response
+    public function toCheckIn(): Response
     {
         return Inertia::render('User/CheckIn');
     }
 
-    public function bookingCheck(CheckReservationRequest $request): RedirectResponse
+    public function checkReservation(CheckReservationRequest $request): RedirectResponse
     {
         $data = $request->validated();
 
         return redirect()->action(
-            [ReservationController::class, 'show'],
+            [ReservationController::class, 'toDayPass'],
             ['user' => $data]
         );
     }
 
-    public function show(Request $request): Response
+    public function toDayPass(Request $request, DayPassService $dayPass): Response
     {
-        try {
-            $user = User::where('email', $request->user['email'])->first();
-            $date = Reservation::where('user_id', $user->id)->latest()->pluck('date')->first();
+        $email = $request->email;
 
-            $photoUrl = Storage::temporaryUrl(
-                $user->photo,
-                now()->addMinutes(5)
-            );
+        $response = $dayPass->getData($email);
 
-            $user->photo = $photoUrl;
-
-            return Inertia::render('User/DayPass', [
-                'user' => $user,
-                'date' => $date,
-            ]);
-        } catch (Exception $e) {
-            $e->getMessage();
-        }
+        return Inertia::render('User/DayPass', [
+            'user' => $response['user'],
+            'date' => $response['date'],
+        ]);
     }
 }
