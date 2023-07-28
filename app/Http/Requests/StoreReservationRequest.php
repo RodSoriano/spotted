@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreCheckInRequest extends FormRequest
+class StoreReservationRequest extends FormRequest
 {
     public function authorize(): bool
     {
