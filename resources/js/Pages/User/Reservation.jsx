@@ -10,8 +10,8 @@ import Alert from '../../components/Alert';
 import { Link } from '@inertiajs/inertia-react';
 
 const Reservation = () => {
-  const [errors, setErrors] = useState([]);
   const [status, setStatus] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
@@ -45,7 +45,7 @@ const Reservation = () => {
     <>
       <Title h1={'Book a Space'} />
 
-      <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
+      <form className='max-w-sm mx-auto' onSubmit={handleSubmit}>
         <FormInput
           inputLabel={'Enter your email account'}
           inputValue={email}
@@ -57,7 +57,7 @@ const Reservation = () => {
           onDateChange={handleDateChange}
         />
 
-        {status && <Alert message={errors} />}
+        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
         <div className='flex items-center justify-center'>
           <Button type={'submit'} message={'Make Reservation'} />
