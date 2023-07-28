@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CheckInFactory extends Factory
+class ReservationFactory extends Factory
 {
     public function definition(): array
     {
