@@ -10,7 +10,7 @@ use Inertia\Response;
 
 class RegisterController extends Controller
 {
-    public function index(): Response
+    public function toForm(): Response
     {
         return Inertia::render('User/Register');
     }
@@ -18,8 +18,11 @@ class RegisterController extends Controller
     public function store(StoreUserRequest $request, UserCreator $userService): Response
     {
         $data = $request->validated();
+
         $response = $userService->register($data);
 
-        return $response;
+        return Inertia::render('Index', [
+            'message' => $response['message'],
+        ]);
     }
 }
