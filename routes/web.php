@@ -9,12 +9,13 @@ Route::get('/', function () {
     return Inertia::render('Index');
 });
 
-Route::get('register', [RegisterController::class, 'index']);
+Route::get('register', [RegisterController::class, 'toForm']);
 Route::post('register', [RegisterController::class, 'store']);
 
-Route::get('reservation', [ReservationController::class, 'bookingForm']);
+Route::get('reservation', [ReservationController::class, 'toForm']);
 Route::post('reservation', [ReservationController::class, 'store']);
 
-Route::get('check-in', [ReservationController::class, 'index']);
-Route::post('check-in', [ReservationController::class, 'bookingCheck']);
-Route::get('day-pass', [ReservationController::class, 'show']);
+Route::get('check-in', [ReservationController::class, 'toCheckIn']);
+Route::post('check-in', [ReservationController::class, 'checkReservation']);
+
+Route::get('day-pass', [ReservationController::class, 'toDayPass']);
