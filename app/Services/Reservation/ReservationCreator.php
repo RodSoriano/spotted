@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\CheckIn;
+namespace App\Services\Reservation;
 
-use App\Models\CheckIn;
+use App\Models\Reservation;
 use App\Models\User;
 use App\Services\ServiceHelper;
 use Inertia\Inertia;
@@ -28,7 +28,7 @@ class ReservationCreator
             $reservation['is_done'] = false;
             $reservation['date'] = $this->formatDate($reservation['date']);
 
-            CheckIn::create($reservation);
+            Reservation::create($reservation);
 
             return Inertia::render('Index', [
                 'message' => 'Your reservation has been created.',
@@ -41,14 +41,14 @@ class ReservationCreator
         $result = [];
         $userId = $this->getUserIdByEmail($email);
 
-        $reservation = CheckIn::where('user_id', $userId)
+        $reservation = Reservation::where('user_id', $userId)
             ->latest()
             ->pluck('is_done')
             ->first();
 
         if ($reservation === 0) {
             $result['user'] = User::where('id', $userId)->first();
-            $result['date'] = CheckIn::where('user_id', $userId)->latest()->pluck('date')->first();
+            $result['date'] = Reservation::where('user_id', $userId)->latest()->pluck('date')->first();
         }
 
         return $result;
