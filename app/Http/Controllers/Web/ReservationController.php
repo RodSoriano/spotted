@@ -44,7 +44,7 @@ class ReservationController extends Controller
 
     public function toDayPass(Request $request, DayPassService $dayPass): Response
     {
-        $email = $request->email;
+        $email = $request['user']['email'];
 
         $response = $dayPass->getData($email);
 
