@@ -6,27 +6,34 @@ use App\Enum\UserRole;
 use App\Enum\UserStatus;
 use App\Models\User;
 use App\Services\ServiceHelper;
+use Error;
 use Illuminate\Support\Facades\Storage;
-use Inertia\Inertia;
-use Inertia\Response;
 
 class UserCreator
 {
     use ServiceHelper;
 
-    public function register(array $user): Response
+    public function register(array $user): array
     {
-        $user['role_id'] = UserRole::user()->value;
-        $user['status'] = UserStatus::accepted()->value;
-        $user['date_of_birth'] = $this->formatDate($user['date_of_birth']);
+        try {
+            $user['role_id'] = UserRole::user()->value;
+            $user['status'] = UserStatus::accepted()->value;
+            $user['date_of_birth'] = $this->formatDate($user['date_of_birth']);
+            $user['photo'] = Storage::put($user['photo']->path(), $user['photo']);
 
-        $photoData = Storage::put($user['photo']->path(), $user['photo']);
-        $user['photo'] = $photoData;
+            $createdUser = User::create($user);
 
-        User::create($user);
-
-        return Inertia::render('Index', [
-            'message' => 'Your user has been created!',
-        ]);
+            return [
+                'status' => true,
+                'message' => 'Your user has been created.',
+                'data' => $createdUser,
+            ];
+        } catch (Error $e) {
+            return [
+                'status' => false,
+                'message' => 'Sorry, something went wrong, try again.',
+                'data' => $e->getMessage(),
+            ];
+        }
     }
 }
