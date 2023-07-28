@@ -142,7 +142,7 @@ const Register = () => {
           <TermsAndConditions onAccept={handleAccept} onDecline={handleDecline} />
         </div>
 
-        {status && (<Alert message={errors} />)}
+        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
         {accept &&
           <div className='flex items-center justify-center'>
