@@ -9,6 +9,7 @@ import CustomCalendar from '../../components/CustomCalendar';
 import TermsAndConditions from '../Popups/TermsAndConditions';
 import Button from '../../components/Button';
 import Alert from '../../components/Alert';
+import { Link } from '@inertiajs/inertia-react';
 
 import { charactersOnly } from '../../utils/formatters';
 import { calendar } from '../../utils/svgIcons';
@@ -164,6 +165,13 @@ const Register = () => {
           </div>
         }
       </form>
+
+      <div className='flex items-center'>
+        <p>
+          Already have an account?
+          <Link className='text-blue-500 underline' href='/reservation'> Book a spot! </Link>
+        </p>
+      </div>
     </>
   );
 };
