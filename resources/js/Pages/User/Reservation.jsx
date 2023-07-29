@@ -57,7 +57,7 @@ const Reservation = () => {
         <div className='flex'>
           <div className='flex pr-2'>
             <CustomCalendar
-              inputLabel='Date of Birth'
+              inputLabel={'Select a date'}
               selectedDate={date}
               onDateChange={handleDateChange}
               min={new Date('2023-07-01')}
