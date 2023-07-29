@@ -11,6 +11,7 @@ import Button from '../../components/Button';
 import Alert from '../../components/Alert';
 
 import { charactersOnly } from '../../utils/formatters';
+import { calendar } from '../../utils/svgIcons';
 
 const Register = () => {
   const [status, setStatus] = useState(false);
@@ -117,11 +118,24 @@ const Register = () => {
           inputValue={email}
           onChangeEvent={handleEmail}
         />
-        <CustomCalendar
-          inputLabel='Date of Birth'
-          selectedDate={dateOfBirth}
-          onDateChange={handleDateChange}
-        />
+
+        <div className='flex'>
+          <div className='flex pr-2'>
+            <CustomCalendar
+              inputLabel='Date of Birth'
+              selectedDate={dateOfBirth}
+              onDateChange={handleDateChange}
+              min={new Date('1950-12-31')}
+              max={new Date('2019-01-01')}
+            />
+          </div>
+          <div className='flex items-center mx-4'>
+            <svg {...calendar}>
+              <path {...calendar.path} />
+            </svg>
+          </div>
+        </div>
+
         <FormInput
           inputLabel='Emergency Contact Name'
           inputValue={emergencyName}
