@@ -16,6 +16,9 @@ class DayPassService
         $user = User::where('email', $email)->first();
         $date = Reservation::where('user_id', $user->id)->latest()->pluck('date')->first();
 
+        $timestamp = strtotime($date);
+        $date = date('d F Y', $timestamp);
+
         $photoUrl = Storage::temporaryUrl(
             $user->photo,
             now()->addMinutes(5)

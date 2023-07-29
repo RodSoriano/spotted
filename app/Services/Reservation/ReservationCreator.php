@@ -5,6 +5,7 @@ namespace App\Services\Reservation;
 use App\Models\Reservation;
 use App\Models\User;
 use App\Services\ServiceHelper;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -57,10 +58,20 @@ class ReservationCreator
         if ($reservation === 0) {
             $result['user'] = User::where('id', $userId)->first();
 
+            $photoUrl = Storage::temporaryUrl(
+                $result['user']->photo,
+                now()->addMinutes(5)
+            );
+
+            $result['user']->photo = $photoUrl;
+
             $result['date'] = Reservation::where('user_id', $userId)
                 ->latest()
                 ->pluck('date')
                 ->first();
+
+            $timestamp = strtotime($result['date']);
+            $result['date'] = date('d F Y', $timestamp);
         }
 
         return $result;
