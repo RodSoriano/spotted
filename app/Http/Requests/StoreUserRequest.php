@@ -28,10 +28,10 @@ class StoreUserRequest extends FormRequest
     private function invalidDate(): bool
     {
         $inputDate = strtotime($this->date_of_birth);
-        $currentYear = date('y');
+        $currentYear = date('Y');
         $isValid = true;
 
-        [$inputMonth, $inputYear] = explode('/', date('m/y', $inputDate), 2);
+        [$inputMonth, $inputYear] = explode('/', date('m/Y', $inputDate), 2);
 
         if ($inputMonth > 12) {
             $isValid = false;
