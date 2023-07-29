@@ -2966,10 +2966,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var Layout = function Layout(_ref) {
   var children = _ref.children;
+  var styles = {
+    main: 'relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8',
+    content: 'bg-white rounded-lg p-8 flex flex-col items-center justify-center'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
-    className: "relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8",
+    className: styles.main,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "bg-white rounded-lg p-8 flex flex-col items-center justify-center",
+      className: styles.content,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
           children: "Booking"
@@ -2997,13 +3001,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout */ "./resources/js/Pages/Layout.jsx");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Title */ "./resources/js/components/Title.js");
-/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.js");
-/* harmony import */ var _components_CustomCalendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/CustomCalendar */ "./resources/js/components/CustomCalendar.js");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.js");
-/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.js");
+/* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Title */ "./resources/js/components/Title.jsx");
+/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.jsx");
+/* harmony import */ var _components_CustomCalendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/CustomCalendar */ "./resources/js/components/CustomCalendar.jsx");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.jsx");
+/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.jsx");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils_svgIcons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/svgIcons */ "./resources/js/utils/svgIcons.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -3022,15 +3033,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Reservation = function Reservation() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    errors = _useState2[0],
-    setErrors = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    status = _useState2[0],
+    setStatus = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    status = _useState4[0],
-    setStatus = _useState4[1];
+    errors = _useState4[0],
+    setErrors = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState6 = _slicedToArray(_useState5, 2),
     email = _useState6[0],
@@ -3061,35 +3073,51 @@ var Reservation = function Reservation() {
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      h1: 'Book a Space'
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      h1: 'Create a Reservation'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("form", {
       className: "max-w-sm mx-auto",
       onSubmit: handleSubmit,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
         inputLabel: 'Enter your email account',
         inputValue: email,
         onChangeEvent: function onChangeEvent(e) {
           return handleEmail(e);
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_CustomCalendar__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        inputLabel: 'Book a date',
-        selectedDate: date,
-        onDateChange: handleDateChange
-      }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        message: errors
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        className: "flex",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          className: "flex pr-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_CustomCalendar__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            inputLabel: 'Select a date',
+            selectedDate: date,
+            onDateChange: handleDateChange,
+            min: new Date('2023-07-01'),
+            max: new Date('2023-08-31')
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          className: "flex items-center mx-4",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("svg", _objectSpread(_objectSpread({}, _utils_svgIcons__WEBPACK_IMPORTED_MODULE_9__.calendar), {}, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", _objectSpread({}, _utils_svgIcons__WEBPACK_IMPORTED_MODULE_9__.calendar.path))
+          }))
+        })]
+      }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        message: errors,
+        containerColor: 'yellow-100',
+        borderColor: 'border-yellow-500',
+        textColor: 'text-yellow-700'
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "flex items-center justify-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
           type: 'submit',
           message: 'Make Reservation'
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "flex items-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
-        children: ["Don't have an account yet?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.Link, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
+        children: ["Don't have an account yet?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.Link, {
           className: "text-blue-500 underline",
           href: "/register",
           children: " Register! "
@@ -3100,17 +3128,17 @@ var Reservation = function Reservation() {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Reservation);
 Reservation.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     children: page
   });
 };
 
 /***/ }),
 
-/***/ "./resources/js/components/Alert.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Alert.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Alert.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Alert.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3131,10 +3159,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Alert = function Alert(_ref) {
-  var message = _ref.message;
+  var message = _ref.message,
+    containerColor = _ref.containerColor,
+    borderColor = _ref.borderColor,
+    textColor = _ref.textColor;
   var styles = {
-    container: 'alert bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 m-4 rounded-lg',
-    closeButton: 'closebtn float-right cursor-pointer'
+    container: "alert ".concat(containerColor, " border-l-4 ").concat(borderColor, " ").concat(textColor, " p-4 m-4 rounded-lg"),
+    closeButton: 'closebtn float-right cursor-pointer mx-4'
   };
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -3151,7 +3182,7 @@ var Alert = function Alert(_ref) {
   var hideAlert = function hideAlert() {
     setIsHidden(true);
   };
-  return isHidden ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return !isHidden && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: styles.container,
     role: "alert",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -3161,14 +3192,20 @@ var Alert = function Alert(_ref) {
     }), selectMessage(message)]
   });
 };
+Alert.defaultProps = {
+  message: '',
+  containerColor: 'bg-blue-100',
+  borderColor: 'border-blue-500',
+  textColor: 'text-blue-700'
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Alert);
 
 /***/ }),
 
-/***/ "./resources/js/components/Button.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Button.js ***!
-  \*******************************************/
+/***/ "./resources/js/components/Button.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Button.jsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3181,30 +3218,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-var Button = function Button(_ref) {
+var Button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().forwardRef(function (_ref, innerRef) {
   var type = _ref.type,
     message = _ref.message,
-    color = _ref.color;
-  var styles = {
-    button: "".concat(color, " text-white py-2 px-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105")
-  };
+    color = _ref.color,
+    onClick = _ref.onClick;
+  var buttonClass = "".concat(color, " text-white py-2 px-4 rounded-full font-bold text-lg mb-4 mx-2 transform transition-transform hover:scale-105");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-    className: styles.button,
+    className: buttonClass,
     type: type,
+    onClick: onClick,
     children: message
   });
-};
+});
 Button.defaultProps = {
-  color: 'bg-blue-500'
+  type: 'button',
+  message: '',
+  color: 'bg-blue-500',
+  onClick: function onClick() {}
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
 
 /***/ }),
 
-/***/ "./resources/js/components/CustomCalendar.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/CustomCalendar.js ***!
-  \***************************************************/
+/***/ "./resources/js/components/CustomCalendar.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/CustomCalendar.jsx ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3217,7 +3257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
-/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.js");
+/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -3228,34 +3268,50 @@ __webpack_require__.r(__webpack_exports__);
 var CustomCalendar = function CustomCalendar(_ref) {
   var inputLabel = _ref.inputLabel,
     selectedDate = _ref.selectedDate,
-    onDateChange = _ref.onDateChange;
+    onDateChange = _ref.onDateChange,
+    min = _ref.min,
+    max = _ref.max;
+  var styles = {
+    container: 'flex flex-col items-start mb-4',
+    datePickerContainer: 'flex justify-center',
+    datePickerInput: 'border rounded-lg p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500',
+    datePickerCalendar: 'bg-white shadow-lg rounded-lg p-4'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "flex flex-col items-start mb-4",
+    className: styles.container,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       labelName: inputLabel
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "flex justify-center",
+      className: styles.datePickerContainer,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_4___default()), {
+        className: styles.datePickerInput,
+        popperClassName: "z-50",
+        calendarClassName: styles.datePickerCalendar,
+        dropdownMode: "select",
+        showMonthDropdown: true,
+        showYearDropdown: true,
         selected: selectedDate,
         onChange: onDateChange,
-        showYearDropdown: true,
-        showMonthDropdown: true,
-        dropdownMode: "select",
-        popperClassName: "z-50",
-        className: "border rounded-lg p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500",
-        calendarClassName: "bg-white shadow-lg rounded-lg p-4"
+        minDate: min,
+        maxDate: max
       })
     })]
   });
+};
+CustomCalendar.defaultProps = {
+  selectedDate: new Date(),
+  onDateChange: function onDateChange() {},
+  min: new Date('1950/01/01'),
+  max: new Date()
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomCalendar);
 
 /***/ }),
 
-/***/ "./resources/js/components/FormInput.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/FormInput.js ***!
-  \**********************************************/
+/***/ "./resources/js/components/FormInput.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/FormInput.jsx ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3265,7 +3321,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.js");
+/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -3275,12 +3331,16 @@ var FormInput = function FormInput(_ref) {
   var inputLabel = _ref.inputLabel,
     inputValue = _ref.inputValue,
     onChangeEvent = _ref.onChangeEvent;
+  var styles = {
+    container: 'mb-4',
+    input: 'mt-1 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 w-2/3'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "mb-4",
+    className: styles.container,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_1__["default"], {
       labelName: inputLabel
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-      className: "mt-1 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500",
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      className: styles.input,
       type: "text",
       name: inputLabel,
       value: inputValue,
@@ -3292,10 +3352,10 @@ var FormInput = function FormInput(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Label.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Label.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Label.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Label.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3310,9 +3370,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var Label = function Label(_ref) {
   var labelName = _ref.labelName;
+  var styles = {
+    label: 'text-gray-800 font-medium'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
     htmlFor: labelName,
-    className: "text-gray-800 font-medium",
+    className: styles.label,
     children: labelName
   });
 };
@@ -3320,10 +3383,10 @@ var Label = function Label(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Title.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Title.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Title.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Title.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3348,13 +3411,41 @@ var Title = function Title(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
       className: styles.h1,
       children: h1
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+    }), paragraph && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
       className: styles.paragraph,
-      children: paragraph && paragraph
+      children: paragraph
     })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Title);
+
+/***/ }),
+
+/***/ "./resources/js/utils/svgIcons.js":
+/*!****************************************!*\
+  !*** ./resources/js/utils/svgIcons.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   calendar: () => (/* binding */ calendar)
+/* harmony export */ });
+var calendar = {
+  xmlns: 'http://www.w3.org/2000/svg',
+  fill: 'none',
+  viewBox: '0 0 24 24',
+  strokeWidth: 1.5,
+  stroke: 'currentColor',
+  className: 'w-6 h-6',
+  path: {
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    d: 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z'
+  }
+};
+
 
 /***/ }),
 

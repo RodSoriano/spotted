@@ -21,10 +21,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var Layout = function Layout(_ref) {
   var children = _ref.children;
+  var styles = {
+    main: 'relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8',
+    content: 'bg-white rounded-lg p-8 flex flex-col items-center justify-center'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
-    className: "relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8",
+    className: styles.main,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "bg-white rounded-lg p-8 flex flex-col items-center justify-center",
+      className: styles.content,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
           children: "Booking"
@@ -51,11 +55,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout */ "./resources/js/Pages/Layout.jsx");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Title */ "./resources/js/components/Title.js");
-/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.js");
+/* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Title */ "./resources/js/components/Title.jsx");
+/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.jsx");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.js");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.js");
+/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.jsx");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -75,6 +79,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var CheckIn = function CheckIn() {
+  var styles = {
+    container: 'flex items-center justify-center',
+    reservationLink: 'text-blue-500 underline'
+  };
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     status = _useState2[0],
@@ -107,19 +115,20 @@ var CheckIn = function CheckIn() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      h1: 'Welcome to the Park',
+      h1: 'Please Check In',
       paragraph: 'Enter the email you used to make your reservation.'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
       onSubmit: handleSubmit,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
         inputValue: email,
-        onChangeEvent: function onChangeEvent(e) {
-          return handleEmail(e);
-        }
+        onChangeEvent: handleEmail
       }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        message: errors
+        message: errors,
+        containerColor: 'yellow-100',
+        borderColor: 'border-yellow-500',
+        textColor: 'text-yellow-700'
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        className: "flex items-center justify-center",
+        className: styles.container,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
           type: 'submit',
           message: 'Check In'
@@ -128,10 +137,10 @@ var CheckIn = function CheckIn() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "flex items-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
-        children: ["Don't have a reservation yet?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.Link, {
-          className: "text-blue-500 underline",
+        children: ["Don't have a reservation yet?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          className: styles.reservationLink,
           href: "/reservation",
-          children: " Book a space! "
+          children: [' ', "Book a spot!", ' ']
         })]
       })
     })]
@@ -146,10 +155,10 @@ CheckIn.layout = function (page) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Alert.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Alert.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Alert.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Alert.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -169,10 +178,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Alert = function Alert(_ref) {
-  var message = _ref.message;
+  var message = _ref.message,
+    containerColor = _ref.containerColor,
+    borderColor = _ref.borderColor,
+    textColor = _ref.textColor;
   var styles = {
-    container: 'alert bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 m-4 rounded-lg',
-    closeButton: 'closebtn float-right cursor-pointer'
+    container: "alert ".concat(containerColor, " border-l-4 ").concat(borderColor, " ").concat(textColor, " p-4 m-4 rounded-lg"),
+    closeButton: 'closebtn float-right cursor-pointer mx-4'
   };
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -189,7 +201,7 @@ var Alert = function Alert(_ref) {
   var hideAlert = function hideAlert() {
     setIsHidden(true);
   };
-  return isHidden ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return !isHidden && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: styles.container,
     role: "alert",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -199,14 +211,20 @@ var Alert = function Alert(_ref) {
     }), selectMessage(message)]
   });
 };
+Alert.defaultProps = {
+  message: '',
+  containerColor: 'bg-blue-100',
+  borderColor: 'border-blue-500',
+  textColor: 'text-blue-700'
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Alert);
 
 /***/ }),
 
-/***/ "./resources/js/components/Button.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Button.js ***!
-  \*******************************************/
+/***/ "./resources/js/components/Button.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Button.jsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -218,30 +236,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-var Button = function Button(_ref) {
+var Button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().forwardRef(function (_ref, innerRef) {
   var type = _ref.type,
     message = _ref.message,
-    color = _ref.color;
-  var styles = {
-    button: "".concat(color, " text-white py-2 px-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105")
-  };
+    color = _ref.color,
+    onClick = _ref.onClick;
+  var buttonClass = "".concat(color, " text-white py-2 px-4 rounded-full font-bold text-lg mb-4 mx-2 transform transition-transform hover:scale-105");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-    className: styles.button,
+    className: buttonClass,
     type: type,
+    onClick: onClick,
     children: message
   });
-};
+});
 Button.defaultProps = {
-  color: 'bg-blue-500'
+  type: 'button',
+  message: '',
+  color: 'bg-blue-500',
+  onClick: function onClick() {}
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
 
 /***/ }),
 
-/***/ "./resources/js/components/FormInput.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/FormInput.js ***!
-  \**********************************************/
+/***/ "./resources/js/components/FormInput.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/FormInput.jsx ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -250,7 +271,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.js");
+/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -260,12 +281,16 @@ var FormInput = function FormInput(_ref) {
   var inputLabel = _ref.inputLabel,
     inputValue = _ref.inputValue,
     onChangeEvent = _ref.onChangeEvent;
+  var styles = {
+    container: 'mb-4',
+    input: 'mt-1 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 w-2/3'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "mb-4",
+    className: styles.container,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_1__["default"], {
       labelName: inputLabel
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-      className: "mt-1 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500",
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      className: styles.input,
       type: "text",
       name: inputLabel,
       value: inputValue,
@@ -277,10 +302,10 @@ var FormInput = function FormInput(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Label.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Label.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Label.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Label.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -294,9 +319,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var Label = function Label(_ref) {
   var labelName = _ref.labelName;
+  var styles = {
+    label: 'text-gray-800 font-medium'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
     htmlFor: labelName,
-    className: "text-gray-800 font-medium",
+    className: styles.label,
     children: labelName
   });
 };
@@ -304,10 +332,10 @@ var Label = function Label(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Title.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Title.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Title.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Title.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -331,9 +359,9 @@ var Title = function Title(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
       className: styles.h1,
       children: h1
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+    }), paragraph && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
       className: styles.paragraph,
-      children: paragraph && paragraph
+      children: paragraph
     })]
   });
 };

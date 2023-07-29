@@ -2966,10 +2966,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var Layout = function Layout(_ref) {
   var children = _ref.children;
+  var styles = {
+    main: 'relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8',
+    content: 'bg-white rounded-lg p-8 flex flex-col items-center justify-center'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
-    className: "relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8",
+    className: styles.main,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "bg-white rounded-lg p-8 flex flex-col items-center justify-center",
+      className: styles.content,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
           children: "Booking"
@@ -2979,6 +2983,90 @@ var Layout = function Layout(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layout);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Popups/TermsAndConditions.jsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/Pages/Popups/TermsAndConditions.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactjs_popup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactjs-popup */ "./node_modules/reactjs-popup/dist/reactjs-popup.esm.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.jsx");
+/* harmony import */ var reactjs_popup_dist_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactjs-popup/dist/index.css */ "./node_modules/reactjs-popup/dist/index.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var TermsAndConditions = function TermsAndConditions(_ref) {
+  var onAccept = _ref.onAccept,
+    onDecline = _ref.onDecline;
+  var styles = {
+    popupBox: 'fixed inset-0 flex items-center justify-center bg-black bg-opacity-50',
+    box: 'w-2/3 bg-white rounded-md p-6 border border-gray-300 text-center',
+    heading: 'text-2xl font-bold mb-4',
+    content: 'text-lg mb-4',
+    buttonsContainer: 'flex justify-center'
+  };
+  var handleDecline = function handleDecline() {
+    onDecline(false);
+  };
+  var handleAccept = function handleAccept() {
+    onAccept(true);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(reactjs_popup__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    trigger: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      message: "Terms and Conditions",
+      color: "bg-purple-400"
+    }),
+    modal: true,
+    nested: true,
+    position: "center center",
+    children: function children(close) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: styles.popupBox,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: styles.box,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+            className: styles.heading,
+            children: "Terms and Conditions"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: styles.content,
+            children: "By using this website, you agree to the terms and conditions."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: styles.buttonsContainer,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              onClick: function onClick() {
+                handleDecline();
+                close();
+              },
+              message: "Decline",
+              color: "bg-gray-600"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              onClick: function onClick() {
+                handleAccept();
+                close();
+              },
+              message: "Accept"
+            })]
+          })]
+        })
+      });
+    }
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TermsAndConditions);
 
 /***/ }),
 
@@ -2997,14 +3085,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout */ "./resources/js/Pages/Layout.jsx");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Title */ "./resources/js/components/Title.js");
-/* harmony import */ var _components_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Label */ "./resources/js/components/Label.js");
-/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.js");
-/* harmony import */ var _components_CustomCalendar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/CustomCalendar */ "./resources/js/components/CustomCalendar.js");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.js");
-/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.js");
-/* harmony import */ var _utils_formatters__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/formatters */ "./resources/js/utils/formatters.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Title */ "./resources/js/components/Title.jsx");
+/* harmony import */ var _components_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Label */ "./resources/js/components/Label.jsx");
+/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/FormInput */ "./resources/js/components/FormInput.jsx");
+/* harmony import */ var _components_CustomCalendar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/CustomCalendar */ "./resources/js/components/CustomCalendar.jsx");
+/* harmony import */ var _Popups_TermsAndConditions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Popups/TermsAndConditions */ "./resources/js/Pages/Popups/TermsAndConditions.jsx");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/Button */ "./resources/js/components/Button.jsx");
+/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/Alert */ "./resources/js/components/Alert.jsx");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _utils_formatters__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils/formatters */ "./resources/js/utils/formatters.js");
+/* harmony import */ var _utils_svgIcons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/svgIcons */ "./resources/js/utils/svgIcons.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -3024,15 +3121,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
+
 var Register = function Register() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    errors = _useState2[0],
-    setErrors = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    status = _useState2[0],
+    setStatus = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    status = _useState4[0],
-    setStatus = _useState4[1];
+    errors = _useState4[0],
+    setErrors = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState6 = _slicedToArray(_useState5, 2),
     firstName = _useState6[0],
@@ -3063,53 +3163,41 @@ var Register = function Register() {
     setSelectedPhoto = _useState18[1];
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState20 = _slicedToArray(_useState19, 2),
-    isAccepted = _useState20[0],
-    setIsAccepted = _useState20[1];
+    accept = _useState20[0],
+    setAccept = _useState20[1];
   var handleFirstName = function handleFirstName(e) {
-    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_9__.charactersOnly)(e);
+    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_11__.charactersOnly)(e);
     setFirstName(inputValue);
   };
   var handleLastName = function handleLastName(e) {
-    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_9__.charactersOnly)(e);
+    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_11__.charactersOnly)(e);
     setLastName(inputValue);
   };
   var handleEmail = function handleEmail(e) {
     setEmail(e.target.value);
   };
-  var handleDateChange = function handleDateChange(selectedDate) {
-    setDateOfBirth(selectedDate);
+  var handleDateChange = function handleDateChange(e) {
+    setDateOfBirth(e);
   };
   var handleEmergencyName = function handleEmergencyName(e) {
-    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_9__.charactersOnly)(e);
+    var inputValue = (0,_utils_formatters__WEBPACK_IMPORTED_MODULE_11__.charactersOnly)(e);
     setEmergencyName(inputValue);
   };
   var handleEmergencyPhone = function handleEmergencyPhone(e) {
     setEmergencyPhone(e.target.value);
   };
-
-  // Needs refactoring, photo upload.
   var handlePhotoSelect = function handlePhotoSelect(e) {
     var photoInput = e.target;
     var photo = photoInput.files[0];
     if (photo) {
       setSelectedPhoto(photo);
-
-      // We can also read the photo as a data URL or perform other operations
-      // const reader = new FileReader();
-      // reader.onload = function (e) {
-      //   const dataURL = e.target.result;
-      //   console.log('Data URL:', dataURL);
-      // };
-      // reader.readAsDataURL(photo);
     }
   };
-
-  var handleTermsAndConditions = function handleTermsAndConditions() {
-    if (confirm('Terms and Conditions.')) {
-      setIsAccepted(true);
-    } else {
-      setIsAccepted(false);
-    }
+  var handleAccept = function handleAccept() {
+    setAccept(true);
+  };
+  var handleDecline = function handleDecline() {
+    setAccept(false);
   };
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -3135,77 +3223,103 @@ var Register = function Register() {
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Title__WEBPACK_IMPORTED_MODULE_3__["default"], {
       h1: 'Welcome to the Park',
       paragraph: 'Please enter your information to register.'
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("form", {
       className: "max-w-sm mx-auto",
       onSubmit: handleSubmit,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
         inputLabel: "First Name",
         inputValue: firstName,
         onChangeEvent: handleFirstName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
         inputLabel: "Last Name",
         inputValue: lastName,
         onChangeEvent: handleLastName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
         inputLabel: "Email",
         inputValue: email,
         onChangeEvent: handleEmail
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_CustomCalendar__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        inputLabel: "Date of Birth",
-        selectedDate: dateOfBirth,
-        onDateChange: handleDateChange
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        className: "flex",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+          className: "flex pr-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_CustomCalendar__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            inputLabel: "Date of Birth",
+            selectedDate: dateOfBirth,
+            onDateChange: handleDateChange,
+            min: new Date('1950-12-31'),
+            max: new Date('2019-01-01')
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+          className: "flex items-center mx-4",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("svg", _objectSpread(_objectSpread({}, _utils_svgIcons__WEBPACK_IMPORTED_MODULE_12__.calendar), {}, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("path", _objectSpread({}, _utils_svgIcons__WEBPACK_IMPORTED_MODULE_12__.calendar.path))
+          }))
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
         inputLabel: "Emergency Contact Name",
         inputValue: emergencyName,
         onChangeEvent: handleEmergencyName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_FormInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
         inputLabel: "Emergency Contact Phone",
         inputValue: emergencyPhone,
         onChangeEvent: handleEmergencyPhone
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Label__WEBPACK_IMPORTED_MODULE_4__["default"], {
         labelName: "Upload Your Picture"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "mt-4 mb-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+        className: "mt-4 mb-4 flex items-center justify-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
           type: "file",
           name: "photo",
           accept: "image/*",
           onChange: handlePhotoSelect
         })
-      }), !isAccepted && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
-        className: "bg-purple-500 text-white py-2 px-4 rounded-full text-lg mb-4 transform transition-transform hover:scale-105",
-        href: "#",
-        onClick: handleTermsAndConditions,
-        children: "Terms and Conditions"
-      }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        message: errors
-      }), isAccepted && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
         className: "flex items-center justify-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Popups_TermsAndConditions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          onAccept: handleAccept,
+          onDecline: handleDecline
+        })
+      }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        message: errors,
+        containerColor: 'yellow-100',
+        borderColor: 'border-yellow-500',
+        textColor: 'text-yellow-700'
+      }), accept && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+        className: "flex items-center justify-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
           type: 'submit',
           message: 'Join'
         })
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+      className: "flex items-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("p", {
+        children: ["Already have an account?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_10__.Link, {
+          className: "text-blue-500 underline",
+          href: "/reservation",
+          children: " Book a spot! "
+        })]
+      })
     })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Register);
 Register.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     children: page
   });
 };
 
 /***/ }),
 
-/***/ "./resources/js/components/Alert.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Alert.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Alert.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Alert.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3226,10 +3340,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Alert = function Alert(_ref) {
-  var message = _ref.message;
+  var message = _ref.message,
+    containerColor = _ref.containerColor,
+    borderColor = _ref.borderColor,
+    textColor = _ref.textColor;
   var styles = {
-    container: 'alert bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 m-4 rounded-lg',
-    closeButton: 'closebtn float-right cursor-pointer'
+    container: "alert ".concat(containerColor, " border-l-4 ").concat(borderColor, " ").concat(textColor, " p-4 m-4 rounded-lg"),
+    closeButton: 'closebtn float-right cursor-pointer mx-4'
   };
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -3246,7 +3363,7 @@ var Alert = function Alert(_ref) {
   var hideAlert = function hideAlert() {
     setIsHidden(true);
   };
-  return isHidden ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return !isHidden && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: styles.container,
     role: "alert",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -3256,14 +3373,20 @@ var Alert = function Alert(_ref) {
     }), selectMessage(message)]
   });
 };
+Alert.defaultProps = {
+  message: '',
+  containerColor: 'bg-blue-100',
+  borderColor: 'border-blue-500',
+  textColor: 'text-blue-700'
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Alert);
 
 /***/ }),
 
-/***/ "./resources/js/components/Button.js":
-/*!*******************************************!*\
-  !*** ./resources/js/components/Button.js ***!
-  \*******************************************/
+/***/ "./resources/js/components/Button.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Button.jsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3276,30 +3399,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-var Button = function Button(_ref) {
+var Button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().forwardRef(function (_ref, innerRef) {
   var type = _ref.type,
     message = _ref.message,
-    color = _ref.color;
-  var styles = {
-    button: "".concat(color, " text-white py-2 px-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105")
-  };
+    color = _ref.color,
+    onClick = _ref.onClick;
+  var buttonClass = "".concat(color, " text-white py-2 px-4 rounded-full font-bold text-lg mb-4 mx-2 transform transition-transform hover:scale-105");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-    className: styles.button,
+    className: buttonClass,
     type: type,
+    onClick: onClick,
     children: message
   });
-};
+});
 Button.defaultProps = {
-  color: 'bg-blue-500'
+  type: 'button',
+  message: '',
+  color: 'bg-blue-500',
+  onClick: function onClick() {}
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
 
 /***/ }),
 
-/***/ "./resources/js/components/CustomCalendar.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/CustomCalendar.js ***!
-  \***************************************************/
+/***/ "./resources/js/components/CustomCalendar.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/CustomCalendar.jsx ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3312,7 +3438,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
 /* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react_datepicker_dist_react_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-datepicker/dist/react-datepicker.css */ "./node_modules/react-datepicker/dist/react-datepicker.css");
-/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.js");
+/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -3323,34 +3449,50 @@ __webpack_require__.r(__webpack_exports__);
 var CustomCalendar = function CustomCalendar(_ref) {
   var inputLabel = _ref.inputLabel,
     selectedDate = _ref.selectedDate,
-    onDateChange = _ref.onDateChange;
+    onDateChange = _ref.onDateChange,
+    min = _ref.min,
+    max = _ref.max;
+  var styles = {
+    container: 'flex flex-col items-start mb-4',
+    datePickerContainer: 'flex justify-center',
+    datePickerInput: 'border rounded-lg p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500',
+    datePickerCalendar: 'bg-white shadow-lg rounded-lg p-4'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "flex flex-col items-start mb-4",
+    className: styles.container,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_2__["default"], {
       labelName: inputLabel
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "flex justify-center",
+      className: styles.datePickerContainer,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_4___default()), {
+        className: styles.datePickerInput,
+        popperClassName: "z-50",
+        calendarClassName: styles.datePickerCalendar,
+        dropdownMode: "select",
+        showMonthDropdown: true,
+        showYearDropdown: true,
         selected: selectedDate,
         onChange: onDateChange,
-        showYearDropdown: true,
-        showMonthDropdown: true,
-        dropdownMode: "select",
-        popperClassName: "z-50",
-        className: "border rounded-lg p-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500",
-        calendarClassName: "bg-white shadow-lg rounded-lg p-4"
+        minDate: min,
+        maxDate: max
       })
     })]
   });
+};
+CustomCalendar.defaultProps = {
+  selectedDate: new Date(),
+  onDateChange: function onDateChange() {},
+  min: new Date('1950/01/01'),
+  max: new Date()
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomCalendar);
 
 /***/ }),
 
-/***/ "./resources/js/components/FormInput.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/FormInput.js ***!
-  \**********************************************/
+/***/ "./resources/js/components/FormInput.jsx":
+/*!***********************************************!*\
+  !*** ./resources/js/components/FormInput.jsx ***!
+  \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3360,7 +3502,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.js");
+/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label */ "./resources/js/components/Label.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -3370,12 +3512,16 @@ var FormInput = function FormInput(_ref) {
   var inputLabel = _ref.inputLabel,
     inputValue = _ref.inputValue,
     onChangeEvent = _ref.onChangeEvent;
+  var styles = {
+    container: 'mb-4',
+    input: 'mt-1 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 w-2/3'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "mb-4",
+    className: styles.container,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_1__["default"], {
       labelName: inputLabel
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-      className: "mt-1 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500",
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      className: styles.input,
       type: "text",
       name: inputLabel,
       value: inputValue,
@@ -3387,10 +3533,10 @@ var FormInput = function FormInput(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Label.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Label.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Label.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Label.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3405,9 +3551,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var Label = function Label(_ref) {
   var labelName = _ref.labelName;
+  var styles = {
+    label: 'text-gray-800 font-medium'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
     htmlFor: labelName,
-    className: "text-gray-800 font-medium",
+    className: styles.label,
     children: labelName
   });
 };
@@ -3415,10 +3564,10 @@ var Label = function Label(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Title.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Title.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Title.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Title.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3443,9 +3592,9 @@ var Title = function Title(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
       className: styles.h1,
       children: h1
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+    }), paragraph && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
       className: styles.paragraph,
-      children: paragraph && paragraph
+      children: paragraph
     })]
   });
 };
@@ -3463,6 +3612,7 @@ var Title = function Title(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   charactersOnly: () => (/* binding */ charactersOnly),
+/* harmony export */   currentDate: () => (/* binding */ currentDate),
 /* harmony export */   numbersOnly: () => (/* binding */ numbersOnly)
 /* harmony export */ });
 var charactersOnly = function charactersOnly(input) {
@@ -3474,6 +3624,41 @@ var numbersOnly = function numbersOnly(input) {
   var value = input.target.value;
   var inputValue = value.replace(/[^0-9]/g, '');
   return inputValue;
+};
+var currentDate = function currentDate(_currentDate) {
+  var year = _currentDate.getFullYear();
+  var month = _currentDate.getMonth() + 1;
+  var day = _currentDate.getDate();
+  var formattedDate = "".concat(year, "-").concat(month < 10 ? '0' : '').concat(month, "-").concat(day < 10 ? '0' : '').concat(day);
+  return formattedDate;
+};
+
+
+/***/ }),
+
+/***/ "./resources/js/utils/svgIcons.js":
+/*!****************************************!*\
+  !*** ./resources/js/utils/svgIcons.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   calendar: () => (/* binding */ calendar)
+/* harmony export */ });
+var calendar = {
+  xmlns: 'http://www.w3.org/2000/svg',
+  fill: 'none',
+  viewBox: '0 0 24 24',
+  strokeWidth: 1.5,
+  stroke: 'currentColor',
+  className: 'w-6 h-6',
+  path: {
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    d: 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z'
+  }
 };
 
 
@@ -3566,6 +3751,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow, .react-datepicker__navigation-icon::before {\n  border-color: #ccc;\n  border-style: solid;\n  border-width: 3px 3px 0 0;\n  content: \"\";\n  display: block;\n  height: 9px;\n  position: absolute;\n  top: 6px;\n  width: 9px;\n}\n.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {\n  margin-left: -4px;\n  position: absolute;\n  width: 0;\n}\n.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {\n  box-sizing: content-box;\n  position: absolute;\n  border: 8px solid transparent;\n  height: 0;\n  width: 1px;\n  content: \"\";\n  z-index: -1;\n  border-width: 8px;\n  left: -8px;\n}\n.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before {\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {\n  top: 0;\n  margin-top: -8px;\n}\n.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {\n  border-top: none;\n  border-bottom-color: #f0f0f0;\n}\n.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {\n  top: 0;\n}\n.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before {\n  top: -1px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle {\n  bottom: 0;\n  margin-bottom: -8px;\n}\n.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after {\n  border-bottom: none;\n  border-top-color: #fff;\n}\n.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after {\n  bottom: 0;\n}\n.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before {\n  bottom: -1px;\n  border-top-color: #aeaeae;\n}\n\n.react-datepicker-wrapper {\n  display: inline-block;\n  padding: 0;\n  border: 0;\n}\n\n.react-datepicker {\n  font-family: \"Helvetica Neue\", helvetica, arial, sans-serif;\n  font-size: 0.8rem;\n  background-color: #fff;\n  color: #000;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  display: inline-block;\n  position: relative;\n}\n\n.react-datepicker--time-only .react-datepicker__triangle {\n  left: 35px;\n}\n.react-datepicker--time-only .react-datepicker__time-container {\n  border-left: 0;\n}\n.react-datepicker--time-only .react-datepicker__time,\n.react-datepicker--time-only .react-datepicker__time-box {\n  border-bottom-left-radius: 0.3rem;\n  border-bottom-right-radius: 0.3rem;\n}\n\n.react-datepicker__triangle {\n  position: absolute;\n  left: 50px;\n}\n\n.react-datepicker-popper {\n  z-index: 1;\n}\n.react-datepicker-popper[data-placement^=bottom] {\n  padding-top: 10px;\n}\n.react-datepicker-popper[data-placement=bottom-end] .react-datepicker__triangle, .react-datepicker-popper[data-placement=top-end] .react-datepicker__triangle {\n  left: auto;\n  right: 50px;\n}\n.react-datepicker-popper[data-placement^=top] {\n  padding-bottom: 10px;\n}\n.react-datepicker-popper[data-placement^=right] {\n  padding-left: 8px;\n}\n.react-datepicker-popper[data-placement^=right] .react-datepicker__triangle {\n  left: auto;\n  right: 42px;\n}\n.react-datepicker-popper[data-placement^=left] {\n  padding-right: 8px;\n}\n.react-datepicker-popper[data-placement^=left] .react-datepicker__triangle {\n  left: 42px;\n  right: auto;\n}\n\n.react-datepicker__header {\n  text-align: center;\n  background-color: #f0f0f0;\n  border-bottom: 1px solid #aeaeae;\n  border-top-left-radius: 0.3rem;\n  padding: 8px 0;\n  position: relative;\n}\n.react-datepicker__header--time {\n  padding-bottom: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n.react-datepicker__header--time:not(.react-datepicker__header--time--only) {\n  border-top-left-radius: 0;\n}\n.react-datepicker__header:not(.react-datepicker__header--has-time-select) {\n  border-top-right-radius: 0.3rem;\n}\n\n.react-datepicker__year-dropdown-container--select,\n.react-datepicker__month-dropdown-container--select,\n.react-datepicker__month-year-dropdown-container--select,\n.react-datepicker__year-dropdown-container--scroll,\n.react-datepicker__month-dropdown-container--scroll,\n.react-datepicker__month-year-dropdown-container--scroll {\n  display: inline-block;\n  margin: 0 15px;\n}\n\n.react-datepicker__current-month,\n.react-datepicker-time__header,\n.react-datepicker-year-header {\n  margin-top: 0;\n  color: #000;\n  font-weight: bold;\n  font-size: 0.944rem;\n}\n\n.react-datepicker-time__header {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.react-datepicker__navigation {\n  align-items: center;\n  background: none;\n  display: flex;\n  justify-content: center;\n  text-align: center;\n  cursor: pointer;\n  position: absolute;\n  top: 2px;\n  padding: 0;\n  border: none;\n  z-index: 1;\n  height: 32px;\n  width: 32px;\n  text-indent: -999em;\n  overflow: hidden;\n}\n.react-datepicker__navigation--previous {\n  left: 2px;\n}\n.react-datepicker__navigation--next {\n  right: 2px;\n}\n.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {\n  right: 85px;\n}\n.react-datepicker__navigation--years {\n  position: relative;\n  top: 0;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.react-datepicker__navigation--years-previous {\n  top: 4px;\n}\n.react-datepicker__navigation--years-upcoming {\n  top: -4px;\n}\n.react-datepicker__navigation:hover *::before {\n  border-color: #a6a6a6;\n}\n\n.react-datepicker__navigation-icon {\n  position: relative;\n  top: -1px;\n  font-size: 20px;\n  width: 0;\n}\n.react-datepicker__navigation-icon--next {\n  left: -2px;\n}\n.react-datepicker__navigation-icon--next::before {\n  transform: rotate(45deg);\n  left: -7px;\n}\n.react-datepicker__navigation-icon--previous {\n  right: -2px;\n}\n.react-datepicker__navigation-icon--previous::before {\n  transform: rotate(225deg);\n  right: -7px;\n}\n\n.react-datepicker__month-container {\n  float: left;\n}\n\n.react-datepicker__year {\n  margin: 0.4rem;\n  text-align: center;\n}\n.react-datepicker__year-wrapper {\n  display: flex;\n  flex-wrap: wrap;\n  max-width: 180px;\n}\n.react-datepicker__year .react-datepicker__year-text {\n  display: inline-block;\n  width: 4rem;\n  margin: 2px;\n}\n\n.react-datepicker__month {\n  margin: 0.4rem;\n  text-align: center;\n}\n.react-datepicker__month .react-datepicker__month-text,\n.react-datepicker__month .react-datepicker__quarter-text {\n  display: inline-block;\n  width: 4rem;\n  margin: 2px;\n}\n\n.react-datepicker__input-time-container {\n  clear: both;\n  width: 100%;\n  float: left;\n  margin: 5px 0 10px 15px;\n  text-align: left;\n}\n.react-datepicker__input-time-container .react-datepicker-time__caption {\n  display: inline-block;\n}\n.react-datepicker__input-time-container .react-datepicker-time__input-container {\n  display: inline-block;\n}\n.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input {\n  display: inline-block;\n  margin-left: 10px;\n}\n.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input input {\n  width: auto;\n}\n.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input input[type=time]::-webkit-inner-spin-button,\n.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input input[type=time]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input input[type=time] {\n  -moz-appearance: textfield;\n}\n.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__delimiter {\n  margin-left: 5px;\n  display: inline-block;\n}\n\n.react-datepicker__time-container {\n  float: right;\n  border-left: 1px solid #aeaeae;\n  width: 85px;\n}\n.react-datepicker__time-container--with-today-button {\n  display: inline;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  position: absolute;\n  right: -87px;\n  top: 0;\n}\n.react-datepicker__time-container .react-datepicker__time {\n  position: relative;\n  background: white;\n  border-bottom-right-radius: 0.3rem;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box {\n  width: 85px;\n  overflow-x: hidden;\n  margin: 0 auto;\n  text-align: center;\n  border-bottom-right-radius: 0.3rem;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {\n  list-style: none;\n  margin: 0;\n  height: calc(195px + (1.7rem / 2));\n  overflow-y: scroll;\n  padding-right: 0;\n  padding-left: 0;\n  width: 100%;\n  box-sizing: content-box;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {\n  height: 30px;\n  padding: 5px 10px;\n  white-space: nowrap;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {\n  cursor: pointer;\n  background-color: #f0f0f0;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {\n  background-color: #216ba5;\n  color: white;\n  font-weight: bold;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected:hover {\n  background-color: #216ba5;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled {\n  color: #ccc;\n}\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled:hover {\n  cursor: default;\n  background-color: transparent;\n}\n\n.react-datepicker__week-number {\n  color: #ccc;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n.react-datepicker__week-number.react-datepicker__week-number--clickable {\n  cursor: pointer;\n}\n.react-datepicker__week-number.react-datepicker__week-number--clickable:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__day-names,\n.react-datepicker__week {\n  white-space: nowrap;\n}\n\n.react-datepicker__day-names {\n  margin-bottom: -8px;\n}\n\n.react-datepicker__day-name,\n.react-datepicker__day,\n.react-datepicker__time-name {\n  color: #000;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__day,\n.react-datepicker__month-text,\n.react-datepicker__quarter-text,\n.react-datepicker__year-text {\n  cursor: pointer;\n}\n.react-datepicker__day:hover,\n.react-datepicker__month-text:hover,\n.react-datepicker__quarter-text:hover,\n.react-datepicker__year-text:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n.react-datepicker__day--today,\n.react-datepicker__month-text--today,\n.react-datepicker__quarter-text--today,\n.react-datepicker__year-text--today {\n  font-weight: bold;\n}\n.react-datepicker__day--highlighted,\n.react-datepicker__month-text--highlighted,\n.react-datepicker__quarter-text--highlighted,\n.react-datepicker__year-text--highlighted {\n  border-radius: 0.3rem;\n  background-color: #3dcc4a;\n  color: #fff;\n}\n.react-datepicker__day--highlighted:hover,\n.react-datepicker__month-text--highlighted:hover,\n.react-datepicker__quarter-text--highlighted:hover,\n.react-datepicker__year-text--highlighted:hover {\n  background-color: #32be3f;\n}\n.react-datepicker__day--highlighted-custom-1,\n.react-datepicker__month-text--highlighted-custom-1,\n.react-datepicker__quarter-text--highlighted-custom-1,\n.react-datepicker__year-text--highlighted-custom-1 {\n  color: magenta;\n}\n.react-datepicker__day--highlighted-custom-2,\n.react-datepicker__month-text--highlighted-custom-2,\n.react-datepicker__quarter-text--highlighted-custom-2,\n.react-datepicker__year-text--highlighted-custom-2 {\n  color: green;\n}\n.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range,\n.react-datepicker__month-text--selected,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__month-text--in-range,\n.react-datepicker__quarter-text--selected,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__quarter-text--in-range,\n.react-datepicker__year-text--selected,\n.react-datepicker__year-text--in-selecting-range,\n.react-datepicker__year-text--in-range {\n  border-radius: 0.3rem;\n  background-color: #216ba5;\n  color: #fff;\n}\n.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover,\n.react-datepicker__month-text--selected:hover,\n.react-datepicker__month-text--in-selecting-range:hover,\n.react-datepicker__month-text--in-range:hover,\n.react-datepicker__quarter-text--selected:hover,\n.react-datepicker__quarter-text--in-selecting-range:hover,\n.react-datepicker__quarter-text--in-range:hover,\n.react-datepicker__year-text--selected:hover,\n.react-datepicker__year-text--in-selecting-range:hover,\n.react-datepicker__year-text--in-range:hover {\n  background-color: #1d5d90;\n}\n.react-datepicker__day--keyboard-selected,\n.react-datepicker__month-text--keyboard-selected,\n.react-datepicker__quarter-text--keyboard-selected,\n.react-datepicker__year-text--keyboard-selected {\n  border-radius: 0.3rem;\n  background-color: #bad9f1;\n  color: rgb(0, 0, 0);\n}\n.react-datepicker__day--keyboard-selected:hover,\n.react-datepicker__month-text--keyboard-selected:hover,\n.react-datepicker__quarter-text--keyboard-selected:hover,\n.react-datepicker__year-text--keyboard-selected:hover {\n  background-color: #1d5d90;\n}\n.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range,\n.react-datepicker__month-text--in-range,\n.react-datepicker__quarter-text--in-range,\n.react-datepicker__year-text--in-range),\n.react-datepicker__month-text--in-selecting-range:not(.react-datepicker__day--in-range,\n.react-datepicker__month-text--in-range,\n.react-datepicker__quarter-text--in-range,\n.react-datepicker__year-text--in-range),\n.react-datepicker__quarter-text--in-selecting-range:not(.react-datepicker__day--in-range,\n.react-datepicker__month-text--in-range,\n.react-datepicker__quarter-text--in-range,\n.react-datepicker__year-text--in-range),\n.react-datepicker__year-text--in-selecting-range:not(.react-datepicker__day--in-range,\n.react-datepicker__month-text--in-range,\n.react-datepicker__quarter-text--in-range,\n.react-datepicker__year-text--in-range) {\n  background-color: rgba(33, 107, 165, 0.5);\n}\n.react-datepicker__month--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range), .react-datepicker__year--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range),\n.react-datepicker__month--selecting-range .react-datepicker__month-text--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range),\n.react-datepicker__year--selecting-range .react-datepicker__month-text--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range),\n.react-datepicker__month--selecting-range .react-datepicker__quarter-text--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range),\n.react-datepicker__year--selecting-range .react-datepicker__quarter-text--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range),\n.react-datepicker__month--selecting-range .react-datepicker__year-text--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range),\n.react-datepicker__year--selecting-range .react-datepicker__year-text--in-range:not(.react-datepicker__day--in-selecting-range,\n.react-datepicker__month-text--in-selecting-range,\n.react-datepicker__quarter-text--in-selecting-range,\n.react-datepicker__year-text--in-selecting-range) {\n  background-color: #f0f0f0;\n  color: #000;\n}\n.react-datepicker__day--disabled,\n.react-datepicker__month-text--disabled,\n.react-datepicker__quarter-text--disabled,\n.react-datepicker__year-text--disabled {\n  cursor: default;\n  color: #ccc;\n}\n.react-datepicker__day--disabled:hover,\n.react-datepicker__month-text--disabled:hover,\n.react-datepicker__quarter-text--disabled:hover,\n.react-datepicker__year-text--disabled:hover {\n  background-color: transparent;\n}\n\n.react-datepicker__input-container {\n  position: relative;\n  display: inline-block;\n  width: 100%;\n}\n.react-datepicker__input-container .react-datepicker__calendar-icon {\n  position: absolute;\n  padding: 0.5rem;\n}\n\n.react-datepicker__view-calendar-icon input {\n  padding: 6px 10px 5px 25px;\n}\n\n.react-datepicker__year-read-view,\n.react-datepicker__month-read-view,\n.react-datepicker__month-year-read-view {\n  border: 1px solid transparent;\n  border-radius: 0.3rem;\n  position: relative;\n}\n.react-datepicker__year-read-view:hover,\n.react-datepicker__month-read-view:hover,\n.react-datepicker__month-year-read-view:hover {\n  cursor: pointer;\n}\n.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__year-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__month-read-view--down-arrow {\n  border-top-color: #b3b3b3;\n}\n.react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  transform: rotate(135deg);\n  right: -16px;\n  top: 0;\n}\n\n.react-datepicker__year-dropdown,\n.react-datepicker__month-dropdown,\n.react-datepicker__month-year-dropdown {\n  background-color: #f0f0f0;\n  position: absolute;\n  width: 50%;\n  left: 25%;\n  top: 30px;\n  z-index: 1;\n  text-align: center;\n  border-radius: 0.3rem;\n  border: 1px solid #aeaeae;\n}\n.react-datepicker__year-dropdown:hover,\n.react-datepicker__month-dropdown:hover,\n.react-datepicker__month-year-dropdown:hover {\n  cursor: pointer;\n}\n.react-datepicker__year-dropdown--scrollable,\n.react-datepicker__month-dropdown--scrollable,\n.react-datepicker__month-year-dropdown--scrollable {\n  height: 150px;\n  overflow-y: scroll;\n}\n\n.react-datepicker__year-option,\n.react-datepicker__month-option,\n.react-datepicker__month-year-option {\n  line-height: 20px;\n  width: 100%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n.react-datepicker__year-option:first-of-type,\n.react-datepicker__month-option:first-of-type,\n.react-datepicker__month-year-option:first-of-type {\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n}\n.react-datepicker__year-option:last-of-type,\n.react-datepicker__month-option:last-of-type,\n.react-datepicker__month-year-option:last-of-type {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  border-bottom-left-radius: 0.3rem;\n  border-bottom-right-radius: 0.3rem;\n}\n.react-datepicker__year-option:hover,\n.react-datepicker__month-option:hover,\n.react-datepicker__month-year-option:hover {\n  background-color: #ccc;\n}\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-upcoming {\n  border-bottom-color: #b3b3b3;\n}\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-previous {\n  border-top-color: #b3b3b3;\n}\n.react-datepicker__year-option--selected,\n.react-datepicker__month-option--selected,\n.react-datepicker__month-year-option--selected {\n  position: absolute;\n  left: 15px;\n}\n\n.react-datepicker__close-icon {\n  cursor: pointer;\n  background-color: transparent;\n  border: 0;\n  outline: 0;\n  padding: 0 6px 0 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100%;\n  display: table-cell;\n  vertical-align: middle;\n}\n.react-datepicker__close-icon::after {\n  cursor: pointer;\n  background-color: #216ba5;\n  color: #fff;\n  border-radius: 50%;\n  height: 16px;\n  width: 16px;\n  padding: 2px;\n  font-size: 12px;\n  line-height: 1;\n  text-align: center;\n  display: table-cell;\n  vertical-align: middle;\n  content: \"×\";\n}\n\n.react-datepicker__today-button {\n  background: #f0f0f0;\n  border-top: 1px solid #aeaeae;\n  cursor: pointer;\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0;\n  clear: left;\n}\n\n.react-datepicker__portal {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.8);\n  left: 0;\n  top: 0;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  z-index: 2147483647;\n}\n.react-datepicker__portal .react-datepicker__day-name,\n.react-datepicker__portal .react-datepicker__day,\n.react-datepicker__portal .react-datepicker__time-name {\n  width: 3rem;\n  line-height: 3rem;\n}\n@media (max-width: 400px), (max-height: 550px) {\n  .react-datepicker__portal .react-datepicker__day-name,\n  .react-datepicker__portal .react-datepicker__day,\n  .react-datepicker__portal .react-datepicker__time-name {\n    width: 2rem;\n    line-height: 2rem;\n  }\n}\n.react-datepicker__portal .react-datepicker__current-month,\n.react-datepicker__portal .react-datepicker-time__header {\n  font-size: 1.44rem;\n}\n\n.react-datepicker__children-container {\n  width: 13.8rem;\n  margin: 0.4rem;\n  padding-right: 0.2rem;\n  padding-left: 0.2rem;\n  height: auto;\n}\n\n.react-datepicker__aria-live {\n  position: absolute;\n  -webkit-clip-path: circle(0);\n          clip-path: circle(0);\n  border: 0;\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  width: 1px;\n  white-space: nowrap;\n}\n\n.react-datepicker__calendar-icon {\n  width: 1em;\n  height: 1em;\n  vertical-align: -0.125em;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/reactjs-popup/dist/index.css":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/reactjs-popup/dist/index.css ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".popup-content{margin:auto;background:#fff;width:50%;padding:5px;border:1px solid #d7d7d7}[role=tooltip].popup-content{width:200px;box-shadow:0 0 3px rgba(0,0,0,.16);border-radius:5px}.popup-overlay{background:rgba(0,0,0,.5)}[data-popup=tooltip].popup-overlay{background:transparent}.popup-arrow{filter:drop-shadow(0 -3px 3px rgba(0,0,0,.16));color:#fff;stroke-width:2px;stroke:#d7d7d7;stroke-dasharray:30px;stroke-dashoffset:-54px;left:0;right:0;top:0;bottom:0}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15490,6 +15699,655 @@ var useIsomorphicLayoutEffect = typeof window !== 'undefined' && window.document
 
 /***/ }),
 
+/***/ "./node_modules/reactjs-popup/dist/reactjs-popup.esm.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/reactjs-popup/dist/reactjs-popup.esm.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Popup: () => (/* binding */ Popup),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var useOnEscape = function useOnEscape(handler, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener(event) {
+      // check if key is an Escape
+      if (event.key === 'Escape') handler(event);
+    };
+
+    document.addEventListener('keyup', listener);
+    return function () {
+      if (!active) return;
+      document.removeEventListener('keyup', listener);
+    };
+  }, [handler, active]);
+};
+var useRepositionOnResize = function useRepositionOnResize(handler, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener() {
+      handler();
+    };
+
+    window.addEventListener('resize', listener);
+    return function () {
+      if (!active) return;
+      window.removeEventListener('resize', listener);
+    };
+  }, [handler, active]);
+};
+var useOnClickOutside = function useOnClickOutside(ref, handler, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener(event) {
+      // Do nothing if clicking ref's element or descendent elements
+      var refs = Array.isArray(ref) ? ref : [ref];
+      var contains = false;
+      refs.forEach(function (r) {
+        if (!r.current || r.current.contains(event.target)) {
+          contains = true;
+          return;
+        }
+      });
+      event.stopPropagation();
+      if (!contains) handler(event);
+    };
+
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
+    return function () {
+      if (!active) return;
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
+    };
+  }, [ref, handler, active]);
+}; // Make sure that user is not able TAB out of the Modal content on Open
+
+var useTabbing = function useTabbing(contentRef, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener(event) {
+      // check if key is an Tab
+      if (event.keyCode === 9) {
+        var _contentRef$current;
+
+        var els = contentRef === null || contentRef === void 0 ? void 0 : (_contentRef$current = contentRef.current) === null || _contentRef$current === void 0 ? void 0 : _contentRef$current.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+        var focusableEls = Array.prototype.slice.call(els);
+
+        if (focusableEls.length === 1) {
+          event.preventDefault();
+          return;
+        }
+
+        var firstFocusableEl = focusableEls[0];
+        var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstFocusableEl) {
+          event.preventDefault();
+          lastFocusableEl.focus();
+        } else if (document.activeElement === lastFocusableEl) {
+          event.preventDefault();
+          firstFocusableEl.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', listener);
+    return function () {
+      if (!active) return;
+      document.removeEventListener('keydown', listener);
+    };
+  }, [contentRef, active]);
+};
+var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_0__.useEffect;
+
+var Style = {
+  popupContent: {
+    tooltip: {
+      position: 'absolute',
+      zIndex: 999
+    },
+    modal: {
+      position: 'relative',
+      margin: 'auto'
+    }
+  },
+  popupArrow: {
+    height: '8px',
+    width: '16px',
+    position: 'absolute',
+    background: 'transparent',
+    color: '#FFF',
+    zIndex: -1
+  },
+  overlay: {
+    tooltip: {
+      position: 'fixed',
+      top: '0',
+      bottom: '0',
+      left: '0',
+      right: '0',
+      zIndex: 999
+    },
+    modal: {
+      position: 'fixed',
+      top: '0',
+      bottom: '0',
+      left: '0',
+      right: '0',
+      display: 'flex',
+      zIndex: 999
+    }
+  }
+};
+
+var POSITION_TYPES = ['top left', 'top center', 'top right', 'right top', 'right center', 'right bottom', 'bottom left', 'bottom center', 'bottom right', 'left top', 'left center', 'left bottom'];
+
+var getCoordinatesForPosition = function getCoordinatesForPosition(triggerBounding, ContentBounding, position, //PopupPosition | PopupPosition[],
+arrow, _ref) {
+  var offsetX = _ref.offsetX,
+      offsetY = _ref.offsetY;
+  var margin = arrow ? 8 : 0;
+  var args = position.split(' '); // the step N 1 : center the popup content => ok
+
+  var CenterTop = triggerBounding.top + triggerBounding.height / 2;
+  var CenterLeft = triggerBounding.left + triggerBounding.width / 2;
+  var height = ContentBounding.height,
+      width = ContentBounding.width;
+  var top = CenterTop - height / 2;
+  var left = CenterLeft - width / 2;
+  var transform = '';
+  var arrowTop = '0%';
+  var arrowLeft = '0%'; // the  step N 2 : => ok
+
+  switch (args[0]) {
+    case 'top':
+      top -= height / 2 + triggerBounding.height / 2 + margin;
+      transform = "rotate(180deg)  translateX(50%)";
+      arrowTop = '100%';
+      arrowLeft = '50%';
+      break;
+
+    case 'bottom':
+      top += height / 2 + triggerBounding.height / 2 + margin;
+      transform = "rotate(0deg) translateY(-100%) translateX(-50%)";
+      arrowLeft = '50%';
+      break;
+
+    case 'left':
+      left -= width / 2 + triggerBounding.width / 2 + margin;
+      transform = " rotate(90deg)  translateY(50%) translateX(-25%)";
+      arrowLeft = '100%';
+      arrowTop = '50%';
+      break;
+
+    case 'right':
+      left += width / 2 + triggerBounding.width / 2 + margin;
+      transform = "rotate(-90deg)  translateY(-150%) translateX(25%)";
+      arrowTop = '50%';
+      break;
+  }
+
+  switch (args[1]) {
+    case 'top':
+      top = triggerBounding.top;
+      arrowTop = triggerBounding.height / 2 + "px";
+      break;
+
+    case 'bottom':
+      top = triggerBounding.top - height + triggerBounding.height;
+      arrowTop = height - triggerBounding.height / 2 + "px";
+      break;
+
+    case 'left':
+      left = triggerBounding.left;
+      arrowLeft = triggerBounding.width / 2 + "px";
+      break;
+
+    case 'right':
+      left = triggerBounding.left - width + triggerBounding.width;
+      arrowLeft = width - triggerBounding.width / 2 + "px";
+      break;
+  }
+
+  top = args[0] === 'top' ? top - offsetY : top + offsetY;
+  left = args[0] === 'left' ? left - offsetX : left + offsetX;
+  return {
+    top: top,
+    left: left,
+    transform: transform,
+    arrowLeft: arrowLeft,
+    arrowTop: arrowTop
+  };
+};
+
+var getTooltipBoundary = function getTooltipBoundary(keepTooltipInside) {
+  // add viewport
+  var boundingBox = {
+    top: 0,
+    left: 0,
+
+    /* eslint-disable-next-line no-undef */
+    width: window.innerWidth,
+
+    /* eslint-disable-next-line no-undef */
+    height: window.innerHeight
+  };
+
+  if (typeof keepTooltipInside === 'string') {
+    /* eslint-disable-next-line no-undef */
+    var selector = document.querySelector(keepTooltipInside);
+
+    if (true) {
+      if (selector === null) throw new Error(keepTooltipInside + " selector does not exist : keepTooltipInside must be a valid html selector 'class' or 'Id'  or a boolean value");
+    }
+
+    if (selector !== null) boundingBox = selector.getBoundingClientRect();
+  }
+
+  return boundingBox;
+};
+
+var calculatePosition = function calculatePosition(triggerBounding, ContentBounding, position, arrow, _ref2, keepTooltipInside) {
+  var offsetX = _ref2.offsetX,
+      offsetY = _ref2.offsetY;
+  var bestCoords = {
+    arrowLeft: '0%',
+    arrowTop: '0%',
+    left: 0,
+    top: 0,
+    transform: 'rotate(135deg)'
+  };
+  var i = 0;
+  var wrapperBox = getTooltipBoundary(keepTooltipInside);
+  var positions = Array.isArray(position) ? position : [position]; // keepTooltipInside would be activated if the  keepTooltipInside exist or the position is Array
+
+  if (keepTooltipInside || Array.isArray(position)) positions = [].concat(positions, POSITION_TYPES); // add viewPort for WarpperBox
+  // wrapperBox.top = wrapperBox.top + window.scrollY;
+  // wrapperBox.left = wrapperBox.left + window.scrollX;
+
+  while (i < positions.length) {
+    bestCoords = getCoordinatesForPosition(triggerBounding, ContentBounding, positions[i], arrow, {
+      offsetX: offsetX,
+      offsetY: offsetY
+    });
+    var contentBox = {
+      top: bestCoords.top,
+      left: bestCoords.left,
+      width: ContentBounding.width,
+      height: ContentBounding.height
+    };
+
+    if (contentBox.top <= wrapperBox.top || contentBox.left <= wrapperBox.left || contentBox.top + contentBox.height >= wrapperBox.top + wrapperBox.height || contentBox.left + contentBox.width >= wrapperBox.left + wrapperBox.width) {
+      i++;
+    } else {
+      break;
+    }
+  }
+
+  return bestCoords;
+};
+
+var popupIdCounter = 0;
+
+var getRootPopup = function getRootPopup() {
+  var PopupRoot = document.getElementById('popup-root');
+
+  if (PopupRoot === null) {
+    PopupRoot = document.createElement('div');
+    PopupRoot.setAttribute('id', 'popup-root');
+    document.body.appendChild(PopupRoot);
+  }
+
+  return PopupRoot;
+};
+
+var Popup = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (_ref, ref) {
+  var _ref$trigger = _ref.trigger,
+      trigger = _ref$trigger === void 0 ? null : _ref$trigger,
+      _ref$onOpen = _ref.onOpen,
+      onOpen = _ref$onOpen === void 0 ? function () {} : _ref$onOpen,
+      _ref$onClose = _ref.onClose,
+      onClose = _ref$onClose === void 0 ? function () {} : _ref$onClose,
+      _ref$defaultOpen = _ref.defaultOpen,
+      defaultOpen = _ref$defaultOpen === void 0 ? false : _ref$defaultOpen,
+      _ref$open = _ref.open,
+      open = _ref$open === void 0 ? undefined : _ref$open,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+      _ref$nested = _ref.nested,
+      nested = _ref$nested === void 0 ? false : _ref$nested,
+      _ref$closeOnDocumentC = _ref.closeOnDocumentClick,
+      closeOnDocumentClick = _ref$closeOnDocumentC === void 0 ? true : _ref$closeOnDocumentC,
+      _ref$repositionOnResi = _ref.repositionOnResize,
+      repositionOnResize = _ref$repositionOnResi === void 0 ? true : _ref$repositionOnResi,
+      _ref$closeOnEscape = _ref.closeOnEscape,
+      closeOnEscape = _ref$closeOnEscape === void 0 ? true : _ref$closeOnEscape,
+      _ref$on = _ref.on,
+      on = _ref$on === void 0 ? ['click'] : _ref$on,
+      _ref$contentStyle = _ref.contentStyle,
+      contentStyle = _ref$contentStyle === void 0 ? {} : _ref$contentStyle,
+      _ref$arrowStyle = _ref.arrowStyle,
+      arrowStyle = _ref$arrowStyle === void 0 ? {} : _ref$arrowStyle,
+      _ref$overlayStyle = _ref.overlayStyle,
+      overlayStyle = _ref$overlayStyle === void 0 ? {} : _ref$overlayStyle,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? '' : _ref$className,
+      _ref$position = _ref.position,
+      position = _ref$position === void 0 ? 'bottom center' : _ref$position,
+      _ref$modal = _ref.modal,
+      modal = _ref$modal === void 0 ? false : _ref$modal,
+      _ref$lockScroll = _ref.lockScroll,
+      lockScroll = _ref$lockScroll === void 0 ? false : _ref$lockScroll,
+      _ref$arrow = _ref.arrow,
+      arrow = _ref$arrow === void 0 ? true : _ref$arrow,
+      _ref$offsetX = _ref.offsetX,
+      offsetX = _ref$offsetX === void 0 ? 0 : _ref$offsetX,
+      _ref$offsetY = _ref.offsetY,
+      offsetY = _ref$offsetY === void 0 ? 0 : _ref$offsetY,
+      _ref$mouseEnterDelay = _ref.mouseEnterDelay,
+      mouseEnterDelay = _ref$mouseEnterDelay === void 0 ? 100 : _ref$mouseEnterDelay,
+      _ref$mouseLeaveDelay = _ref.mouseLeaveDelay,
+      mouseLeaveDelay = _ref$mouseLeaveDelay === void 0 ? 100 : _ref$mouseLeaveDelay,
+      _ref$keepTooltipInsid = _ref.keepTooltipInside,
+      keepTooltipInside = _ref$keepTooltipInsid === void 0 ? false : _ref$keepTooltipInsid,
+      children = _ref.children;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(open || defaultOpen),
+      isOpen = _useState[0],
+      setIsOpen = _useState[1];
+
+  var triggerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var contentRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var arrowRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var focusedElBeforeOpen = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var popupId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)("popup-" + ++popupIdCounter);
+  var isModal = modal ? true : !trigger;
+  var timeOut = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+  useIsomorphicLayoutEffect(function () {
+    if (isOpen) {
+      focusedElBeforeOpen.current = document.activeElement;
+      setPosition();
+      focusContentOnOpen(); // for accessibility
+
+      lockScrolll();
+    } else {
+      resetScroll();
+    }
+
+    return function () {
+      clearTimeout(timeOut.current);
+    };
+  }, [isOpen]); // for uncontrolled popup we need to sync isOpen with open prop
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (typeof open === 'boolean') {
+      if (open) openPopup();else closePopup();
+    }
+  }, [open, disabled]);
+
+  var openPopup = function openPopup(event) {
+    if (isOpen || disabled) return;
+    setIsOpen(true);
+    setTimeout(function () {
+      return onOpen(event);
+    }, 0);
+  };
+
+  var closePopup = function closePopup(event) {
+    var _focusedElBeforeOpen$;
+
+    if (!isOpen || disabled) return;
+    setIsOpen(false);
+    if (isModal) (_focusedElBeforeOpen$ = focusedElBeforeOpen.current) === null || _focusedElBeforeOpen$ === void 0 ? void 0 : _focusedElBeforeOpen$.focus();
+    setTimeout(function () {
+      return onClose(event);
+    }, 0);
+  };
+
+  var togglePopup = function togglePopup(event) {
+    event === null || event === void 0 ? void 0 : event.stopPropagation();
+    if (!isOpen) openPopup(event);else closePopup(event);
+  };
+
+  var onMouseEnter = function onMouseEnter(event) {
+    clearTimeout(timeOut.current);
+    timeOut.current = setTimeout(function () {
+      return openPopup(event);
+    }, mouseEnterDelay);
+  };
+
+  var onContextMenu = function onContextMenu(event) {
+    event === null || event === void 0 ? void 0 : event.preventDefault();
+    togglePopup();
+  };
+
+  var onMouseLeave = function onMouseLeave(event) {
+    clearTimeout(timeOut.current);
+    timeOut.current = setTimeout(function () {
+      return closePopup(event);
+    }, mouseLeaveDelay);
+  };
+
+  var lockScrolll = function lockScrolll() {
+    if (isModal && lockScroll) document.getElementsByTagName('body')[0].style.overflow = 'hidden'; // migrate to document.body
+  };
+
+  var resetScroll = function resetScroll() {
+    if (isModal && lockScroll) document.getElementsByTagName('body')[0].style.overflow = 'auto';
+  };
+
+  var focusContentOnOpen = function focusContentOnOpen() {
+    var _contentRef$current;
+
+    var focusableEls = contentRef === null || contentRef === void 0 ? void 0 : (_contentRef$current = contentRef.current) === null || _contentRef$current === void 0 ? void 0 : _contentRef$current.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+    var firstEl = Array.prototype.slice.call(focusableEls)[0];
+    firstEl === null || firstEl === void 0 ? void 0 : firstEl.focus();
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(ref, function () {
+    return {
+      open: function open() {
+        openPopup();
+      },
+      close: function close() {
+        closePopup();
+      },
+      toggle: function toggle() {
+        togglePopup();
+      }
+    };
+  }); // set Position
+
+  var setPosition = function setPosition() {
+    if (isModal || !isOpen) return;
+    if (!(triggerRef === null || triggerRef === void 0 ? void 0 : triggerRef.current) || !(triggerRef === null || triggerRef === void 0 ? void 0 : triggerRef.current) || !(contentRef === null || contentRef === void 0 ? void 0 : contentRef.current)) return; /// show error as one of ref is undefined
+
+    var trigger = triggerRef.current.getBoundingClientRect();
+    var content = contentRef.current.getBoundingClientRect();
+    var cords = calculatePosition(trigger, content, position, arrow, {
+      offsetX: offsetX,
+      offsetY: offsetY
+    }, keepTooltipInside);
+    contentRef.current.style.top = cords.top + window.scrollY + "px";
+    contentRef.current.style.left = cords.left + window.scrollX + "px";
+
+    if (arrow && !!arrowRef.current) {
+      var _arrowStyle$top, _arrowStyle$left;
+
+      arrowRef.current.style.transform = cords.transform;
+      arrowRef.current.style.setProperty('-ms-transform', cords.transform);
+      arrowRef.current.style.setProperty('-webkit-transform', cords.transform);
+      arrowRef.current.style.top = ((_arrowStyle$top = arrowStyle.top) === null || _arrowStyle$top === void 0 ? void 0 : _arrowStyle$top.toString()) || cords.arrowTop;
+      arrowRef.current.style.left = ((_arrowStyle$left = arrowStyle.left) === null || _arrowStyle$left === void 0 ? void 0 : _arrowStyle$left.toString()) || cords.arrowLeft;
+    }
+  }; // hooks
+
+
+  useOnEscape(closePopup, closeOnEscape); // can be optimized if we disabled for hover
+
+  useTabbing(contentRef, isOpen && isModal);
+  useRepositionOnResize(setPosition, repositionOnResize);
+  useOnClickOutside(!!trigger ? [contentRef, triggerRef] : [contentRef], closePopup, closeOnDocumentClick && !nested); // we need to add a ne
+  // render the trigger element and add events
+
+  var renderTrigger = function renderTrigger() {
+    var triggerProps = {
+      key: 'T',
+      ref: triggerRef,
+      'aria-describedby': popupId.current
+    };
+    var onAsArray = Array.isArray(on) ? on : [on];
+
+    for (var i = 0, len = onAsArray.length; i < len; i++) {
+      switch (onAsArray[i]) {
+        case 'click':
+          triggerProps.onClick = togglePopup;
+          break;
+
+        case 'right-click':
+          triggerProps.onContextMenu = onContextMenu;
+          break;
+
+        case 'hover':
+          triggerProps.onMouseEnter = onMouseEnter;
+          triggerProps.onMouseLeave = onMouseLeave;
+          break;
+
+        case 'focus':
+          triggerProps.onFocus = onMouseEnter;
+          triggerProps.onBlur = onMouseLeave;
+          break;
+      }
+    }
+
+    if (typeof trigger === 'function') {
+      var comp = trigger(isOpen);
+      return !!trigger && react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(comp, triggerProps);
+    }
+
+    return !!trigger && react__WEBPACK_IMPORTED_MODULE_0___default().cloneElement(trigger, triggerProps);
+  };
+
+  var addWarperAction = function addWarperAction() {
+    var popupContentStyle = isModal ? Style.popupContent.modal : Style.popupContent.tooltip;
+    var childrenElementProps = {
+      className: "popup-content " + (className !== '' ? className.split(' ').map(function (c) {
+        return c + "-content";
+      }).join(' ') : ''),
+      style: _extends({}, popupContentStyle, contentStyle, {
+        pointerEvents: 'auto'
+      }),
+      ref: contentRef,
+      onClick: function onClick(e) {
+        e.stopPropagation();
+      }
+    };
+
+    if (!modal && on.indexOf('hover') >= 0) {
+      childrenElementProps.onMouseEnter = onMouseEnter;
+      childrenElementProps.onMouseLeave = onMouseLeave;
+    }
+
+    return childrenElementProps;
+  };
+
+  var renderContent = function renderContent() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", Object.assign({}, addWarperAction(), {
+      key: "C",
+      role: isModal ? 'dialog' : 'tooltip',
+      id: popupId.current
+    }), arrow && !isModal && react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      ref: arrowRef,
+      style: Style.popupArrow
+    }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+      "data-testid": "arrow",
+      className: "popup-arrow " + (className !== '' ? className.split(' ').map(function (c) {
+        return c + "-arrow";
+      }).join(' ') : ''),
+      viewBox: "0 0 32 16",
+      style: _extends({
+        position: 'absolute'
+      }, arrowStyle)
+    }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+      d: "M16 0l16 16H0z",
+      fill: "currentcolor"
+    }))), children && typeof children === 'function' ? children(closePopup, isOpen) : children);
+  };
+
+  var overlay = !(on.indexOf('hover') >= 0);
+  var ovStyle = isModal ? Style.overlay.modal : Style.overlay.tooltip;
+  var content = [overlay && react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    key: "O",
+    "data-testid": "overlay",
+    "data-popup": isModal ? 'modal' : 'tooltip',
+    className: "popup-overlay " + (className !== '' ? className.split(' ').map(function (c) {
+      return c + "-overlay";
+    }).join(' ') : ''),
+    style: _extends({}, ovStyle, overlayStyle, {
+      pointerEvents: closeOnDocumentClick && nested || isModal ? 'auto' : 'none'
+    }),
+    onClick: closeOnDocumentClick && nested ? closePopup : undefined,
+    tabIndex: -1
+  }, isModal && renderContent()), !isModal && renderContent()];
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, renderTrigger(), isOpen && react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal(content, getRootPopup()));
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popup);
+
+//# sourceMappingURL=reactjs-popup.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/react-datepicker/dist/react-datepicker.css":
 /*!*****************************************************************!*\
   !*** ./node_modules/react-datepicker/dist/react-datepicker.css ***!
@@ -15517,6 +16375,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_react_datepicker_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/reactjs-popup/dist/index.css":
+/*!***************************************************!*\
+  !*** ./node_modules/reactjs-popup/dist/index.css ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./index.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/reactjs-popup/dist/index.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_index_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
