@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '../Layout';
 import Title from '../../components/Title';
-import { format } from 'date-fns';
 
 const DayPass = ({ user, date }) => {
   const styles = {
