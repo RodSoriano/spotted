@@ -13,9 +13,6 @@ const DayPass = ({ user, date }) => {
     userDate: 'text-gray-600 mt-2',
   };
 
-  const reservation = new Date(date);
-  const formattedDate = format(reservation, 'd MMMM, yyyy');
-
   return (
     <>
       <Title h1='Great to See You Again!' />
@@ -32,7 +29,7 @@ const DayPass = ({ user, date }) => {
           {user.first_name} {user.last_name}
         </h2>
         <p className={styles.userTotal}>Total: <strong>${user.fee}.00</strong></p>
-        <p className={styles.userDate}>Date: <strong>{formattedDate}</strong></p>
+        <p className={styles.userDate}>Date: <strong>{date}</strong></p>
       </div>
     </>
   );
