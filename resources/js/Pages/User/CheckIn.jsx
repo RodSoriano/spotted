@@ -61,7 +61,7 @@ const CheckIn = () => {
           Don't have a reservation yet?
           <Link className={styles.reservationLink} href='/reservation'>
             {' '}
-            Book a space!{' '}
+            Book a spot!{' '}
           </Link>
         </p>
       </div>
