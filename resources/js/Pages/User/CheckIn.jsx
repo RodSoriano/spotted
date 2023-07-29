@@ -42,7 +42,7 @@ const CheckIn = () => {
   return (
     <>
       <Title
-        h1={'Welcome to the Park'}
+        h1={'Please Check In'}
         paragraph={'Enter the email you used to make your reservation.'}
       />
 
