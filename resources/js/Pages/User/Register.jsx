@@ -6,14 +6,17 @@ import Title from '../../components/Title';
 import Label from '../../components/Label';
 import FormInput from '../../components/FormInput';
 import CustomCalendar from '../../components/CustomCalendar';
+import TermsAndConditions from '../Popups/TermsAndConditions';
 import Button from '../../components/Button';
 import Alert from '../../components/Alert';
+import { Link } from '@inertiajs/inertia-react';
 
 import { charactersOnly } from '../../utils/formatters';
+import { calendar } from '../../utils/svgIcons';
 
 const Register = () => {
-  const [errors, setErrors] = useState([]);
   const [status, setStatus] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -22,7 +25,7 @@ const Register = () => {
   const [emergencyName, setEmergencyName] = useState('');
   const [emergencyPhone, setEmergencyPhone] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [isAccepted, setIsAccepted] = useState(false);
+  const [accept, setAccept] = useState(false);
 
   const handleFirstName = (e) => {
     const inputValue = charactersOnly(e);
@@ -38,8 +41,8 @@ const Register = () => {
     setEmail(e.target.value);
   };
 
-  const handleDateChange = (selectedDate) => {
-    setDateOfBirth(selectedDate);
+  const handleDateChange = (e) => {
+    setDateOfBirth(e);
   };
 
   const handleEmergencyName = (e) => {
@@ -51,30 +54,21 @@ const Register = () => {
     setEmergencyPhone(e.target.value);
   };
 
-  // Needs refactoring, photo upload.
   const handlePhotoSelect = (e) => {
     const photoInput = e.target;
     const photo = photoInput.files[0];
 
     if (photo) {
       setSelectedPhoto(photo);
-
-      // We can also read the photo as a data URL or perform other operations
-      // const reader = new FileReader();
-      // reader.onload = function (e) {
-      //   const dataURL = e.target.result;
-      //   console.log('Data URL:', dataURL);
-      // };
-      // reader.readAsDataURL(photo);
     }
   };
 
-  const handleTermsAndConditions = () => {
-    if (confirm('Terms and Conditions.')) {
-      setIsAccepted(true);
-    } else {
-      setIsAccepted(false);
-    }
+  const handleAccept = () => {
+    setAccept(true);
+  };
+
+  const handleDecline = () => {
+    setAccept(false);
   };
 
   const handleSubmit = (e) => {
@@ -125,11 +119,24 @@ const Register = () => {
           inputValue={email}
           onChangeEvent={handleEmail}
         />
-        <CustomCalendar
-          inputLabel='Date of Birth'
-          selectedDate={dateOfBirth}
-          onDateChange={handleDateChange}
-        />
+
+        <div className='flex'>
+          <div className='flex pr-2'>
+            <CustomCalendar
+              inputLabel='Date of Birth'
+              selectedDate={dateOfBirth}
+              onDateChange={handleDateChange}
+              min={new Date('1950-12-31')}
+              max={new Date('2019-01-01')}
+            />
+          </div>
+          <div className='flex items-center mx-4'>
+            <svg {...calendar}>
+              <path {...calendar.path} />
+            </svg>
+          </div>
+        </div>
+
         <FormInput
           inputLabel='Emergency Contact Name'
           inputValue={emergencyName}
@@ -142,37 +149,29 @@ const Register = () => {
         />
 
         <Label labelName='Upload Your Picture' />
-        <div className='mt-4 mb-4'>
+        <div className='mt-4 mb-4 flex items-center justify-center'>
           <input type='file' name='photo' accept='image/*' onChange={handlePhotoSelect} />
-          {/*selectedPhoto && (
-            <div>
-              We can add more info over here from the photo
-              <h3>Selected Photo Information:</h3>
-              <p>Name: {selectedPhoto.name}</p>
-              <p>Size: {selectedPhoto.size} bytes</p>
-              <p>Type: {selectedPhoto.type}</p>
-            </div>
-          ) */}
         </div>
 
-        {!isAccepted &&
-          <a
-            className='bg-purple-500 text-white py-2 px-4 rounded-full text-lg mb-4 transform transition-transform hover:scale-105'
-            href="#"
-            onClick={handleTermsAndConditions}
-          >
-            Terms and Conditions
-          </a>
-        }
+        <div className='flex items-center justify-center'>
+          <TermsAndConditions onAccept={handleAccept} onDecline={handleDecline} />
+        </div>
 
-        {status && (<Alert message={errors} />)}
+        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
-        {isAccepted &&
+        {accept &&
           <div className='flex items-center justify-center'>
             <Button type={'submit'} message={'Join'} />
           </div>
         }
       </form>
+
+      <div className='flex items-center'>
+        <p>
+          Already have an account?
+          <Link className='text-blue-500 underline' href='/reservation'> Book a spot! </Link>
+        </p>
+      </div>
     </>
   );
 };

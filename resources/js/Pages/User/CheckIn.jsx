@@ -9,6 +9,11 @@ import Alert from '../../components/Alert';
 import Button from '../../components/Button';
 
 const CheckIn = () => {
+  const styles = {
+    container: 'flex items-center justify-center',
+    reservationLink: 'text-blue-500 underline',
+  };
+
   const [status, setStatus] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -30,26 +35,23 @@ const CheckIn = () => {
         setStatus(422);
         setErrors(Object.entries(errors));
         setTimeout(() => setStatus(false), 5000);
-      }
+      },
     });
   };
 
   return (
     <>
       <Title
-        h1={'Welcome to the Park'}
+        h1={'Please Check In'}
         paragraph={'Enter the email you used to make your reservation.'}
       />
 
       <form onSubmit={handleSubmit}>
-        <FormInput
-          inputValue={email}
-          onChangeEvent={(e) => handleEmail(e)}
-        />
+        <FormInput inputValue={email} onChangeEvent={handleEmail} />
 
-        {status && <Alert message={errors} />}
+        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
-        <div className='flex items-center justify-center'>
+        <div className={styles.container}>
           <Button type={'submit'} message={'Check In'} />
         </div>
       </form>
@@ -57,7 +59,10 @@ const CheckIn = () => {
       <div className='flex items-center'>
         <p>
           Don't have a reservation yet?
-          <Link className='text-blue-500 underline' href='/reservation'> Book a space! </Link>
+          <Link className={styles.reservationLink} href='/reservation'>
+            {' '}
+            Book a spot!{' '}
+          </Link>
         </p>
       </div>
     </>

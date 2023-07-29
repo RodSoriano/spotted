@@ -14,8 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Layout */ "./resources/js/Pages/Layout.jsx");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Alert */ "./resources/js/components/Alert.js");
+/* harmony import */ var _components_CustomLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/CustomLink */ "./resources/js/components/CustomLink.jsx");
+/* harmony import */ var _components_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Alert */ "./resources/js/components/Alert.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -29,18 +29,17 @@ var Index = function Index(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Alert__WEBPACK_IMPORTED_MODULE_3__["default"], {
       message: message
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-      href: "/register",
-      className: "bg-blue-500 text-white px-8 py-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105",
-      children: "Register"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-      href: "/reservation",
-      className: "bg-purple-500 text-white px-8 py-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105",
-      children: "Book a space"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-      href: "/check-in",
-      className: "bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105",
-      children: "Check-in"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_CustomLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      hrefProp: '/register',
+      message: 'Register'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_CustomLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      color: 'bg-purple-500',
+      hrefProp: '/reservation',
+      message: 'Book a Space'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_CustomLink__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      color: 'bg-green-500',
+      hrefProp: '/check-in',
+      message: 'Check In'
     })]
   });
 };
@@ -76,10 +75,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var Layout = function Layout(_ref) {
   var children = _ref.children;
+  var styles = {
+    main: 'relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8',
+    content: 'bg-white rounded-lg p-8 flex flex-col items-center justify-center'
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("main", {
-    className: "relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8",
+    className: styles.main,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "bg-white rounded-lg p-8 flex flex-col items-center justify-center",
+      className: styles.content,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
           children: "Booking"
@@ -92,10 +95,10 @@ var Layout = function Layout(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Alert.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Alert.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Alert.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Alert.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -115,10 +118,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Alert = function Alert(_ref) {
-  var message = _ref.message;
+  var message = _ref.message,
+    containerColor = _ref.containerColor,
+    borderColor = _ref.borderColor,
+    textColor = _ref.textColor;
   var styles = {
-    container: 'alert bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 m-4 rounded-lg',
-    closeButton: 'closebtn float-right cursor-pointer'
+    container: "alert ".concat(containerColor, " border-l-4 ").concat(borderColor, " ").concat(textColor, " p-4 m-4 rounded-lg"),
+    closeButton: 'closebtn float-right cursor-pointer mx-4'
   };
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -135,7 +141,7 @@ var Alert = function Alert(_ref) {
   var hideAlert = function hideAlert() {
     setIsHidden(true);
   };
-  return isHidden ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  return !isHidden && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: styles.container,
     role: "alert",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -145,7 +151,52 @@ var Alert = function Alert(_ref) {
     }), selectMessage(message)]
   });
 };
+Alert.defaultProps = {
+  message: '',
+  containerColor: 'bg-blue-100',
+  borderColor: 'border-blue-500',
+  textColor: 'text-blue-700'
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Alert);
+
+/***/ }),
+
+/***/ "./resources/js/components/CustomLink.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/CustomLink.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var CustomLink = function CustomLink(_ref) {
+  var color = _ref.color,
+    hrefProp = _ref.hrefProp,
+    message = _ref.message;
+  var styles = {
+    link: "".concat(color, " text-white px-8 py-4 rounded-full font-bold text-lg mb-4 transform transition-transform hover:scale-105")
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    href: hrefProp,
+    className: styles.link,
+    children: message
+  });
+};
+CustomLink.defaultProps = {
+  color: 'bg-blue-500',
+  hrefProp: '/',
+  message: ''
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomLink);
 
 /***/ })
 

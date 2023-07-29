@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\CheckIn;
+use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -40,7 +40,7 @@ class CheckReservationRequest extends FormRequest
         if ($user === null) {
             $isValid = false;
         } else {
-            $reservation = CheckIn::where('user_id', $user->id)
+            $reservation = Reservation::where('user_id', $user->id)
                 ->latest()
                 ->pluck('is_done')
                 ->first();

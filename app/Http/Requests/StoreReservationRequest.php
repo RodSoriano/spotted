@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreCheckInRequest extends FormRequest
+class StoreReservationRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,7 +17,7 @@ class StoreCheckInRequest extends FormRequest
     {
         return [
             'email' => 'This email is not associated with a registered account.',
-            'date' => 'The date must be within this month and in the future',
+            'date' => 'The date must be in the future and within the current month',
         ];
     }
 

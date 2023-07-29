@@ -40,8 +40,8 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function checkIns(): HasMany
+    public function reservations(): HasMany
     {
-        return $this->hasMany(CheckIn::class);
+        return $this->hasMany(Reservation::class);
     }
 }

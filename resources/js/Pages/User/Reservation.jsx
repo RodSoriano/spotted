@@ -9,9 +9,11 @@ import Button from '../../components/Button';
 import Alert from '../../components/Alert';
 import { Link } from '@inertiajs/inertia-react';
 
+import { calendar } from '../../utils/svgIcons';
+
 const Reservation = () => {
-  const [errors, setErrors] = useState([]);
   const [status, setStatus] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
@@ -43,21 +45,33 @@ const Reservation = () => {
 
   return (
     <>
-      <Title h1={'Book a Space'} />
+      <Title h1={'Create a Reservation'} />
 
-      <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
+      <form className='max-w-sm mx-auto' onSubmit={handleSubmit}>
         <FormInput
           inputLabel={'Enter your email account'}
           inputValue={email}
           onChangeEvent={(e) => handleEmail(e)}
         />
-        <CustomCalendar
-          inputLabel={'Book a date'}
-          selectedDate={date}
-          onDateChange={handleDateChange}
-        />
 
-        {status && <Alert message={errors} />}
+        <div className='flex'>
+          <div className='flex pr-2'>
+            <CustomCalendar
+              inputLabel={'Select a date'}
+              selectedDate={date}
+              onDateChange={handleDateChange}
+              min={new Date('2023-07-01')}
+              max={new Date('2023-08-31')}
+            />
+          </div>
+          <div className='flex items-center mx-4'>
+            <svg {...calendar}>
+              <path {...calendar.path} />
+            </svg>
+          </div>
+        </div>
+
+        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
         <div className='flex items-center justify-center'>
           <Button type={'submit'} message={'Make Reservation'} />

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const Alert = ({ message }) => {
+const Alert = ({ message, containerColor, borderColor, textColor }) => {
   const styles = {
-    container: 'alert bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 m-4 rounded-lg',
-    closeButton: 'closebtn float-right cursor-pointer',
+    container: `alert ${containerColor} border-l-4 ${borderColor} ${textColor} p-4 m-4 rounded-lg`,
+    closeButton: 'closebtn float-right cursor-pointer mx-4',
   };
 
   const [isHidden, setIsHidden] = useState(false);
@@ -20,14 +20,21 @@ const Alert = ({ message }) => {
     setIsHidden(true);
   };
 
-  return isHidden ? null : (
-    <div className={styles.container} role="alert">
+  return !isHidden && (
+    <div className={styles.container} role='alert'>
       <span className={styles.closeButton} onClick={hideAlert}>
         &times;
       </span>
       {selectMessage(message)}
     </div>
   );
+};
+
+Alert.defaultProps = {
+  message: '',
+  containerColor: 'bg-blue-100',
+  borderColor: 'border-blue-500',
+  textColor: 'text-blue-700',
 };
 
 export default Alert;
