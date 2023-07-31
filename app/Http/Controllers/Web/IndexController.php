@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     use LocaleTextPageSelector;
 
-    public function show(): Response
+    public function index(): Response
     {
         return Inertia::render('Index', [
             'localeText' => $this->indexText(),

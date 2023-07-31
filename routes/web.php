@@ -7,7 +7,7 @@ use App\Http\Controllers\Web\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['locale'])->group(function () {
-    Route::get('/', [IndexController::class, 'show']);
+    Route::get('/', [IndexController::class, 'index']);
 
     Route::get('register', [RegisterController::class, 'toForm']);
     Route::post('register', [RegisterController::class, 'store']);
