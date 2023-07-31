@@ -25,13 +25,13 @@ class UserCreator
 
             return [
                 'status' => true,
-                'message' => 'Your user has been created.',
+                'message' => __('messages.redirect.register.success'),
                 'data' => $createdUser,
             ];
         } catch (Error $e) {
             return [
                 'status' => false,
-                'message' => 'Sorry, something went wrong, try again.',
+                'message' => __('messages.redirect.register.error'),
                 'data' => $e->getMessage(),
             ];
         }
