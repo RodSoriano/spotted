@@ -14,7 +14,7 @@ import { Link } from '@inertiajs/inertia-react';
 import { charactersOnly } from '../../utils/formatters';
 import { calendar } from '../../utils/svgIcons';
 
-const Register = () => {
+const Register = ({ localeText }) => {
   const [status, setStatus] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -99,23 +99,23 @@ const Register = () => {
   return (
     <>
       <Title
-        h1={'Welcome to the Park'}
-        paragraph={'Please enter your information to register.'}
+        h1={localeText.welcome}
+        paragraph={localeText.statement}
       />
 
       <form className='max-w-sm mx-auto' onSubmit={handleSubmit}>
         <FormInput
-          inputLabel='First Name'
+          inputLabel={localeText.name}
           inputValue={firstName}
           onChangeEvent={handleFirstName}
         />
         <FormInput
-          inputLabel='Last Name'
+          inputLabel={localeText.lastName}
           inputValue={lastName}
           onChangeEvent={handleLastName}
         />
         <FormInput
-          inputLabel='Email'
+          inputLabel={localeText.email}
           inputValue={email}
           onChangeEvent={handleEmail}
         />
@@ -123,7 +123,7 @@ const Register = () => {
         <div className='flex'>
           <div className='flex pr-2'>
             <CustomCalendar
-              inputLabel='Date of Birth'
+              inputLabel={localeText.birthDate}
               selectedDate={dateOfBirth}
               onDateChange={handleDateChange}
               min={new Date('1950-12-31')}
@@ -138,17 +138,17 @@ const Register = () => {
         </div>
 
         <FormInput
-          inputLabel='Emergency Contact Name'
+          inputLabel={localeText.contactName}
           inputValue={emergencyName}
           onChangeEvent={handleEmergencyName}
         />
         <FormInput
-          inputLabel='Emergency Contact Phone'
+          inputLabel={localeText.contactNumber}
           inputValue={emergencyPhone}
           onChangeEvent={handleEmergencyPhone}
         />
 
-        <Label labelName='Upload Your Picture' />
+        <Label labelName={localeText.picture} />
         <div className='mt-4 mb-4 flex items-center justify-center'>
           <input type='file' name='photo' accept='image/*' onChange={handlePhotoSelect} />
         </div>
@@ -161,19 +161,23 @@ const Register = () => {
 
         {accept &&
           <div className='flex items-center justify-center'>
-            <Button type={'submit'} message={'Join'} />
+            <Button type={'submit'} message={localeText.submit} />
           </div>
         }
       </form>
 
       <div className='flex items-center'>
         <p>
-          Already have an account?
-          <Link className='text-blue-500 underline' href='/reservation'> Book a spot! </Link>
+          {localeText.footer}
+          <Link className='text-blue-500 underline' href='/reservation'> {localeText.click} </Link>
         </p>
       </div>
     </>
   );
+};
+
+Register.defaultProps = {
+  localeText: '',
 };
 
 export default Register;
