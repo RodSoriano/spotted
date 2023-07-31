@@ -11,7 +11,7 @@ import { Link } from '@inertiajs/inertia-react';
 
 import { calendar } from '../../utils/svgIcons';
 
-const Reservation = () => {
+const Reservation = ({ localeText }) => {
   const [status, setStatus] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -45,11 +45,11 @@ const Reservation = () => {
 
   return (
     <>
-      <Title h1={'Create a Reservation'} />
+      <Title h1={localeText.title} />
 
       <form className='max-w-sm mx-auto' onSubmit={handleSubmit}>
         <FormInput
-          inputLabel={'Enter your email account'}
+          inputLabel={localeText.email}
           inputValue={email}
           onChangeEvent={(e) => handleEmail(e)}
         />
@@ -57,7 +57,7 @@ const Reservation = () => {
         <div className='flex'>
           <div className='flex pr-2'>
             <CustomCalendar
-              inputLabel={'Select a date'}
+              inputLabel={localeText.date}
               selectedDate={date}
               onDateChange={handleDateChange}
               min={new Date('2023-07-01')}
@@ -74,18 +74,22 @@ const Reservation = () => {
         {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
         <div className='flex items-center justify-center'>
-          <Button type={'submit'} message={'Make Reservation'} />
+          <Button type={'submit'} message={localeText.submit} />
         </div>
       </form>
 
       <div className='flex items-center'>
         <p>
-          Don't have an account yet?
-          <Link className='text-blue-500 underline' href='/register'> Register! </Link>
+          {localeText.footer}
+          <Link className='text-blue-500 underline' href='/register'> {localeText.click} </Link>
         </p>
       </div>
     </>
   );
+};
+
+Reservation.defaultProps = {
+  localeText: '',
 };
 
 export default Reservation;
