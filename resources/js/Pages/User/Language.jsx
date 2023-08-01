@@ -4,7 +4,7 @@ import { Inertia } from '@inertiajs/inertia';
 import Button from '../../components/Button';
 import Title from '../../components/Title';
 
-const Language = () => {
+const Language = ({ localeText }) => {
   const [language, setLanguage] = useState('es');
 
   let textPosition = language === 'es' ? 'justify-end' : 'justify-left';
@@ -29,6 +29,7 @@ const Language = () => {
 
   return (
     <>
+      <Title h1={localeText.title} />
       <label className='relative inline-flex items-center cursor-pointer'>
         <input type='checkbox' value={language} className='sr-only peer' onChange={handleLanguageChange} />
         <div className={styles.toggle}>
@@ -36,9 +37,13 @@ const Language = () => {
         </div>
       </label>
 
-      <Button onClick={saveLanguage} message={'save'} />
+      <Button onClick={saveLanguage} message={localeText.button} />
     </>
   );
+};
+
+Language.defaultProps = {
+  localeText: [],
 };
 
 export default Language;
