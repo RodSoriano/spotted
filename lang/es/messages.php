@@ -11,8 +11,8 @@ return [
     'titles' => [
         'welcome' => 'Bienvenido al Parque',
         'reservation' => 'Crea una Reservación',
-        'daypass' => '¡Qué bueno verte de nuevo!',
-        'checkIn' => 'Registra tu entrada',
+        'daypass' => '¡Qué Bueno Verte de Nuevo!',
+        'checkIn' => 'Registra tu Entrada',
         'language' => 'Selecciona un Lenguaje',
     ],
 
