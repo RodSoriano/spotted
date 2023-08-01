@@ -71,8 +71,29 @@ return [
 
     'redirect' => [
         'register' => [
-            'success' => 'Your user has been created.',
+            'success' => 'Tu usuario ha sido creado.',
             'error' => 'Lo siento, algo salió mal. Inténtalo de nuevo.',
+        ],
+    ],
+
+    'validation' => [
+        'checkReservation' => [
+            'email' => 'No hay ninguna reservación asociada a este correo electrónico',
+        ],
+
+        'storeReservationRequest' => [
+            'email' => 'Este correo electrónico no está asociado con una cuenta registrada',
+            'date' => 'Selecciona una fecha válida dentro de este mes',
+        ],
+
+        'storeUserRequest' => [
+            'first_name' => 'Ingresa un nombre válido',
+            'last_name' => 'Ingresa un apellido válido',
+            'email' => 'Ingresa una dirección de correo electrónico válida',
+            'date_of_birth' => 'Ingresa una fecha de nacimiento válida',
+            'emergency_contact_name' => 'Ingresa un nombre válido',
+            'emergency_contact_number' => 'Ingresa un número de teléfono válido',
+            'photo' => 'Selecciona una fotografía tuya',
         ],
     ],
 ];

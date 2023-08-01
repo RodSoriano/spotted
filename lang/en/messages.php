@@ -48,7 +48,7 @@ return [
         'book' => 'Book a Space',
         'check' => 'Check In',
         'join' => 'Join',
-        'reservation' => 'Make Reservation',
+        'reservation' => 'Make a Reservation',
         'language' => 'Save',
     ],
 
@@ -73,6 +73,27 @@ return [
         'register' => [
             'success' => 'Your user has been created.',
             'error' => 'Sorry, something went wrong, try again.',
+        ],
+    ],
+
+    'validation' => [
+        'checkReservation' => [
+            'email' => 'There is no reservation associated with this email',
+        ],
+
+        'storeReservationRequest' => [
+            'email' => 'This email is not associated with a registered account',
+            'date' => 'Select a valid date within this month',
+        ],
+
+        'storeUserRequest' => [
+            'first_name' => 'Enter a valid name',
+            'last_name' => 'Enter a valid last name',
+            'email' => 'Enter a valid email address',
+            'date_of_birth' => 'Enter a valid date of birth',
+            'emergency_contact_name' => 'Enter a valid name',
+            'emergency_contact_number' =>  'Enter a valid phone number',
+            'photo' => 'Select a photograph of yourself',
         ],
     ],
 ];
