@@ -66,6 +66,7 @@ trait LocaleTextPageSelector
     protected function languageText(): array
     {
         return [
+            'title' => __('messages.titles.language'),
             'button' => __('messages.buttons.language'),
         ];
     }
