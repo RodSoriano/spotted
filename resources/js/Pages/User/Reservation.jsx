@@ -18,6 +18,15 @@ const Reservation = ({ localeText }) => {
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
 
+  const startDate = new Date('2023-07-31');
+
+  const addDays = (date, days) => {
+    let result = new Date(date);
+    result.setDate(result.getDate() + days);
+
+    return result;
+  };
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -60,8 +69,17 @@ const Reservation = ({ localeText }) => {
               inputLabel={localeText.date}
               selectedDate={date}
               onDateChange={handleDateChange}
-              min={new Date('2023-07-01')}
-              max={new Date('2023-08-31')}
+              includeDays={[
+                startDate,
+                addDays(startDate, 6),
+                addDays(startDate, 7),
+                addDays(startDate, 13),
+                addDays(startDate, 14),
+                addDays(startDate, 20),
+                addDays(startDate, 21),
+                addDays(startDate, 27),
+                addDays(startDate, 28)
+              ]}
             />
           </div>
           <div className='flex items-center mx-4'>
