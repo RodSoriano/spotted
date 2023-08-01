@@ -12,6 +12,19 @@ class StoreUserRequest extends FormRequest
         return true;
     }
 
+    public function messages(): array
+    {
+        return [
+            'first_name' => __('messages.validation.storeUserRequest.first_name'),
+            'last_name' => __('messages.validation.storeUserRequest.last_name'),
+            'email' => __('messages.validation.storeUserRequest.email'),
+            'date_of_birth' => __('messages.validation.storeUserRequest.date_of_birth'),
+            'emergency_contact_name' => __('messages.validation.storeUserRequest.emergency_contact_name'),
+            'emergency_contact_number' => __('messages.validation.storeUserRequest.emergency_contact_number'),
+            'photo' => __('messages.validation.storeUserRequest.emergency_contact_number'),
+        ];
+    }
+
     public function rules(): array
     {
         return [
