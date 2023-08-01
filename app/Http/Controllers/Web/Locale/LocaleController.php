@@ -12,9 +12,13 @@ use Inertia\Response;
 
 class LocaleController extends Controller
 {
+    use LocaleTextPageSelector;
+
     public function show(): Response
     {
-        return Inertia::render('User/Language');
+        return Inertia::render('User/Language', [
+            'localeText' => $this->languageText(),
+        ]);
     }
 
     public function change(Request $request): Redirector|RedirectResponse
