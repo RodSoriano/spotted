@@ -13,6 +13,7 @@ return [
         'reservation' => 'Crea una Reservación',
         'daypass' => '¡Qué bueno verte de nuevo!',
         'checkIn' => 'Registra tu entrada',
+        'language' => 'Selecciona un Lenguaje',
     ],
 
     'statements' => [
@@ -62,7 +63,7 @@ return [
             'picture' => 'Sube tu Foto',
         ],
 
-        'book' => [
+        'reservation' => [
             'email' => 'Ingresa el Correo de tu Cuenta',
             'date' => 'Selecciona una Fecha',
         ],

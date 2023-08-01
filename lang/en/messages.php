@@ -13,6 +13,7 @@ return [
         'reservation' => 'Create a Reservation',
         'daypass' => 'Great to See You Again!',
         'checkIn' => 'Register Your Entrance',
+        'language' => 'Select a Language',
     ],
 
     'statements' => [
