@@ -41319,6 +41319,14 @@ var map = {
 		"./resources/js/Pages/User/DayPass.jsx",
 		"resources_js_Pages_User_DayPass_jsx"
 	],
+	"./User/Language": [
+		"./resources/js/Pages/User/Language.jsx",
+		"resources_js_Pages_User_Language_jsx"
+	],
+	"./User/Language.jsx": [
+		"./resources/js/Pages/User/Language.jsx",
+		"resources_js_Pages_User_Language_jsx"
+	],
 	"./User/Register": [
 		"./resources/js/Pages/User/Register.jsx",
 		"resources_js_Pages_User_Register_jsx"
@@ -41484,7 +41492,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Index_jsx":1,"resources_js_Pages_Layout_jsx":1,"resources_js_Pages_Popups_TermsAndConditions_jsx":1,"resources_js_Pages_User_CheckIn_jsx":1,"resources_js_Pages_User_DayPass_jsx":1,"resources_js_Pages_User_Register_jsx":1,"resources_js_Pages_User_Reservation_jsx":1}[chunkId]) return "js/app/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Index_jsx":1,"resources_js_Pages_Layout_jsx":1,"resources_js_Pages_Popups_TermsAndConditions_jsx":1,"resources_js_Pages_User_CheckIn_jsx":1,"resources_js_Pages_User_DayPass_jsx":1,"resources_js_Pages_User_Language_jsx":1,"resources_js_Pages_User_Register_jsx":1,"resources_js_Pages_User_Reservation_jsx":1}[chunkId]) return "js/app/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
