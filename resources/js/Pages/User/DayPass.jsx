@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../Layout';
 import Title from '../../components/Title';
 
-const DayPass = ({ user, date }) => {
+const DayPass = ({ user, date, localeText }) => {
   const styles = {
     container: 'flex items-center justify-center mb-6 w-24 h-24 bg-gray-300 rounded-full',
     userProfile: 'w-full h-full rounded-full object-cover',
@@ -14,7 +14,7 @@ const DayPass = ({ user, date }) => {
 
   return (
     <>
-      <Title h1='Great to See You Again!' />
+      <Title h1={localeText.title} />
 
       <div className={styles.container}>
         <img
@@ -32,6 +32,10 @@ const DayPass = ({ user, date }) => {
       </div>
     </>
   );
+};
+
+DayPass.defaultProps = {
+  localeText: '',
 };
 
 export default DayPass;
