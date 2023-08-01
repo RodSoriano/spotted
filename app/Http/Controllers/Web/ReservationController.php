@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Web\Locale\LocaleTextPageSelector;
 use App\Http\Requests\CheckReservationRequest;
 use App\Http\Requests\StoreReservationRequest;
 use App\Services\Reservation\DayPassService;
@@ -14,9 +15,13 @@ use Inertia\Response;
 
 class ReservationController extends Controller
 {
+    use LocaleTextPageSelector;
+
     public function toForm(): Response
     {
-        return Inertia::render('User/Reservation');
+        return Inertia::render('User/Reservation', [
+            'localeText' => $this->reservationText(),
+        ]);
     }
 
     public function store(StoreReservationRequest $request, ReservationCreator $reservationService): Response
@@ -29,7 +34,9 @@ class ReservationController extends Controller
 
     public function toCheckIn(): Response
     {
-        return Inertia::render('User/CheckIn');
+        return Inertia::render('User/CheckIn', [
+            'localeText' => $this->checkInText(),
+        ]);
     }
 
     public function checkReservation(CheckReservationRequest $request): RedirectResponse
@@ -51,6 +58,7 @@ class ReservationController extends Controller
         return Inertia::render('User/DayPass', [
             'user' => $response['user'],
             'date' => $response['date'],
+            'localeText' => $this->dayPassText(),
         ]);
     }
 }
