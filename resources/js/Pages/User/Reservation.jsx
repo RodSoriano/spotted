@@ -11,12 +11,21 @@ import { Link } from '@inertiajs/inertia-react';
 
 import { calendar } from '../../utils/svgIcons';
 
-const Reservation = () => {
+const Reservation = ({ localeText }) => {
   const [status, setStatus] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
+
+  const startDate = new Date('2023-07-31');
+
+  const addDays = (date, days) => {
+    let result = new Date(date);
+    result.setDate(result.getDate() + days);
+
+    return result;
+  };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -45,11 +54,11 @@ const Reservation = () => {
 
   return (
     <>
-      <Title h1={'Create a Reservation'} />
+      <Title h1={localeText.title} />
 
       <form className='max-w-sm mx-auto' onSubmit={handleSubmit}>
         <FormInput
-          inputLabel={'Enter your email account'}
+          inputLabel={localeText.email}
           inputValue={email}
           onChangeEvent={(e) => handleEmail(e)}
         />
@@ -57,11 +66,20 @@ const Reservation = () => {
         <div className='flex'>
           <div className='flex pr-2'>
             <CustomCalendar
-              inputLabel={'Select a date'}
+              inputLabel={localeText.date}
               selectedDate={date}
               onDateChange={handleDateChange}
-              min={new Date('2023-07-01')}
-              max={new Date('2023-08-31')}
+              includeDays={[
+                startDate,
+                addDays(startDate, 6),
+                addDays(startDate, 7),
+                addDays(startDate, 13),
+                addDays(startDate, 14),
+                addDays(startDate, 20),
+                addDays(startDate, 21),
+                addDays(startDate, 27),
+                addDays(startDate, 28)
+              ]}
             />
           </div>
           <div className='flex items-center mx-4'>
@@ -74,18 +92,22 @@ const Reservation = () => {
         {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
         <div className='flex items-center justify-center'>
-          <Button type={'submit'} message={'Make Reservation'} />
+          <Button type={'submit'} message={localeText.submit} />
         </div>
       </form>
 
       <div className='flex items-center'>
         <p>
-          Don't have an account yet?
-          <Link className='text-blue-500 underline' href='/register'> Register! </Link>
+          {localeText.footer}
+          <Link className='text-blue-500 underline' href='/register'> {localeText.click} </Link>
         </p>
       </div>
     </>
   );
+};
+
+Reservation.defaultProps = {
+  localeText: '',
 };
 
 export default Reservation;

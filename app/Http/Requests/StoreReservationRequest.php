@@ -16,8 +16,8 @@ class StoreReservationRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email' => 'This email is not associated with a registered account.',
-            'date' => 'The date must be in the future and within the current month',
+            'email' => __('messages.validation.storeReservationRequest.email'),
+            'date' => __('messages.validation.storeReservationRequest.date'),
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Services\Reservation;
 
+use App\Http\Controllers\Web\Locale\LocaleTextPageSelector;
 use App\Models\Reservation;
 use App\Models\User;
 use App\Services\ServiceHelper;
@@ -11,6 +12,7 @@ use Inertia\Response;
 
 class ReservationCreator
 {
+    use LocaleTextPageSelector;
     use ServiceHelper;
 
     public function createOrFail(array $reservation): Response
@@ -41,7 +43,7 @@ class ReservationCreator
         Reservation::create($reservation);
 
         return Inertia::render('Index', [
-            'message' => 'Your reservation has been created.',
+            'message' => __('messages.alerts.reservation.success'),
         ]);
     }
 
@@ -82,7 +84,7 @@ class ReservationCreator
         $collection = Reservation::where('date', $date)->get();
         $count = count($collection);
 
-        if ($count < 5) {
+        if ($count < env('RESERVATION_LIMIT')) {
             return false;
         }
 
@@ -95,10 +97,11 @@ class ReservationCreator
             return Inertia::render('User/DayPass', [
                 'user' => $data['user'],
                 'date' => $data['date'],
+                'localeText' => $this->dayPassText(),
             ]);
         } else {
             return Inertia::render('Index', [
-                'message' => 'Sorry, no spots are left, try another date.',
+                'message' => __('messages.alerts.reservation.error'),
             ]);
         }
     }

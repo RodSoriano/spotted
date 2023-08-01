@@ -12,6 +12,19 @@ class StoreUserRequest extends FormRequest
         return true;
     }
 
+    public function messages(): array
+    {
+        return [
+            'first_name' => __('messages.validation.storeUserRequest.first_name'),
+            'last_name' => __('messages.validation.storeUserRequest.last_name'),
+            'email' => __('messages.validation.storeUserRequest.email'),
+            'date_of_birth' => __('messages.validation.storeUserRequest.date_of_birth'),
+            'emergency_contact_name' => __('messages.validation.storeUserRequest.emergency_contact_name'),
+            'emergency_contact_number' => __('messages.validation.storeUserRequest.emergency_contact_number'),
+            'photo' => __('messages.validation.storeUserRequest.emergency_contact_number'),
+        ];
+    }
+
     public function rules(): array
     {
         return [
@@ -28,10 +41,10 @@ class StoreUserRequest extends FormRequest
     private function invalidDate(): bool
     {
         $inputDate = strtotime($this->date_of_birth);
-        $currentYear = date('y');
+        $currentYear = date('Y');
         $isValid = true;
 
-        [$inputMonth, $inputYear] = explode('/', date('m/y', $inputDate), 2);
+        [$inputMonth, $inputYear] = explode('/', date('m/Y', $inputDate), 2);
 
         if ($inputMonth > 12) {
             $isValid = false;

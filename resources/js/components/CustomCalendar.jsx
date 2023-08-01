@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Label from './Label';
 
-const CustomCalendar = ({ inputLabel, selectedDate, onDateChange, min, max }) => {
+const CustomCalendar = ({ inputLabel, selectedDate, onDateChange, min, max, includeDays, showMonth, showYear }) => {
   const styles = {
     container: 'flex flex-col items-start mb-4',
     datePickerContainer: 'flex justify-center',
@@ -17,15 +17,17 @@ const CustomCalendar = ({ inputLabel, selectedDate, onDateChange, min, max }) =>
       <div className={styles.datePickerContainer}>
         <DatePicker
           className={styles.datePickerInput}
-          popperClassName='z-50'
           calendarClassName={styles.datePickerCalendar}
+          popperClassName='z-50'
+          popperPlacement='top-end'
           dropdownMode='select'
-          showMonthDropdown
-          showYearDropdown
-          selected={selectedDate}
-          onChange={onDateChange}
+          showMonthDropdown={showMonth}
+          showYearDropdown={showYear}
           minDate={min}
           maxDate={max}
+          includeDates={includeDays}
+          selected={selectedDate}
+          onChange={onDateChange}
         />
       </div>
     </div>
@@ -36,7 +38,10 @@ CustomCalendar.defaultProps = {
   selectedDate: new Date(),
   onDateChange: () => { },
   min: new Date('1950/01/01'),
-  max: new Date(),
+  max: false,
+  includeDays: false,
+  showMonth: false,
+  showYear: false,
 };
 
 export default CustomCalendar;

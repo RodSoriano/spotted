@@ -8,7 +8,7 @@ import { Link } from '@inertiajs/inertia-react';
 import Alert from '../../components/Alert';
 import Button from '../../components/Button';
 
-const CheckIn = () => {
+const CheckIn = ({ localeText }) => {
   const styles = {
     container: 'flex items-center justify-center',
     reservationLink: 'text-blue-500 underline',
@@ -42,8 +42,8 @@ const CheckIn = () => {
   return (
     <>
       <Title
-        h1={'Please Check In'}
-        paragraph={'Enter the email you used to make your reservation.'}
+        h1={localeText.title}
+        paragraph={localeText.statement}
       />
 
       <form onSubmit={handleSubmit}>
@@ -52,21 +52,25 @@ const CheckIn = () => {
         {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
         <div className={styles.container}>
-          <Button type={'submit'} message={'Check In'} />
+          <Button type={'submit'} message={localeText.submit} />
         </div>
       </form>
 
       <div className='flex items-center'>
         <p>
-          Don't have a reservation yet?
+          {localeText.footer}
           <Link className={styles.reservationLink} href='/reservation'>
             {' '}
-            Book a spot!{' '}
+            {localeText.click}{' '}
           </Link>
         </p>
       </div>
     </>
   );
+};
+
+CheckIn.defaultProps = {
+  localeText: '',
 };
 
 export default CheckIn;
