@@ -17,7 +17,7 @@ class CheckReservationRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email' => 'There is no reservation associated with this email',
+            'email' => __('messages.validation.checkReservation.email'),
         ];
     }
 
