@@ -38,7 +38,7 @@ CustomCalendar.defaultProps = {
   selectedDate: new Date(),
   onDateChange: () => { },
   min: new Date('1950/01/01'),
-  max: new Date(),
+  max: false,
   includeDays: false,
   showMonth: false,
   showYear: false,
