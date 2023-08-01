@@ -3,34 +3,42 @@
 return [
     'alerts' => [
         'reservation' => [
-            'success' => 'Su reservación ha sido creada.',
+            'success' => 'Reservación creada.',
             'error' => 'Lo sentimos, no hay lugares disponibles, intente otra fecha.',
         ],
     ],
 
     'titles' => [
         'welcome' => 'Bienvenido al Parque',
-        'book' => 'Crea una Reservación',
+        'reservation' => 'Crea una Reservación',
         'daypass' => '¡Qué bueno verte de nuevo!',
         'checkIn' => 'Registra tu entrada',
     ],
 
     'statements' => [
         'register' => 'Por favor, ingresa tu información para registrarte.',
-        'checkIn' => 'Ingresa el correo electrónico que utilizaste para hacer tu reserva.',
+        'checkIn' => 'Ingresa el correo electrónico que utilizaste para hacer tu reservación.',
     ],
 
     'footers' => [
-        'language' => '¿Quieres cambiar de idioma?',
-        'click' => 'Haz clic aquí!',
-        'account' => '¿Ya tienes una cuenta?',
-        'book' => 'Reserva un lugar!',
-        'accountYet' => '¿Todavía no tienes una cuenta?',
-        'register' => 'Registrarse!',
+        'index' => [
+            'language' => '¿Quieres cambiar de idioma?',
+            'toLanguage' => 'Haz clic aquí!',
+        ],
+
+        'register' => [
+            'reservation' => '¿Ya tienes una cuenta?',
+            'toReservation' => 'Reserva un lugar!',
+        ],
+
+        'reservation' => [
+            'register' => '¿Todavía no tienes una cuenta?',
+            'toRegister' => 'Registrarse!',
+        ],
 
         'checkIn' => [
-            'footer' => '¿Todavía no tienes una reservación?',
-            'toBook' => '¡Reserva tu lugar!',
+            'reservation' => '¿Todavía no tienes una reservación?',
+            'toReservation' => 'Reserva tu lugar!',
         ],
     ],
 
@@ -44,13 +52,15 @@ return [
     ],
 
     'labels' => [
-        'firstName' => 'Nombre',
-        'lastName' => 'Apellido',
-        'email' => 'Correo Electrónico',
-        'birthDate' => 'Fecha de Nacimiento',
-        'contactName' => 'Nombre de Contacto de Emergencia',
-        'contactNumber' => 'Teléfono de Contacto de Emergencia',
-        'picture' => 'Sube tu Foto',
+        'register' => [
+            'firstName' => 'Nombre',
+            'lastName' => 'Apellido',
+            'email' => 'Correo Electrónico',
+            'birthDate' => 'Fecha de Nacimiento',
+            'contactName' => 'Nombre de Contacto de Emergencia',
+            'contactNumber' => 'Teléfono de Contacto de Emergencia',
+            'picture' => 'Sube tu Foto',
+        ],
 
         'book' => [
             'email' => 'Ingresa el Correo de tu Cuenta',

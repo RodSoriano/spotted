@@ -10,7 +10,7 @@ return [
 
     'titles' => [
         'welcome' => 'Welcome to the Park',
-        'book' => 'Create a Reservation',
+        'reservation' => 'Create a Reservation',
         'daypass' => 'Great to See You Again!',
         'checkIn' => 'Register Your Entrance',
     ],
@@ -21,16 +21,24 @@ return [
     ],
 
     'footers' => [
-        'language' => 'Want to switch languages?',
-        'click' => 'Click Here!',
-        'account' => 'Already have an account?',
-        'book' => 'Book a spot!',
-        'accountYet' => 'Don\'t have an account yet?',
-        'register' => 'Register!',
+        'index' => [
+            'language' => 'Want to switch languages?',
+            'toLanguage' => 'Click Here!',
+        ],
+
+        'register' => [
+            'reservation' => 'Already have an account?',
+            'toReservation' => 'Book a spot!',
+        ],
+
+        'reservation' => [
+            'register' => 'Don\'t have an account yet?',
+            'toRegister' => 'Register!',
+        ],
 
         'checkIn' => [
-            'footer' => 'Don\'t have a reservation yet?',
-            'toBook' => 'Book a spot!',
+            'reservation' => 'Don\'t have a reservation yet?',
+            'toReservation' => 'Book a spot!',
         ],
     ],
 
@@ -44,15 +52,17 @@ return [
     ],
 
     'labels' => [
-        'firstName' => 'First Name',
-        'lastName' => 'Last Name',
-        'email' => 'Email Address',
-        'birthDate' => 'Date of Birth',
-        'contactName' => 'Emergency Contact Name',
-        'contactNumber' => 'Emergency Contact Phone',
-        'picture' => 'Upload Your Picture',
+        'register' => [
+            'firstName' => 'First Name',
+            'lastName' => 'Last Name',
+            'email' => 'Email Address',
+            'birthDate' => 'Date of Birth',
+            'contactName' => 'Emergency Contact Name',
+            'contactNumber' => 'Emergency Contact Phone',
+            'picture' => 'Upload Your Picture',
+        ],
 
-        'book' => [
+        'reservation' => [
             'email' => 'Enter your email account',
             'date' => 'Pick a Date',
         ],
