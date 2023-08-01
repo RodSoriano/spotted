@@ -128,6 +128,8 @@ const Register = ({ localeText }) => {
               onDateChange={handleDateChange}
               min={new Date('1950-12-31')}
               max={new Date('2019-01-01')}
+              showMonth={true}
+              showYear={true}
             />
           </div>
           <div className='flex items-center mx-4'>
@@ -177,7 +179,7 @@ const Register = ({ localeText }) => {
 };
 
 Register.defaultProps = {
-  localeText: '',
+  localeText: [],
 };
 
 export default Register;
