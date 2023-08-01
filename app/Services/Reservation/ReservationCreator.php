@@ -2,6 +2,7 @@
 
 namespace App\Services\Reservation;
 
+use App\Http\Controllers\Web\Locale\LocaleTextPageSelector;
 use App\Models\Reservation;
 use App\Models\User;
 use App\Services\ServiceHelper;
@@ -11,6 +12,7 @@ use Inertia\Response;
 
 class ReservationCreator
 {
+    use LocaleTextPageSelector;
     use ServiceHelper;
 
     public function createOrFail(array $reservation): Response
@@ -95,7 +97,7 @@ class ReservationCreator
             return Inertia::render('User/DayPass', [
                 'user' => $data['user'],
                 'date' => $data['date'],
-                'title' => __('messages.titles.daypass'),
+                'localeText' => $this->dayPassText(),
             ]);
         } else {
             return Inertia::render('Index', [
