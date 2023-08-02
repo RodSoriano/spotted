@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Popup from 'reactjs-popup';
+import FlashCard from '../../components/FlashCard';
 import Button from '../../components/Button';
 
 import 'reactjs-popup/dist/index.css';
@@ -11,6 +12,12 @@ const TermsAndConditions = ({ onAccept, onDecline }) => {
     heading: 'text-2xl font-bold mb-4',
     content: 'text-lg mb-4',
     buttonsContainer: 'flex justify-center',
+  };
+
+  const [accepted, setAccepted] = useState(false);
+
+  const handleAcceptedAll = (accept) => {
+    setAccepted(accept);
   };
 
   const handleDecline = () => {
@@ -33,18 +40,17 @@ const TermsAndConditions = ({ onAccept, onDecline }) => {
           <div className={styles.box}>
             <h2 className={styles.heading}>Terms and Conditions</h2>
             <div className={styles.content}>
-              {/* terms and conditions */}
-              By using this website, you agree to the terms and conditions.
+              {<FlashCard onLastCard={handleAcceptedAll} />}
             </div>
             <div className={styles.buttonsContainer}>
               <Button onClick={() => {
                 handleDecline();
                 close();
               }} message='Decline' color='bg-gray-600' />
-              <Button onClick={() => {
+              {accepted && <Button onClick={() => {
                 handleAccept();
                 close();
-              }} message='Accept' />
+              }} message='Continue' />}
             </div>
           </div>
         </div>
