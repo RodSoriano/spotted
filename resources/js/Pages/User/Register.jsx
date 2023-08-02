@@ -156,7 +156,7 @@ const Register = ({ localeText }) => {
         </div>
 
         <div className='flex items-center justify-center'>
-          <TermsAndConditions onAccept={handleAccept} onDecline={handleDecline} />
+          <TermsAndConditions onAccept={handleAccept} onDecline={handleDecline} localeText={localeText.termsAndCo} />
         </div>
 
         {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
