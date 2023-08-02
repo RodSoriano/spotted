@@ -155,9 +155,11 @@ const Register = ({ localeText }) => {
           <input type='file' name='photo' accept='image/*' onChange={handlePhotoSelect} />
         </div>
 
-        <div className='flex items-center justify-center'>
-          <TermsAndConditions onAccept={handleAccept} onDecline={handleDecline} />
-        </div>
+        {!accept &&
+          <div className='flex items-center justify-center'>
+            <TermsAndConditions onAccept={handleAccept} onDecline={handleDecline} localeText={localeText.termsAndCo} />
+          </div>
+        }
 
         {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
 
