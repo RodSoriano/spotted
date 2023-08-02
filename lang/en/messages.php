@@ -50,6 +50,7 @@ return [
         'join' => 'Join',
         'reservation' => 'Make a Reservation',
         'language' => 'Save',
+        'accept' => 'Accept',
     ],
 
     'labels' => [
@@ -131,6 +132,11 @@ return [
             'rule_8' => 'Children under the age of 18 must be accompanied and supervised at all times by a responsible adult.',
             'rule_9' => 'Smoking and consumption of alcoholic beverages are strictly prohibited in the climbing areas.',
             'rule_10' => '<PARK> is not responsible for any loss or damage to personal belongings.',
+        ],
+
+        'buttons' => [
+            'show' => 'Terms and Conditions',
+            'decline' => 'Decline',
         ],
     ],
 ];

@@ -50,6 +50,7 @@ return [
         'join' => 'Unirse',
         'reservation' => 'Hacer Reservación',
         'language' => 'Guardar',
+        'accept' => 'Aceptar',
     ],
 
     'labels' => [
@@ -131,6 +132,11 @@ return [
             'rule_8' => 'Los menores de 18 años deben estar acompañados y supervisados en todo momento por un adulto responsable.',
             'rule_9' => 'No está permitido fumar ni consumir bebidas alcohólicas en las áreas de escalada.',
             'rule_10' => '<PARQUE> no se hace responsable de pérdidas o daños a objetos personales.',
+        ],
+
+        'buttons' => [
+            'show' => 'Terminos y Condiciones',
+            'decline' => 'Declinar',
         ],
     ],
 ];
