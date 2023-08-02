@@ -30,6 +30,7 @@ trait LocaleTextPageSelector
             'submit' => __('messages.buttons.join'),
             'footer' => __('messages.footers.register.reservation'),
             'click' => __('messages.footers.register.toReservation'),
+            'termsAndCo' => $this->TermsAndConditionsText(),
         ];
     }
 
@@ -71,8 +72,52 @@ trait LocaleTextPageSelector
         ];
     }
 
-    protected function TermsAndConditionsText(): array
+    private function TermsAndConditionsText(): array
     {
-        return [];
+        return [
+            'popUp' => [
+                'show' => __('messages.termsAndConditions.buttons.show'),
+                'accept' => __('messages.buttons.accept'),
+                'decline' => __('messages.termsAndConditions.buttons.decline'),
+            ],
+
+            'cards' => [
+                'headers' => [
+                    __('messages.termsAndConditions.texts.welcome'),
+                    __('messages.termsAndConditions.terms.rule_1'),
+                    __('messages.termsAndConditions.terms.rule_2'),
+                    __('messages.termsAndConditions.terms.rule_3'),
+                    __('messages.termsAndConditions.terms.rule_4'),
+                    __('messages.termsAndConditions.terms.rule_5'),
+                    __('messages.termsAndConditions.terms.rule_6'),
+                    __('messages.termsAndConditions.terms.rule_7'),
+                    __('messages.termsAndConditions.terms.rule_8'),
+                    __('messages.termsAndConditions.terms.rule_9'),
+                    __('messages.termsAndConditions.terms.rule_10'),
+                    ' ',
+                    ' ',
+                    ' ',
+                    ' ',
+                ],
+
+                'texts' => [
+                    __('messages.termsAndConditions.texts.statement'),
+                    __('messages.termsAndConditions.conditions.rule_1'),
+                    __('messages.termsAndConditions.conditions.rule_2'),
+                    __('messages.termsAndConditions.conditions.rule_3'),
+                    __('messages.termsAndConditions.conditions.rule_4'),
+                    __('messages.termsAndConditions.conditions.rule_5'),
+                    __('messages.termsAndConditions.conditions.rule_6'),
+                    __('messages.termsAndConditions.conditions.rule_7'),
+                    __('messages.termsAndConditions.conditions.rule_8'),
+                    __('messages.termsAndConditions.conditions.rule_9'),
+                    __('messages.termsAndConditions.conditions.rule_10'),
+                    __('messages.termsAndConditions.texts.f1'),
+                    __('messages.termsAndConditions.texts.f2'),
+                    __('messages.termsAndConditions.texts.f3'),
+                    __('messages.termsAndConditions.texts.f4'),
+                ],
+            ],
+        ];
     }
 }
