@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import FlashCard from '../../components/FlashCard';
 import Button from '../../components/Button';
 
 import 'reactjs-popup/dist/index.css';
 
-const TermsAndConditions = ({ onAccept, onDecline }) => {
+const TermsAndConditions = ({ onAccept, onDecline, localeText }) => {
   const styles = {
     popupBox: 'fixed inset-0 flex items-center justify-center bg-black bg-opacity-50',
     box: 'w-2/3 bg-white rounded-md p-6 border border-gray-300 text-center',
@@ -30,7 +30,7 @@ const TermsAndConditions = ({ onAccept, onDecline }) => {
 
   return (
     <Popup
-      trigger={<Button message='Terms and Conditions' color='bg-purple-400' />}
+      trigger={<Button message={localeText.popUp.show} color='bg-purple-400' />}
       modal
       nested
       position='center center'
@@ -38,25 +38,31 @@ const TermsAndConditions = ({ onAccept, onDecline }) => {
       {(close) => (
         <div className={styles.popupBox}>
           <div className={styles.box}>
-            <h2 className={styles.heading}>Terms and Conditions</h2>
+            <h2 className={styles.heading}>{localeText.popUp.show}</h2>
             <div className={styles.content}>
-              {<FlashCard onLastCard={handleAcceptedAll} />}
+              {<FlashCard onLastCard={handleAcceptedAll} headers={localeText.cards.headers} textArray={localeText.cards.texts} button={localeText.popUp.accept} />}
             </div>
             <div className={styles.buttonsContainer}>
               <Button onClick={() => {
                 handleDecline();
                 close();
-              }} message='Decline' color='bg-gray-600' />
+              }} message={localeText.popUp.decline} color={'bg-gray-600'} />
               {accepted && <Button onClick={() => {
                 handleAccept();
                 close();
-              }} message='Continue' />}
+              }} message={localeText.popUp.accept} color={'bg-green-500'} />}
             </div>
           </div>
         </div>
       )}
     </Popup>
   );
+};
+
+TermsAndConditions.defaultProps = {
+  onAccept: () => { },
+  onDecline: () => { },
+  localeText: [],
 };
 
 export default TermsAndConditions;
