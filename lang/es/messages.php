@@ -126,7 +126,7 @@ return [
             'rule_2' => 'No está permitido taladrar o colocar cualquier tipo de anclaje en el parque.',
             'rule_3' => 'No está permitido pasar la cuerda directamente por los anclajes para escalar en top-rope.',
             'rule_4' => 'Respetar las áreas designadas para la escalada, así como la flora y fauna.',
-            'rule_5' => 'Siempre utilizar el equipo adecuado y completo para escalada',
+            'rule_5' => 'Siempre utilizar el equipo adecuado y completo para escalada.',
             'rule_6' => 'Utilizar arneses de seguridad y cuerdas en todo momento durante las sesiones de escalada.',
             'rule_7' => 'Los participantes deben estar físicamente preparados y mentalmente listos para las actividades de escalada.',
             'rule_8' => 'Los menores de 18 años deben estar acompañados y supervisados en todo momento por un adulto responsable.',
