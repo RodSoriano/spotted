@@ -14,9 +14,7 @@ class Kernel extends ConsoleKernel
             Reservation::where('is_done', 0)
                 ->where('date', date('Y-m-d'))
                 ->update(['is_done' => 1]);
-        })->weekends()
-            ->dailyAt('18:00')
-            ->timezone('America/El_Salvador');
+        });
     }
 
     protected function commands(): void
