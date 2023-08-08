@@ -3,7 +3,7 @@ import Layout from './Layout';
 
 import CustomLink from '../components/CustomLink';
 import Alert from '../components/Alert';
-import { Link } from '@inertiajs/inertia-react';
+import FooterLink from '../components/FooterLink';
 
 const Index = ({ localeText, message }) => {
 
@@ -17,18 +17,13 @@ const Index = ({ localeText, message }) => {
 
       <CustomLink color={'bg-green-500'} hrefProp={'/check-in'} message={localeText.checkIn} />
 
-      <div className='flex items-center'>
-        <p>
-          {localeText.footer}
-          <Link className='text-blue-500 underline' href='/language'> {localeText.click} </Link>
-        </p>
-      </div>
+      <FooterLink text={localeText.footer} link={'/language'} click={localeText.click} />
     </>
   );
 };
 
 Index.defaultProps = {
-  localeText: '',
+  localeText: [],
   message: false,
 };
 
