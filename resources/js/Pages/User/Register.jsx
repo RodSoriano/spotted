@@ -176,7 +176,7 @@ const Register = ({ localeText }) => {
       <div className='flex items-center'>
         <p>
           {localeText.footer}
-          <Link className='text-teal-400 underline' href='/reservation'> {localeText.click} </Link>
+          <Link className='text-blue-500 underline' href='/reservation'> {localeText.click} </Link>
         </p>
       </div>
     </>
