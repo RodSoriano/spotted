@@ -71,8 +71,8 @@ const Register = ({ localeText }) => {
     setAccept(false);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (form) => {
+    form.preventDefault();
 
     const values = {
       first_name: firstName,
@@ -151,8 +151,8 @@ const Register = ({ localeText }) => {
         />
 
         <Label labelName={localeText.picture} />
-        <div className='mt-4 mb-4 flex items-center justify-center'>
-          <input type='file' name='photo' accept='image/*' onChange={handlePhotoSelect} />
+        <div className='mt-4 mb-4 flex items-center justify-center max-w-md'>
+          <input className='w-full' type='file' name='photo' accept='image/*' onChange={handlePhotoSelect} />
         </div>
 
         {!accept &&
@@ -161,7 +161,10 @@ const Register = ({ localeText }) => {
           </div>
         }
 
-        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
+        {status &&
+          <div className='flex items-center justify-center'>
+            <Alert message={errors} containerColor={'bg-red-100'} borderColor={'border-red-500'} textColor={'text-red-700'} />
+          </div>}
 
         {accept &&
           <div className='flex items-center justify-center'>
@@ -173,7 +176,7 @@ const Register = ({ localeText }) => {
       <div className='flex items-center'>
         <p>
           {localeText.footer}
-          <Link className='text-blue-500 underline' href='/reservation'> {localeText.click} </Link>
+          <Link className='text-teal-400 underline' href='/reservation'> {localeText.click} </Link>
         </p>
       </div>
     </>
