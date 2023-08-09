@@ -4,14 +4,14 @@ import { Inertia } from '@inertiajs/inertia';
 
 import Title from '../../components/Title';
 import FormInput from '../../components/FormInput';
-import { Link } from '@inertiajs/inertia-react';
+import FooterLink from '../../components/FooterLink';
 import Alert from '../../components/Alert';
 import Button from '../../components/Button';
 
 const CheckIn = ({ localeText }) => {
   const styles = {
     container: 'flex items-center justify-center',
-    reservationLink: 'text-blue-500 underline',
+    reservationLink: 'text-teal-400 underline',
   };
 
   const [status, setStatus] = useState(false);
@@ -23,8 +23,8 @@ const CheckIn = ({ localeText }) => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (form) => {
+    form.preventDefault();
 
     const data = {
       email: email,
@@ -49,28 +49,23 @@ const CheckIn = ({ localeText }) => {
       <form onSubmit={handleSubmit}>
         <FormInput inputValue={email} onChangeEvent={handleEmail} />
 
-        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
+        {status &&
+          <div className='flex items-center justify-center'>
+            <Alert message={errors} containerColor={'bg-red-100'} borderColor={'border-red-500'} textColor={'text-red-700'} />
+          </div>}
 
         <div className={styles.container}>
           <Button type={'submit'} message={localeText.submit} />
         </div>
       </form>
 
-      <div className='flex items-center'>
-        <p>
-          {localeText.footer}
-          <Link className={styles.reservationLink} href='/reservation'>
-            {' '}
-            {localeText.click}{' '}
-          </Link>
-        </p>
-      </div>
+      <FooterLink text={localeText.footer} link={'/reservation'} click={localeText.click} />
     </>
   );
 };
 
 CheckIn.defaultProps = {
-  localeText: '',
+  localeText: [],
 };
 
 export default CheckIn;
