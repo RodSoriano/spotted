@@ -16,6 +16,7 @@ const FormInput = ({ inputLabel, inputValue, onChangeEvent }) => {
         name={inputLabel}
         value={inputValue}
         onChange={onChangeEvent}
+        required
       />
     </div>
   );

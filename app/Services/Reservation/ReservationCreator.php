@@ -44,6 +44,7 @@ class ReservationCreator
 
         return Inertia::render('Index', [
             'message' => __('messages.alerts.reservation.success'),
+            'localeText' => $this->indexText(),
         ]);
     }
 
@@ -102,6 +103,7 @@ class ReservationCreator
         } else {
             return Inertia::render('Index', [
                 'message' => __('messages.alerts.reservation.error'),
+                'localeText' => $this->indexText(),
             ]);
         }
     }

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Title = ({ h1, paragraph }) => {
   const styles = {
-    h1: 'text-xl font-bold mb-4 text-gray-800 flex items-center justify-center',
-    paragraph: 'mb-4 text-gray-800 flex items-center justify-center',
+    h1: 'text-xl font-bold mb-4 text-gray-800 flex items-center justify-center text-center',
+    paragraph: 'mb-4 text-gray-800 flex items-center justify-center text-center',
   };
 
   return (

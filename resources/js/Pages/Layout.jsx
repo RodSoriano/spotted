@@ -3,12 +3,15 @@ import { Head } from '@inertiajs/inertia-react';
 
 const Layout = ({ children }) => {
   const styles = {
-    main: 'relative min-h-screen bg-gradient-to-br from-blue-500 to-red-500 flex flex-col items-center justify-center p-8',
-    content: 'bg-white rounded-lg p-8 flex flex-col items-center justify-center',
+    main: 'overflow-x-hidden relative min-h-screen bg-cover bg-center flex flex-col items-center justify-center p-4',
+    content: 'bg-zinc-100 rounded-lg p-8 flex flex-col items-center justify-center',
   };
 
   return (
-    <main className={styles.main}>
+    <main
+      className={styles.main}
+      style={{ backgroundImage: `url('/images/test.jpg')` }}
+    >
       <div className={styles.content}>
         <Head>
           <title>Booking</title>

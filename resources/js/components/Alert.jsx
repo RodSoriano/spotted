@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const Alert = ({ message, containerColor, borderColor, textColor }) => {
   const styles = {
-    container: `alert ${containerColor} border-l-4 ${borderColor} ${textColor} p-4 m-4 rounded-lg`,
-    closeButton: 'closebtn float-right cursor-pointer mx-4',
+    container: `alert ${containerColor} border-l-4 ${borderColor} ${textColor} px-5 pb-4 m-4 w-full`,
+    closeButton: 'closebtn flex justify-end cursor-pointer mt-1',
   };
 
   const [isHidden, setIsHidden] = useState(false);

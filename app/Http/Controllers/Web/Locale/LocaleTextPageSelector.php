@@ -61,6 +61,7 @@ trait LocaleTextPageSelector
     {
         return [
             'title' => __('messages.titles.daypass'),
+            'statement' => __('messages.statements.daypass'),
         ];
     }
 

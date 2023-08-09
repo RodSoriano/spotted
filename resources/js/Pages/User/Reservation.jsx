@@ -7,7 +7,7 @@ import FormInput from '../../components/FormInput';
 import CustomCalendar from '../../components/CustomCalendar';
 import Button from '../../components/Button';
 import Alert from '../../components/Alert';
-import { Link } from '@inertiajs/inertia-react';
+import FooterLink from '../../components/FooterLink';
 
 import { calendar } from '../../utils/svgIcons';
 
@@ -35,8 +35,8 @@ const Reservation = ({ localeText }) => {
     setDate(e);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (form) => {
+    form.preventDefault();
 
     const data = {
       email: email,
@@ -89,25 +89,23 @@ const Reservation = ({ localeText }) => {
           </div>
         </div>
 
-        {status && <Alert message={errors} containerColor={'yellow-100'} borderColor={'border-yellow-500'} textColor={'text-yellow-700'} />}
+        {status &&
+          <div className='flex items-center justify-center'>
+            <Alert message={errors} containerColor={'bg-red-100'} borderColor={'border-red-500'} textColor={'text-red-700'} />
+          </div>}
 
         <div className='flex items-center justify-center'>
           <Button type={'submit'} message={localeText.submit} />
         </div>
       </form>
 
-      <div className='flex items-center'>
-        <p>
-          {localeText.footer}
-          <Link className='text-blue-500 underline' href='/register'> {localeText.click} </Link>
-        </p>
-      </div>
+      <FooterLink text={localeText.footer} link={'/register'} click={localeText.click} />
     </>
   );
 };
 
 Reservation.defaultProps = {
-  localeText: '',
+  localeText: [],
 };
 
 export default Reservation;
