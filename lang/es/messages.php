@@ -9,7 +9,7 @@ return [
     ],
 
     'titles' => [
-        'welcome' => 'Bienvenido al Parque',
+        'welcome' => 'Bienvenido a ' . env('FACILITY_NAME'),
         'reservation' => 'Crea una Reservación',
         'daypass' => '¡Qué Bueno Verte de Nuevo!',
         'checkIn' => 'Registra tu Entrada',
@@ -101,12 +101,12 @@ return [
 
     'termsAndConditions' => [
         'texts' => [
-            'welcome' => 'Bienvenido/a al <PARQUE>',
+            'welcome' => 'Bienvenido/a a ' . env('FACILITY_NAME'),
             'statement' => 'Al acceder y utilizar nuestras instalaciones de escalada, aceptas cumplir con las siguientes reglas y condiciones.',
-            'f1' => '<PARQUE & ASOC> no asume ninguna responsabilidad por lesiones o accidentes que puedan ocurrir durante las sesiones de escalada.',
+            'f1' => env('FACILITY_NAME') . ' & ASOC no asume ninguna responsabilidad por lesiones o accidentes que puedan ocurrir durante las sesiones de escalada.',
             'f2' => 'Te informamos que violar alguna de estas reglas puede resultar en una multa de $15.00 o la prohibición indefinida de la persona en nuestras instalaciones de escalada.',
-            'f3' => '<PARQUE> se reserva el derecho de negar la entrada o participación a cualquier persona considerada no apta o que viole las reglas del establecimiento.',
-            'f4' => 'La escalada implica riesgos inherentes, incluido el riesgo de lesiones. Al participar en actividades de escalada en <PARQUE>, reconoces y aceptas estos riesgos.',
+            'f3' => env('FACILITY_NAME') . ' se reserva el derecho de negar la entrada o participación a cualquier persona considerada no apta o que viole las reglas del establecimiento.',
+            'f4' => 'La escalada implica riesgos inherentes, incluido el riesgo de lesiones. Al participar en actividades de escalada en ' . env('FACILITY_NAME') . ', reconoces y aceptas estos riesgos.',
         ],
 
         'terms' => [
@@ -132,7 +132,7 @@ return [
             'rule_7' => 'Los participantes deben estar físicamente preparados y mentalmente listos para las actividades de escalada.',
             'rule_8' => 'Los menores de 18 años deben estar acompañados y supervisados en todo momento por un adulto responsable.',
             'rule_9' => 'No está permitido fumar ni consumir bebidas alcohólicas en las áreas de escalada.',
-            'rule_10' => '<PARQUE> no se hace responsable de pérdidas o daños a objetos personales.',
+            'rule_10' => env('FACILITY_NAME') . ' no se hace responsable de pérdidas o daños a objetos personales.',
         ],
 
         'buttons' => [

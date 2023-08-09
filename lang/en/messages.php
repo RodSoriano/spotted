@@ -9,7 +9,7 @@ return [
     ],
 
     'titles' => [
-        'welcome' => 'Welcome to the Park',
+        'welcome' => 'Welcome to ' . env('FACILITY_NAME'),
         'reservation' => 'Create a Reservation',
         'daypass' => 'Great to See You Again!',
         'checkIn' => 'Register Your Entrance',
@@ -101,12 +101,12 @@ return [
 
     'termsAndConditions' => [
         'texts' => [
-            'welcome' => 'Welcome to the <PARK>',
+            'welcome' => 'Welcome to ' . env('FACILITY_NAME'),
             'statement' => 'By accessing and using our climbing facilities, you agree to abide by the following rules and conditions.',
-            'f1' => '<PARK & ASSOC> do not assume any responsibility or liability for any injuries or accidents that may occur during climbing sessions.',
+            'f1' => env('FACILITY_NAME') . ' & ASSOC do not assume any responsibility or liability for any injuries or accidents that may occur during climbing sessions.',
             'f2' => 'Please be advised that violation of any of these rules may result in a fine of $15.00 or the indefinite banning of the person from our climbing facilities.',
-            'f3' => '<PARK> reserves the right to refuse entry or participation to anyone deemed unfit or in violation of the facility\'s rules.',
-            'f4' => 'Climbing involves inherent risks, including the risk of injury. By participating in climbing activities at <PARK>, you acknowledge and accept these risks.',
+            'f3' => env('FACILITY_NAME') . ' reserves the right to refuse entry or participation to anyone deemed unfit or in violation of the facility\'s rules.',
+            'f4' => 'Climbing involves inherent risks, including the risk of injury. By participating in climbing activities at ' . env('FACILITY_NAME') . ', you acknowledge and accept these risks.',
         ],
 
         'terms' => [
@@ -132,7 +132,7 @@ return [
             'rule_7' => 'articipants must be physically fit and mentally prepared for climbing activities.',
             'rule_8' => 'Children under the age of 18 must be accompanied and supervised at all times by a responsible adult.',
             'rule_9' => 'Smoking and consumption of alcoholic beverages are strictly prohibited in the climbing areas.',
-            'rule_10' => '<PARK> is not responsible for any loss or damage to personal belongings.',
+            'rule_10' => env('FACILITY_NAME') . ' is not responsible for any loss or damage to personal belongings.',
         ],
 
         'buttons' => [
