@@ -14,7 +14,7 @@ const CustomLink = ({ color, hrefProp, message }) => {
 };
 
 CustomLink.defaultProps = {
-  color: 'bg-blue-400',
+  color: 'bg-teal-400',
   hrefProp: '/',
   message: '',
 };
