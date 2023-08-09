@@ -19,6 +19,7 @@ return [
     'statements' => [
         'register' => 'Please enter your information to register.',
         'checkIn' => 'Enter the email you used to make your reservation.',
+        'daypass' => 'Present this day pass at the entrance to finish your check in.',
     ],
 
     'footers' => [

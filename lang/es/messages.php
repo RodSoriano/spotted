@@ -19,6 +19,7 @@ return [
     'statements' => [
         'register' => 'Por favor, ingresa tu información para registrarte.',
         'checkIn' => 'Ingresa el correo electrónico que utilizaste para hacer tu reservación.',
+        'daypass' => 'Presenta este pase en la entrada.',
     ],
 
     'footers' => [
