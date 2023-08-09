@@ -30,7 +30,7 @@ const TermsAndConditions = ({ onAccept, onDecline, localeText }) => {
 
   return (
     <Popup
-      trigger={<Button message={localeText.popUp.show} color='bg-purple-400' />}
+      trigger={<Button message={localeText.popUp.show} color='bg-purple-600' />}
       modal
       nested
       position='center center'
@@ -46,7 +46,7 @@ const TermsAndConditions = ({ onAccept, onDecline, localeText }) => {
               <Button onClick={() => {
                 handleDecline();
                 close();
-              }} message={localeText.popUp.decline} color={'bg-gray-600'} />
+              }} message={localeText.popUp.decline} color={'bg-stone-700'} />
               {accepted && <Button onClick={() => {
                 handleAccept();
                 close();
