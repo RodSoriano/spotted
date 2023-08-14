@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -17,11 +18,11 @@ class StoreUserRequest extends FormRequest
         return [
             'first_name' => __('messages.validation.storeUserRequest.first_name'),
             'last_name' => __('messages.validation.storeUserRequest.last_name'),
-            'email' => __('messages.validation.storeUserRequest.email'),
+            'email' => $this->userExists(),
             'date_of_birth' => __('messages.validation.storeUserRequest.date_of_birth'),
             'emergency_contact_name' => __('messages.validation.storeUserRequest.emergency_contact_name'),
             'emergency_contact_number' => __('messages.validation.storeUserRequest.emergency_contact_number'),
-            'photo' => __('messages.validation.storeUserRequest.emergency_contact_number'),
+            'photo' => __('messages.validation.storeUserRequest.photo'),
         ];
     }
 
@@ -55,5 +56,16 @@ class StoreUserRequest extends FormRequest
         }
 
         return !$isValid;
+    }
+
+    private function userExists(): string
+    {
+        $user = User::where('email', $this->email)->first();
+
+        if ($user) {
+            return __('validation.unique');
+        } else {
+            return __('messages.validation.storeUserRequest.email');
+        }
     }
 }
