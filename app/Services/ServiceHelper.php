@@ -18,4 +18,16 @@ trait ServiceHelper
     {
         return User::where('email', $email)->pluck('id')->first();
     }
+
+    protected function isReservationToday(string $rawDate): bool
+    {
+        $date = strtotime($rawDate);
+        $date = date('d-m-Y', $date);
+
+        if ($date === date('d-m-Y')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
