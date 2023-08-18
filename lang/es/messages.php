@@ -144,6 +144,9 @@ return [
         ],
     ],
     'delete' => [
-        'footer' => '¿Tiene algún problema con su reservación? Puede eliminarla aquí y programar otra en su lugar.'
+        'footer' => [
+            'question' => '¿Tiene algún problema con su reservación?',
+            'followup' => 'Puede eliminarla aquí y programar otra en su lugar.',
+        ],
     ],
 ];
