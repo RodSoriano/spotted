@@ -5,6 +5,7 @@ return [
         'reservation' => [
             'success' => 'Reservación creada.',
             'error' => 'Lo sentimos, no hay lugares disponibles, intente otra fecha.',
+            'delete' => 'Tu reservación ha sido borrada.',
         ],
     ],
 
@@ -12,6 +13,7 @@ return [
         'welcome' => 'Bienvenido a ' . env('FACILITY_NAME'),
         'reservation' => 'Crea una Reservación',
         'daypass' => '¡Qué Bueno Verte de Nuevo!',
+        'nodaypass' => 'Por Favor Regrese Luego',
         'checkIn' => 'Registra tu Entrada',
         'language' => 'Selecciona un Lenguaje',
     ],
@@ -20,6 +22,7 @@ return [
         'register' => 'Por favor, ingresa tu información para registrarte.',
         'checkIn' => 'Ingresa el correo electrónico que utilizaste para hacer tu reservación.',
         'daypass' => 'Presenta este pase en la entrada.',
+        'nodaypass' => 'Parece que su fecha de reservación no es hoy, por favor vuelva el: ',
     ],
 
     'footers' => [
@@ -52,6 +55,7 @@ return [
         'reservation' => 'Hacer Reservación',
         'language' => 'Guardar',
         'accept' => 'Aceptar',
+        'delete' => 'Borrar?',
     ],
 
     'labels' => [
@@ -85,7 +89,7 @@ return [
 
         'storeReservationRequest' => [
             'email' => 'Este correo electrónico no está asociado con una cuenta registrada.',
-            'date' => 'Selecciona una fecha válida dentro de este mes.',
+            'date' => 'Selecciona una fecha en el futuro y dentro de este mes.',
         ],
 
         'storeUserRequest' => [
@@ -103,7 +107,7 @@ return [
         'texts' => [
             'welcome' => 'Bienvenido/a a ' . env('FACILITY_NAME'),
             'statement' => 'Al acceder y utilizar nuestras instalaciones de escalada, aceptas cumplir con las siguientes reglas y condiciones.',
-            'f1' => env('FACILITY_NAME') . ' & ASOC no asume ninguna responsabilidad por lesiones o accidentes que puedan ocurrir durante las sesiones de escalada.',
+            'f1' => env('FACILITY_NAME') . ' y sus asociados no asumen ninguna responsabilidad por lesiones o accidentes que puedan ocurrir durante las sesiones de escalada.',
             'f2' => 'Te informamos que violar alguna de estas reglas puede resultar en una multa de $15.00 o la prohibición indefinida de la persona en nuestras instalaciones de escalada.',
             'f3' => env('FACILITY_NAME') . ' se reserva el derecho de negar la entrada o participación a cualquier persona considerada no apta o que viole las reglas del establecimiento.',
             'f4' => 'La escalada implica riesgos inherentes, incluido el riesgo de lesiones. Al participar en actividades de escalada en ' . env('FACILITY_NAME') . ', reconoces y aceptas estos riesgos.',
@@ -138,6 +142,12 @@ return [
         'buttons' => [
             'show' => 'Terminos y Condiciones',
             'decline' => 'Declinar',
+        ],
+    ],
+    'delete' => [
+        'footer' => [
+            'question' => '¿Tiene algún problema con su reservación?',
+            'followup' => 'Puede eliminarla aquí y programar otra en su lugar.',
         ],
     ],
 ];

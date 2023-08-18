@@ -11,7 +11,7 @@ import Button from '../../components/Button';
 import Alert from '../../components/Alert';
 import { Link } from '@inertiajs/inertia-react';
 
-import { charactersOnly } from '../../utils/formatters';
+import { charactersOnly, numbersOnly } from '../../utils/formatters';
 import { calendar } from '../../utils/svgIcons';
 
 const Register = ({ localeText }) => {
@@ -23,9 +23,12 @@ const Register = ({ localeText }) => {
   const [email, setEmail] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState(null);
   const [emergencyName, setEmergencyName] = useState('');
+  const [areaCode, setAreaCode] = useState('');
   const [emergencyPhone, setEmergencyPhone] = useState('');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [accept, setAccept] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFirstName = (e) => {
     const inputValue = charactersOnly(e);
@@ -50,8 +53,21 @@ const Register = ({ localeText }) => {
     setEmergencyName(inputValue);
   };
 
+  const handleAreaCodeChange = (e) => {
+    const inputValue = e.target.value;
+
+    if (inputValue == '+') {
+      setAreaCode('');
+    } else if (inputValue.length === 1) {
+      setAreaCode('+' + inputValue);
+    } else if (inputValue.length <= 5) {
+      setAreaCode('+' + inputValue.slice(1));
+    }
+  };
+
   const handleEmergencyPhone = (e) => {
-    setEmergencyPhone(e.target.value);
+    const inputValue = numbersOnly(e);
+    setEmergencyPhone(inputValue);
   };
 
   const handlePhotoSelect = (e) => {
@@ -80,9 +96,11 @@ const Register = ({ localeText }) => {
       email: email,
       date_of_birth: dateOfBirth,
       emergency_contact_name: emergencyName,
-      emergency_contact_number: emergencyPhone,
+      emergency_contact_number: areaCode + emergencyPhone,
       photo: selectedPhoto,
     };
+
+    setIsLoading(true);
 
     Inertia.post('/register', values, {
       onSuccess() {
@@ -92,6 +110,7 @@ const Register = ({ localeText }) => {
         setStatus(422);
         setErrors(Object.entries(errors));
         setTimeout(() => setStatus(false), 5000);
+        setIsLoading(false);
       }
     });
   };
@@ -108,16 +127,19 @@ const Register = ({ localeText }) => {
           inputLabel={localeText.name}
           inputValue={firstName}
           onChangeEvent={handleFirstName}
+          placeHolderProp={'Jane'}
         />
         <FormInput
           inputLabel={localeText.lastName}
           inputValue={lastName}
           onChangeEvent={handleLastName}
+          placeHolderProp={'Doe'}
         />
         <FormInput
           inputLabel={localeText.email}
           inputValue={email}
           onChangeEvent={handleEmail}
+          placeHolderProp={'john@example.com'}
         />
 
         <div className='flex'>
@@ -143,12 +165,26 @@ const Register = ({ localeText }) => {
           inputLabel={localeText.contactName}
           inputValue={emergencyName}
           onChangeEvent={handleEmergencyName}
+          placeHolderProp={'John Doe'}
         />
-        <FormInput
-          inputLabel={localeText.contactNumber}
-          inputValue={emergencyPhone}
-          onChangeEvent={handleEmergencyPhone}
-        />
+
+        <Label labelName={localeText.contactNumber} />
+        <div className='flex space-x-2'>
+          <input
+            className='w-1/4 m-2 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-teal-400'
+            type='text'
+            placeholder='+503'
+            value={areaCode}
+            onChange={handleAreaCodeChange}
+          />
+          <input
+            className='w-3/4 m-2 px-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-teal-400'
+            type='text'
+            placeholder='7877-7272'
+            value={emergencyPhone}
+            onChange={handleEmergencyPhone}
+          />
+        </div>
 
         <Label labelName={localeText.picture} />
         <div className='mt-4 mb-4 flex items-center justify-center max-w-md'>
@@ -168,7 +204,7 @@ const Register = ({ localeText }) => {
 
         {accept &&
           <div className='flex items-center justify-center'>
-            <Button type={'submit'} message={localeText.submit} />
+            <Button type={'submit'} message={localeText.submit} loading={isLoading} />
           </div>
         }
       </form>

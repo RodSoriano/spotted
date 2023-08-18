@@ -14,6 +14,7 @@ Route::middleware(['locale'])->group(function () {
 
     Route::get('reservation', [ReservationController::class, 'toForm']);
     Route::post('reservation', [ReservationController::class, 'store']);
+    Route::post('reservation-d', [ReservationController::class, 'destroy']);
 
     Route::get('check-in', [ReservationController::class, 'toCheckIn']);
     Route::post('check-in', [ReservationController::class, 'checkReservation']);

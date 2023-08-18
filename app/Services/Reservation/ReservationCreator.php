@@ -38,7 +38,7 @@ class ReservationCreator
     {
         $reservation['user_id'] = $this->getUserIdByEmail($reservation['email']);;
         $reservation['is_done'] = false;
-        $reservation['date'] = $this->formatDate($reservation['date']);
+        $reservation['date'] = $this->dataTypeDate($reservation['date']);
 
         Reservation::create($reservation);
 
@@ -73,8 +73,7 @@ class ReservationCreator
                 ->pluck('date')
                 ->first();
 
-            $timestamp = strtotime($result['date']);
-            $result['date'] = date('d F Y', $timestamp);
+            $result['date'] = $this->formatDate($result['date']);
         }
 
         return $result;
@@ -95,11 +94,20 @@ class ReservationCreator
     private function redirect(?array $data = []): Response
     {
         if ($data) {
-            return Inertia::render('User/DayPass', [
-                'user' => $data['user'],
-                'date' => $data['date'],
-                'localeText' => $this->dayPassText(),
-            ]);
+            if ($this->isReservationToday($data['date'])) {
+                return Inertia::render('User/DayPass', [
+                    'user' => $data['user'],
+                    'date' => $data['date'],
+                    'localeText' => $this->dayPassText(),
+
+                ]);
+            } else {
+                return Inertia::render('User/NoDayPass', [
+                    'email' => $data['user']['email'],
+                    'localeText' => $this->noDayPassText(),
+                    'date' => $data['date'],
+                ]);
+            }
         } else {
             return Inertia::render('Index', [
                 'message' => __('messages.alerts.reservation.error'),

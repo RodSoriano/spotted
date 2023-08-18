@@ -5,6 +5,7 @@ return [
         'reservation' => [
             'success' => 'Your reservation has been created.',
             'error' => 'Sorry, no spots are left, try another date.',
+            'delete' => 'Your reservation has been deleted.',
         ],
     ],
 
@@ -12,6 +13,7 @@ return [
         'welcome' => 'Welcome to ' . env('FACILITY_NAME'),
         'reservation' => 'Create a Reservation',
         'daypass' => 'Great to See You Again!',
+        'nodaypass' => 'Please Come Back Later',
         'checkIn' => 'Register Your Entrance',
         'language' => 'Select a Language',
     ],
@@ -20,6 +22,7 @@ return [
         'register' => 'Please enter your information to register.',
         'checkIn' => 'Enter the email you used to make your reservation.',
         'daypass' => 'Present this day pass at the entrance.',
+        'nodaypass' => 'It seems that today is not your reservation date, please come back on:  ',
     ],
 
     'footers' => [
@@ -52,6 +55,7 @@ return [
         'reservation' => 'Make a Reservation',
         'language' => 'Save',
         'accept' => 'Accept',
+        'delete' => 'Delete?',
     ],
 
     'labels' => [
@@ -85,7 +89,7 @@ return [
 
         'storeReservationRequest' => [
             'email' => 'This email is not associated with a registered account.',
-            'date' => 'Select a valid date within this month.',
+            'date' => 'Select a date in the future within this month.',
         ],
 
         'storeUserRequest' => [
@@ -103,7 +107,7 @@ return [
         'texts' => [
             'welcome' => 'Welcome to ' . env('FACILITY_NAME'),
             'statement' => 'By accessing and using our climbing facilities, you agree to abide by the following rules and conditions.',
-            'f1' => env('FACILITY_NAME') . ' & ASSOC do not assume any responsibility or liability for any injuries or accidents that may occur during climbing sessions.',
+            'f1' => env('FACILITY_NAME') . ' and its affiliates do not assume any responsibility or liability for any injuries or accidents that may occur during climbing sessions.',
             'f2' => 'Please be advised that violation of any of these rules may result in a fine of $15.00 or the indefinite banning of the person from our climbing facilities.',
             'f3' => env('FACILITY_NAME') . ' reserves the right to refuse entry or participation to anyone deemed unfit or in violation of the facility\'s rules.',
             'f4' => 'Climbing involves inherent risks, including the risk of injury. By participating in climbing activities at ' . env('FACILITY_NAME') . ', you acknowledge and accept these risks.',
@@ -138,6 +142,12 @@ return [
         'buttons' => [
             'show' => 'Terms and Conditions',
             'decline' => 'Decline',
+        ],
+    ],
+    'delete' => [
+        'footer' => [
+            'question' => 'Do you have any issues with your reservation?',
+            'followup' => 'You can delete it here and schedule a new one.',
         ],
     ],
 ];

@@ -65,6 +65,16 @@ trait LocaleTextPageSelector
         ];
     }
 
+    protected function noDayPassText(): array
+    {
+        return [
+            'title' => __('messages.titles.nodaypass'),
+            'statement' => __('messages.statements.nodaypass'),
+            'footer' => __('messages.delete.footer'),
+            'button' => __('messages.buttons.delete'),
+        ];
+    }
+
     protected function languageText(): array
     {
         return [
