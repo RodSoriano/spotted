@@ -3,15 +3,25 @@
 namespace App\Services;
 
 use App\Models\User;
+use Illuminate\Support\Facades\App;
 
 trait ServiceHelper
 {
     protected function formatDate(string $date): string
     {
-        $date = strtotime($date);
-        $date = date('Y/m/d', $date);
+        $timestamp = strtotime($date);
 
-        return $date;
+        $dateFormat = '';
+
+        $locale = App::getLocale();
+
+        if ($locale === 'es') {
+            $dateFormat = date('d-m-Y', $timestamp);
+        } else {
+            $dateFormat = date('F d Y', $timestamp);
+        }
+
+        return $dateFormat;
     }
 
     protected function getUserIdByEmail(string $email): int
