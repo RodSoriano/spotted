@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\App;
 
 trait ServiceHelper
 {
+    protected function dataTypeDate(string $date): string
+    {
+        $timestamp = strtotime($date);
+        $date = date('Y-m-d', $timestamp);
+
+        return $date;
+    }
+
     protected function formatDate(string $date): string
     {
         $timestamp = strtotime($date);
