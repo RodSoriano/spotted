@@ -12,6 +12,7 @@ return [
         'welcome' => 'Bienvenido a ' . env('FACILITY_NAME'),
         'reservation' => 'Crea una Reservación',
         'daypass' => '¡Qué Bueno Verte de Nuevo!',
+        'nodaypass' => 'Por Favor Vuelve Luego...',
         'checkIn' => 'Registra tu Entrada',
         'language' => 'Selecciona un Lenguaje',
     ],
@@ -20,6 +21,7 @@ return [
         'register' => 'Por favor, ingresa tu información para registrarte.',
         'checkIn' => 'Ingresa el correo electrónico que utilizaste para hacer tu reservación.',
         'daypass' => 'Presenta este pase en la entrada.',
+        'nodaypass' => 'Parece que su fecha de reservación no es hoy, por favor vuelva el: ',
     ],
 
     'footers' => [
@@ -52,6 +54,7 @@ return [
         'reservation' => 'Hacer Reservación',
         'language' => 'Guardar',
         'accept' => 'Aceptar',
+        'delete' => 'Borrar?',
     ],
 
     'labels' => [
@@ -139,5 +142,8 @@ return [
             'show' => 'Terminos y Condiciones',
             'decline' => 'Declinar',
         ],
+    ],
+    'delete' => [
+        'footer' => '¿Tiene algún problema con su reservación? Puede eliminarla aquí y programar otra en su lugar.'
     ],
 ];

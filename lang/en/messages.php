@@ -12,6 +12,7 @@ return [
         'welcome' => 'Welcome to ' . env('FACILITY_NAME'),
         'reservation' => 'Create a Reservation',
         'daypass' => 'Great to See You Again!',
+        'nodaypass' => 'Please Come Back Later',
         'checkIn' => 'Register Your Entrance',
         'language' => 'Select a Language',
     ],
@@ -20,6 +21,7 @@ return [
         'register' => 'Please enter your information to register.',
         'checkIn' => 'Enter the email you used to make your reservation.',
         'daypass' => 'Present this day pass at the entrance.',
+        'nodaypass' => 'It seems that today is not your reservation date yet, please come back on:  ',
     ],
 
     'footers' => [
@@ -52,6 +54,7 @@ return [
         'reservation' => 'Make a Reservation',
         'language' => 'Save',
         'accept' => 'Accept',
+        'delete' => 'Delete?',
     ],
 
     'labels' => [
@@ -139,5 +142,8 @@ return [
             'show' => 'Terms and Conditions',
             'decline' => 'Decline',
         ],
+    ],
+    'delete' => [
+        'footer' => 'Do you have any issues with your reservation? You can delete it here and schedule a new one'
     ],
 ];
