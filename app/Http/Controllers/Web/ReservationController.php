@@ -63,7 +63,10 @@ class ReservationController extends Controller
                 'localeText' => $this->dayPassText(),
             ]);
         } else {
-            return Inertia::render('User/NoDayPass');
+            return Inertia::render('User/NoDayPass', [
+                'localeText' => $this->noDayPassText(),
+                'date' => $response['date'],
+            ]);
         }
     }
 }

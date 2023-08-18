@@ -73,8 +73,7 @@ class ReservationCreator
                 ->pluck('date')
                 ->first();
 
-            $timestamp = strtotime($result['date']);
-            $result['date'] = date('d F Y', $timestamp);
+            $result['date'] = $this->formatDate($result['date']);
         }
 
         return $result;
@@ -103,7 +102,10 @@ class ReservationCreator
 
                 ]);
             } else {
-                return Inertia::render('User/NoDayPass');
+                return Inertia::render('User/NoDayPass', [
+                    'localeText' => $this->noDayPassText(),
+                    'date' => $data['date'],
+                ]);
             }
         } else {
             return Inertia::render('Index', [
