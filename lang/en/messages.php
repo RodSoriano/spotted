@@ -21,7 +21,7 @@ return [
         'register' => 'Please enter your information to register.',
         'checkIn' => 'Enter the email you used to make your reservation.',
         'daypass' => 'Present this day pass at the entrance.',
-        'nodaypass' => 'It seems that today is not your reservation date yet, please come back on:  ',
+        'nodaypass' => 'It seems that today is not your reservation date, please come back on:  ',
     ],
 
     'footers' => [

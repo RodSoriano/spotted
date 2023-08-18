@@ -12,7 +12,7 @@ return [
         'welcome' => 'Bienvenido a ' . env('FACILITY_NAME'),
         'reservation' => 'Crea una Reservación',
         'daypass' => '¡Qué Bueno Verte de Nuevo!',
-        'nodaypass' => 'Por Favor Vuelve Luego...',
+        'nodaypass' => 'Por Favor Regrese Luego',
         'checkIn' => 'Registra tu Entrada',
         'language' => 'Selecciona un Lenguaje',
     ],
