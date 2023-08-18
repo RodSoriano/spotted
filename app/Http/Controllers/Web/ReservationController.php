@@ -82,6 +82,6 @@ class ReservationController extends Controller
         return Inertia::render('Index', [
             'message' => __('messages.alerts.reservation.delete'),
             'localeText' => $this->indexText(),
-        ]);;
+        ]);
     }
 }
