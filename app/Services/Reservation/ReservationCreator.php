@@ -38,7 +38,7 @@ class ReservationCreator
     {
         $reservation['user_id'] = $this->getUserIdByEmail($reservation['email']);;
         $reservation['is_done'] = false;
-        $reservation['date'] = $this->formatDate($reservation['date']);
+        $reservation['date'] = $this->dataTypeDate($reservation['date']);
 
         Reservation::create($reservation);
 
@@ -103,6 +103,7 @@ class ReservationCreator
                 ]);
             } else {
                 return Inertia::render('User/NoDayPass', [
+                    'email' => $data['user']['email'],
                     'localeText' => $this->noDayPassText(),
                     'date' => $data['date'],
                 ]);
