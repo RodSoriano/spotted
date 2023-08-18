@@ -5,6 +5,7 @@ return [
         'reservation' => [
             'success' => 'Your reservation has been created.',
             'error' => 'Sorry, no spots are left, try another date.',
+            'delete' => 'Your reservation has been deleted.',
         ],
     ],
 
