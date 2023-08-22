@@ -10,13 +10,15 @@ const Index = ({ localeText, message }) => {
     <>
       {message && <Alert message={message} />}
 
-      <CustomLink hrefProp={'/register'} message={localeText.register} />
+      <div className='flex flex-col m-4 text-center p-4'>
+        <CustomLink hrefProp={'/register'} message={localeText.register} />
+        <CustomLink color={'bg-purple-600'} hrefProp={'/reservation'} message={localeText.book} />
+        <CustomLink color={'bg-stone-700'} hrefProp={'/check-in'} message={localeText.checkIn} />
+      </div>
 
-      <CustomLink color={'bg-purple-600'} hrefProp={'/reservation'} message={localeText.book} />
-
-      <CustomLink color={'bg-stone-700'} hrefProp={'/check-in'} message={localeText.checkIn} />
-
-      <FooterLink text={localeText.footer} link={'/language'} click={localeText.click} />
+      <div className='flex flex-col m-2 text-center'>
+        <FooterLink text={localeText.footer} link={'/language'} click={localeText.click} />
+      </div>
     </>
   );
 };
