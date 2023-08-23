@@ -95,6 +95,8 @@ trait LocaleTextPageSelector
             'cards' => [
                 'headers' => [
                     __('messages.termsAndConditions.texts.welcome'),
+                    __('messages.termsAndConditions.terms.rule_11'),
+                    __('messages.termsAndConditions.terms.rule_11'),
                     __('messages.termsAndConditions.terms.rule_1'),
                     __('messages.termsAndConditions.terms.rule_2'),
                     __('messages.termsAndConditions.terms.rule_3'),
@@ -105,14 +107,16 @@ trait LocaleTextPageSelector
                     __('messages.termsAndConditions.terms.rule_8'),
                     __('messages.termsAndConditions.terms.rule_9'),
                     __('messages.termsAndConditions.terms.rule_10'),
-                    ' ',
-                    ' ',
-                    ' ',
-                    ' ',
+                    __('messages.termsAndConditions.terms.rule_11'),
+                    __('messages.termsAndConditions.terms.rule_11'),
+                    __('messages.termsAndConditions.terms.rule_11'),
+                    __('messages.termsAndConditions.terms.rule_11'),
                 ],
 
                 'texts' => [
                     __('messages.termsAndConditions.texts.statement'),
+                    __('messages.termsAndConditions.texts.statement2'),
+                    __('messages.termsAndConditions.texts.statement3'),
                     __('messages.termsAndConditions.conditions.rule_1'),
                     __('messages.termsAndConditions.conditions.rule_2'),
                     __('messages.termsAndConditions.conditions.rule_3'),
