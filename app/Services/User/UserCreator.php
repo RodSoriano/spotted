@@ -18,7 +18,7 @@ class UserCreator
         try {
             $user['role_id'] = UserRole::user()->value;
             $user['status'] = UserStatus::accepted()->value;
-            $user['date_of_birth'] = $this->formatDate($user['date_of_birth']);
+            $user['date_of_birth'] = $this->dataTypeDate($user['date_of_birth']);
             $user['photo'] = Storage::put($user['photo']->path(), $user['photo']);
 
             $createdUser = User::create($user);
