@@ -15,7 +15,7 @@
         @foreach($users as $user)
         {{$user->first_name}} {{$user->last_name}}.<br>
         @endforeach
-        <br><br>
+        <br>
     </p>
     <p>
         {{$footer}}<br>
