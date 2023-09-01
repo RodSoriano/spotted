@@ -48,4 +48,12 @@ trait ServiceHelper
             return false;
         }
     }
+
+    protected function firstLetterToUpperCase(string $string): string
+    {
+        $firstLetter = strtoupper($string[0]);
+        $string[0] = $firstLetter;
+
+        return $string;
+    }
 }

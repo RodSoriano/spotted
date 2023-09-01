@@ -107,6 +107,8 @@ return [
         'texts' => [
             'welcome' => 'Bienvenido/a a ' . env('FACILITY_NAME'),
             'statement' => 'Al acceder y utilizar nuestras instalaciones de escalada, aceptas cumplir con las siguientes reglas y condiciones.',
+            'statement2' => 'Actualmente estamos en proceso de implementar nuevos sistemas de pago. Mientras tanto, todos los pagos se realizan en efectivo en la entrada.',
+            'statement3' => 'El costo por persona es de $10.00 e incluye la entrada al parque de escalada para hacer uso de todas las rutas disponibles.',
             'f1' => env('FACILITY_NAME') . ' y sus asociados no asumen ninguna responsabilidad por lesiones o accidentes que puedan ocurrir durante las sesiones de escalada.',
             'f2' => 'Te informamos que violar alguna de estas reglas puede resultar en una multa de $15.00 o la prohibición indefinida de la persona en nuestras instalaciones de escalada.',
             'f3' => env('FACILITY_NAME') . ' se reserva el derecho de negar la entrada o participación a cualquier persona considerada no apta o que viole las reglas del establecimiento.',
@@ -124,6 +126,7 @@ return [
             'rule_8' => 'Medidas de Seguridad',
             'rule_9' => 'Acciones Prohibidas',
             'rule_10' => 'Objetos Personales',
+            'rule_11' => 'Ingreso',
         ],
 
         'conditions' => [

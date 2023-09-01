@@ -107,6 +107,8 @@ return [
         'texts' => [
             'welcome' => 'Welcome to ' . env('FACILITY_NAME'),
             'statement' => 'By accessing and using our climbing facilities, you agree to abide by the following rules and conditions.',
+            'statement2' => 'We are currently in the process of introducing new payment systems. Meanwhile, all payments are accepted in cash at the entrance.',
+            'statement3' => 'The cost per person is $10.00, which covers the entrance to the climbing park and grants access to all the available routes.',
             'f1' => env('FACILITY_NAME') . ' and its affiliates do not assume any responsibility or liability for any injuries or accidents that may occur during climbing sessions.',
             'f2' => 'Please be advised that violation of any of these rules may result in a fine of $15.00 or the indefinite banning of the person from our climbing facilities.',
             'f3' => env('FACILITY_NAME') . ' reserves the right to refuse entry or participation to anyone deemed unfit or in violation of the facility\'s rules.',
@@ -124,6 +126,7 @@ return [
             'rule_8' => 'Safety Measures',
             'rule_9' => 'Prohibited Actions',
             'rule_10' => 'Personal Belongings',
+            'rule_11' => 'Entrance',
         ],
 
         'conditions' => [
