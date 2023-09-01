@@ -91,7 +91,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'booking@v0+.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'booking-no-reply@v0+.com'),
         'name' => env('MAIL_FROM_NAME', 'Development Team'),
     ],
 
