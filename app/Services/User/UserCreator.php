@@ -16,6 +16,8 @@ class UserCreator
     public function register(array $user): array
     {
         try {
+            $user['first_name'] = $this->firstLetterToUpperCase($user['first_name']);
+            $user['last_name'] = $this->firstLetterToUpperCase($user['last_name']);
             $user['role_id'] = UserRole::user()->value;
             $user['status'] = UserStatus::accepted()->value;
             $user['date_of_birth'] = $this->dataTypeDate($user['date_of_birth']);
