@@ -18,7 +18,7 @@ const Reservation = ({ localeText }) => {
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
 
-  const startDate = new Date('2023-07-31');
+  const startDate = new Date('2023-09-04');
 
   const addDays = (date, days) => {
     let result = new Date(date);
