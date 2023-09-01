@@ -38,7 +38,7 @@ const NoDayPass = ({ email, localeText, date }) => {
       {activeDelete ?
         <Button color={'bg-red-600'} onClick={handleDelete} message={localeText.button} />
         :
-        <button name='trash-button' className='m-4' onClick={handleButtonChange}>
+        <button name='trash-button' className='m-4 p-4 border-solid border-2 border-red-800 rounded-md' onClick={handleButtonChange}>
           <IconTrash width='30px' height='30px' className={color} />
         </button>
       }
