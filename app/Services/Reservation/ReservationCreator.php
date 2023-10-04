@@ -94,19 +94,28 @@ class ReservationCreator
     private function redirect(?array $data = []): Response
     {
         if ($data) {
-            if ($this->isReservationToday($data['date'])) {
-                return Inertia::render('User/DayPass', [
-                    'user' => $data['user'],
-                    'date' => $data['date'],
-                    'localeText' => $this->dayPassText(),
+            $reservationTime = $this->isReservationToday($data['date']);
 
-                ]);
-            } else {
-                return Inertia::render('User/NoDayPass', [
-                    'email' => $data['user']['email'],
-                    'localeText' => $this->noDayPassText(),
-                    'date' => $data['date'],
-                ]);
+            switch ($reservationTime) {
+                case 'yesterday':
+                    return Inertia::render('Index', [
+                        'localeText' => $this->indexText(),
+                    ]);
+                    break;
+                case 'today':
+                    return Inertia::render('User/DayPass', [
+                        'user' => $data['user'],
+                        'date' => $data['date'],
+                        'localeText' => $this->dayPassText(),
+                    ]);
+                    break;
+                case 'future':
+                    return Inertia::render('User/NoDayPass', [
+                        'email' => $data['user']['email'],
+                        'localeText' => $this->noDayPassText(),
+                        'date' => $data['date'],
+                    ]);
+                    break;
             }
         } else {
             return Inertia::render('Index', [

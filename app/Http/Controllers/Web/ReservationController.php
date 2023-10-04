@@ -6,13 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Web\Locale\LocaleTextPageSelector;
 use App\Http\Requests\CheckReservationRequest;
 use App\Http\Requests\StoreReservationRequest;
-use App\Models\Reservation;
 use App\Services\Reservation\DayPassService;
 use App\Services\Reservation\ReservationCreator;
 use App\Services\Reservation\ReservationDestroyer;
 use App\Services\ServiceHelper;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -42,34 +39,36 @@ class ReservationController extends Controller
         ]);
     }
 
-    public function checkReservation(CheckReservationRequest $request): RedirectResponse
+    public function toDayPass(CheckReservationRequest $request, DayPassService $dayPass): Response
     {
-        $data = $request->validated();
+        $user = $request->validated();
 
-        return redirect()->action(
-            [ReservationController::class, 'toDayPass'],
-            ['user' => $data]
-        );
-    }
-
-    public function toDayPass(Request $request, DayPassService $dayPass): Response
-    {
-        $email = $request['user']['email'];
+        $email = $user['email'];
 
         $response = $dayPass->getData($email);
 
-        if ($this->isReservationToday($response['date'])) {
-            return Inertia::render('User/DayPass', [
-                'user' => $response['user'],
-                'date' => $response['date'],
-                'localeText' => $this->dayPassText(),
-            ]);
-        } else {
-            return Inertia::render('User/NoDayPass', [
-                'email' => $response['user']['email'],
-                'localeText' => $this->noDayPassText(),
-                'date' => $response['date'],
-            ]);
+        $reservationTime = $this->isReservationToday($response['date']);
+
+        switch ($reservationTime) {
+            case 'yesterday':
+                return Inertia::render('Index', [
+                    'localeText' => $this->indexText(),
+                ]);
+                break;
+            case 'today':
+                return Inertia::render('User/DayPass', [
+                    'user' => $response['user'],
+                    'date' => $response['date'],
+                    'localeText' => $this->dayPassText(),
+                ]);
+                break;
+            case 'future':
+                return Inertia::render('User/NoDayPass', [
+                    'email' => $response['user']['email'],
+                    'localeText' => $this->noDayPassText(),
+                    'date' => $response['date'],
+                ]);
+                break;
         }
     }
 
