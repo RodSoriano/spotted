@@ -18,7 +18,7 @@ const Reservation = ({ localeText }) => {
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
 
-  const startDate = new Date('2023-09-04');
+  const startDate = new Date('2023-10-08'); // normally start on a monday
 
   const addDays = (date, days) => {
     let result = new Date(date);
@@ -71,14 +71,15 @@ const Reservation = ({ localeText }) => {
               onDateChange={handleDateChange}
               includeDays={[
                 startDate,
-                addDays(startDate, 6),
-                addDays(startDate, 7),
-                addDays(startDate, 13),
-                addDays(startDate, 14),
-                addDays(startDate, 20),
-                addDays(startDate, 21),
-                addDays(startDate, 27),
-                addDays(startDate, 28)
+                // Next you'll find comments on set only weekends on a month
+                addDays(startDate, 1),  // 6  | 1  |
+                addDays(startDate, 7),  // 7  | 7  |
+                addDays(startDate, 8),  // 13 | 8  |
+                addDays(startDate, 14), // 14 | 14 |
+                addDays(startDate, 15), // 20 | 15 |
+                addDays(startDate, 21), // 21 | 21 |
+                addDays(startDate, 22), // 27 | 22 |
+                // addDays(startDate, 28)// 28 | c
               ]}
             />
           </div>
