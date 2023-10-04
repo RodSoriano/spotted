@@ -37,16 +37,23 @@ trait ServiceHelper
         return User::where('email', $email)->pluck('id')->first();
     }
 
-    protected function isReservationToday(string $rawDate): bool
+    protected function isReservationToday(string $rawDate): string
     {
+        $when = '';
+        $today =  date('d-m-Y');
         $date = strtotime($rawDate);
         $date = date('d-m-Y', $date);
 
-        if ($date === date('d-m-Y')) {
-            return true;
+
+        if ($date < $today) {
+            $when = 'yesterday';
+        } else if ($date === $today) {
+            $when = 'today';
         } else {
-            return false;
+            $when = 'future';
         }
+
+        return $when;
     }
 
     protected function firstLetterToUpperCase(string $string): string

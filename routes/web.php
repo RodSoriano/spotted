@@ -17,9 +17,7 @@ Route::middleware(['locale'])->group(function () {
     Route::post('reservation-d', [ReservationController::class, 'destroy']);
 
     Route::get('check-in', [ReservationController::class, 'toCheckIn']);
-    Route::post('check-in', [ReservationController::class, 'checkReservation']);
-
-    Route::get('day-pass', [ReservationController::class, 'toDayPass']);
+    Route::post('check-in', [ReservationController::class, 'toDayPass']);
 
     Route::get('language', [LocaleController::class, 'show']);
     Route::post('language', [LocaleController::class, 'change']);
