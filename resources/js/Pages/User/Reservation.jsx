@@ -18,7 +18,8 @@ const Reservation = ({ localeText }) => {
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(null);
 
-  const startDate = new Date('2023-10-08'); // normally start on a monday
+  // TODO: Automate dates for calendar section
+  const startDate = new Date('2024-05-19'); // normally start on a monday
 
   const addDays = (date, days) => {
     let result = new Date(date);
@@ -72,14 +73,14 @@ const Reservation = ({ localeText }) => {
               includeDays={[
                 startDate,
                 // Next you'll find comments on set only weekends on a month
-                addDays(startDate, 1),  // 6  | 1  |
-                addDays(startDate, 7),  // 7  | 7  |
-                addDays(startDate, 8),  // 13 | 8  |
-                addDays(startDate, 14), // 14 | 14 |
-                addDays(startDate, 15), // 20 | 15 |
-                addDays(startDate, 21), // 21 | 21 |
-                addDays(startDate, 22), // 27 | 22 |
-                // addDays(startDate, 28)// 28 | c
+                addDays(startDate, 1),  // 6  | 1  | 6  | 6  | 1  |
+                addDays(startDate, 7),  // 7  | 7  | 7  | 7  | c  |
+                addDays(startDate, 8),  // 13 | 8  | 13 | 13 | c  |
+                // addDays(startDate, 14), // 14 | 14 | 14 | c  | c  |
+                // addDays(startDate, 20), // 20 | 15 | c  | c  | c  |
+                // addDays(startDate, 21), // 21 | 21 | c  | c  | c  |
+                // addDays(startDate, 22), // 27 | 22 | c  | c  | c  |
+                // addDays(startDate, 28)  // 28 | c  | c  | c  | c  |
               ]}
             />
           </div>
