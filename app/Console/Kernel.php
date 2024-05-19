@@ -13,11 +13,12 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->call(function () {
+            $date = date('Y-m-d');
             $reservations = Reservation::query();
-            $users = Reservation::latest()->first()->users()->get();
+            $users = Reservation::latest()->first()->users()->where('date', $date)->get();
 
             $reservations->where('is_done', 0)
-                ->where('date', date('Y-m-d'))
+                ->where('date', $date)
                 ->update(['is_done' => 1]);
 
             if ($users->all()) {
